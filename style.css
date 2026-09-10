@@ -1960,6 +1960,17 @@ main {
   .flat-wrap {
     display: block;
     margin-top: 30px;
+    overflow-x: auto;
+  }
+
+  /* denah dibaca pada lebar wajar; di layar sempit ia bisa digeser */
+  .flat-wrap .iso-flat {
+    min-width: 560px;
+  }
+
+  /* dengan WebGL, balon + daftar bernomor sudah menjelaskan; denah tidak diulang */
+  .iso-3d .flat-wrap {
+    display: none;
   }
 
   .plan figcaption .cap-wide {
