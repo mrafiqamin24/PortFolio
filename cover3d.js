@@ -69,10 +69,20 @@ function boot(THREE, M, RIG) {
   const { group, parts } = RIG.buildRig(THREE, M.slabGeometry, edgeMat, palette.envIntensity);
   scene.add(group);
   M.addLights(THREE, scene, palette, target, { shadowSize: narrow.matches ? 1024 : 2048, extent: 8 });
-  // pengisi dari sisi kaca, tanpa bayangan: interior casing ikut terbaca
+  // pengisi dari sisi kaca, dengan bayangan lembutnya sendiri: pendingin, RAM,
+  // dan cakram punya kontak dengan tray dan lantai, bukan melayang di kotak
   const inner = new THREE.DirectionalLight(0xffffff, 1.1);
-  inner.position.set(-14, 3, -3);
-  scene.add(inner);
+  inner.position.set(-14, 4, -3);
+  inner.target.position.set(0, 0, 0);
+  inner.castShadow = true;
+  inner.shadow.mapSize.set(1024, 1024);
+  const isc = inner.shadow.camera;
+  isc.left = -6; isc.right = 6; isc.top = 6; isc.bottom = -6; isc.near = 1; isc.far = 40;
+  inner.shadow.radius = 5;
+  inner.shadow.blurSamples = 8;
+  inner.shadow.bias = -0.0005;
+  inner.shadow.normalBias = 0.03;
+  scene.add(inner, inner.target);
   const ground = M.addGround(THREE, scene, palette.shadow);
 
   // ------------------------------------------------------------ keadaan

@@ -1226,7 +1226,7 @@ main {
 
 .iso3d-legend li {
   display: grid;
-  grid-template-columns: 24px 1fr;
+  grid-template-columns: 28px 1fr;
   column-gap: 10px;
   padding: 7px 0;
   border-bottom: var(--lw-thin) solid var(--rule);
@@ -1237,8 +1237,8 @@ main {
 .iso3d-legend .lg-no {
   display: grid;
   place-items: center;
-  width: 20px;
-  height: 20px;
+  width: 24px;
+  height: 24px;
   border: var(--lw-med) solid currentColor;
   border-radius: 50%;
   font-family: var(--figures);
@@ -1562,12 +1562,6 @@ main {
   }
 }
 
-@keyframes appear {
-  to {
-    opacity: 1;
-  }
-}
-
 .elevation-marks .dm,
 .elevation-marks .ld,
 .elevation-marks .bl {
@@ -1592,26 +1586,6 @@ main {
   animation-delay: 1.15s;
 }
 
-.elevation-marks .dm-arrow,
-.elevation-marks .dm-label,
-.elevation-marks .ld-dot,
-.elevation-marks .bl-no {
-  opacity: 0;
-  animation: appear 0.35s ease-out forwards;
-}
-
-.elevation-marks .dm-arrow,
-.elevation-marks .dm-label {
-  animation-delay: 1.2s;
-}
-
-.elevation-marks .ld-dot {
-  animation-delay: 0.9s;
-}
-
-.elevation-marks .bl-no {
-  animation-delay: 1.5s;
-}
 
 /* --------------------------------------------------------------------------
    Lembar sampul: satu subjek, satu momen
@@ -1723,6 +1697,10 @@ main {
   cursor: grabbing;
 }
 
+.cover-fig figcaption {
+  flex-wrap: wrap;
+}
+
 .cover-fig figcaption a {
   color: var(--dim);
   text-decoration: underline;
@@ -1790,20 +1768,10 @@ main {
   transform: scale(1.025);
 }
 
-@media (max-width: 1280px) {
-  .cover-fig figcaption .cover-scale {
-    display: none;
-  }
-}
-
 /* dengan JS, linework lembar 1 menunggu lembarnya tiba di layar */
 .js .elevation-marks:not(.in) .dm,
 .js .elevation-marks:not(.in) .ld,
-.js .elevation-marks:not(.in) .bl,
-.js .elevation-marks:not(.in) .dm-arrow,
-.js .elevation-marks:not(.in) .dm-label,
-.js .elevation-marks:not(.in) .ld-dot,
-.js .elevation-marks:not(.in) .bl-no {
+.js .elevation-marks:not(.in) .bl {
   animation-play-state: paused;
 }
 
@@ -1903,10 +1871,6 @@ main {
   .cover-fig figcaption {
     flex-direction: column;
     gap: 4px;
-  }
-
-  .cover-fig figcaption .cover-scale {
-    display: none;
   }
 
   :root {
@@ -2087,6 +2051,72 @@ main {
   }
 }
 
+/* --------------------------------------------------------------------------
+   Tabel lebar di HP: tiap baris ditumpuk, kolom bukti tidak lagi tersembunyi
+   di balik gulir mendatar
+   -------------------------------------------------------------------------- */
+
+@media (max-width: 600px) {
+  .dt.bom-table,
+  .dt.sched {
+    min-width: 0;
+  }
+
+  .dt.bom-table thead,
+  .dt.sched thead,
+  .scroll-cue {
+    display: none;
+  }
+
+  .table-scroll {
+    border-right: 0;
+    padding-bottom: 0;
+  }
+
+  .dt.bom-table tbody tr:not(.group),
+  .dt.sched tbody tr {
+    display: grid;
+    grid-template-columns: 30px 1fr;
+    padding: 10px 0;
+    border-bottom: var(--lw-thin) solid var(--rule);
+  }
+
+  .dt.bom-table tbody tr:not(.group) > *,
+  .dt.sched tbody tr > * {
+    grid-column: 2;
+    padding: 1px 0;
+    border-bottom: 0;
+    white-space: normal;
+  }
+
+  .dt.bom-table td.fig:first-child,
+  .dt.sched td.fig:first-child {
+    grid-column: 1;
+    grid-row: 1 / span 4;
+    padding-top: 2px;
+  }
+
+  .dt.bom-table tr.group th {
+    display: block;
+    margin-top: 12px;
+  }
+
+  .dt.bom-table td[data-th]::before,
+  .dt.sched td[data-th]::before {
+    content: attr(data-th) " · ";
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--ink-2);
+  }
+
+  .dt.bom-table td:last-child,
+  .dt.sched td:last-child {
+    color: var(--ink);
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .js .cover [data-enter] {
     opacity: 1;
@@ -2104,14 +2134,9 @@ main {
 
   .elevation-marks .dm,
   .elevation-marks .ld,
-  .elevation-marks .bl,
-  .elevation-marks .dm-arrow,
-  .elevation-marks .dm-label,
-  .elevation-marks .ld-dot,
-  .elevation-marks .bl-no {
+  .elevation-marks .bl {
     animation: none;
     stroke-dashoffset: 0;
-    opacity: 1;
   }
 
   * {
@@ -2155,6 +2180,13 @@ main {
   /* cetak memakai gambar diam: kanvas WebGL kosong di PDF */
   .cover-stage.is-3d .cover-static {
     opacity: 1;
+  }
+
+  .elevation-marks .dm,
+  .elevation-marks .ld,
+  .elevation-marks .bl {
+    animation: none;
+    stroke-dashoffset: 0;
   }
 
   .iso-wide[hidden] {

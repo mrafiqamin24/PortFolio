@@ -395,9 +395,9 @@ block carries the availability stamp and the CV action.
 
 **The cover object is the real machine.** `server-rig.js` models the owner's
 tower: case panels, motherboard tray, PCB, a tower cooler with its fan, two RAM
-sticks, two NVMe heatsinks, two 3.5" drives in the front bay, the PSU shroud, a
-rear fan, four feet, a tinted glass side, and one power LED in dimension blue,
-the only accent on the cover. Unknown parts (case brand, PSU, fan count) are
+sticks, two NVMe heatsinks, two 3.5" drives in the front bay, the PSU shroud, a rear fan, four feet, a tinted glass side, a power button, two USB ports,
+seven vent slots on the shroud, and one power LED in dimension blue, the only
+accent on the cover. Unknown parts (case brand, PSU, fan count) are
 drawn generically and never labelled. Sheet 3 keeps the architecture model
 (edge, containers, host, storage) because that is what explains the isolation
 and the ZFS mirrors.
@@ -408,8 +408,9 @@ fill, one key light with VSM shadows that fall onto the parts below and an
 invisible shadow-catcher (the paper is the studio table), a rim light from
 behind, a small procedural studio environment for the sheen on metal, ACES
 tone mapping, and the sharp box edges drawn over the body as hairlines (0.55
-on paper, 0.95 on the blueprint). The cover adds a shadowless fill through the
-glass side so the interior reads. Shadow maps re-render only when a part
+on paper, 0.95 on the blueprint). The cover adds a second, softer shadow-casting
+light through the glass side so the cooler, RAM and drives sit on the tray
+with contact shadows instead of floating. Shadow maps re-render only when a part
 moves. Amendment to the depth rule: shadows exist only inside these two
 rendered figures; the 2D sheet still has none.
 
@@ -417,14 +418,14 @@ rendered figures; the 2D sheet still has none.
 as its still image shows it; 650 ms later the case opens (glass, cooler, RAM,
 NVMe, drives and panels slide out over 550 ms, `cubic-bezier(0.16, 1, 0.3,
 1)`) and springs shut (Motion `animate(1, 0, { type: "spring", stiffness 42,
-damping 12.5, mass 1.1 })`), while the title, role, actions and sheet rows enter
-as a list (Motion stagger 65 ms, 0.85 s). One animation handle is kept, so a
+damping 12.5, mass 1.1 })`), while the title, role, lead and actions enter as a
+list (Motion stagger 65 ms, 0.85 s); the sheet index is visible from the start. One animation handle is kept, so a
 stalled tab never runs two springs. Afterwards the machine sways ±0.24 rad at
 0.35 rad/s so the glass side stays in view, tilts toward the cursor, and can be
 dragged or steered with arrow keys. Scrolling away opens the case to 55% and
-lifts the camera; sheet 3 keeps its scroll-driven explode. Sheet 1's linework
-draws itself when that sheet arrives in view, as explanatory motion, not a
-second signature. Reduced motion, toggled at any time: everything visible,
+lifts the camera; sheet 3 keeps its scroll-driven explode. Sheet 1's leader and dimension strokes draw themselves when that sheet
+arrives in view, as explanatory motion, not a second signature; balloon
+numbers, dots and labels are visible from the start (and in print). Reduced motion, toggled at any time: everything visible,
 machine closed, no sway, no parallax; drag still works because it is the
 reader's own gesture. Content is visible by default; the `js` class hides only
 what Motion is about to show, and an inline `js-late` class in `<head>` shows

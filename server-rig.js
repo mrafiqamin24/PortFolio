@@ -28,6 +28,16 @@ export const PARTS = [
   ["nvme_a",  3.70, 3.86,  2.30, 3.90,  5.90, 6.34, "sink",   [-0.8, 0, 0]],
   ["nvme_b",  3.70, 3.86,  2.30, 3.90,  4.90, 5.34, "sink",   [-0.8, 0, 0]],
   ["led",     1.90, 2.30,  8.30, 8.42, -0.04, 0.00, "accent", [0, 0, -1.2]],
+  ["pwr",     1.10, 1.50,  8.24, 8.48, -0.05, 0.00, "btn",    [0, 0, -1.2]],
+  ["usb_a",   2.55, 2.85,  8.32, 8.40, -0.04, 0.00, "port",   [0, 0, -1.2]],
+  ["usb_b",   3.00, 3.30,  8.32, 8.40, -0.04, 0.00, "port",   [0, 0, -1.2]],
+  ["vent_1",  0.60, 3.60,  1.70, 1.74,  5.00, 5.14, "vent",   [-1.1, 0, 0]],
+  ["vent_2",  0.60, 3.60,  1.70, 1.74,  5.50, 5.64, "vent",   [-1.1, 0, 0]],
+  ["vent_3",  0.60, 3.60,  1.70, 1.74,  6.00, 6.14, "vent",   [-1.1, 0, 0]],
+  ["vent_4",  0.60, 3.60,  1.70, 1.74,  6.50, 6.64, "vent",   [-1.1, 0, 0]],
+  ["vent_5",  0.60, 3.60,  1.70, 1.74,  7.00, 7.14, "vent",   [-1.1, 0, 0]],
+  ["vent_6",  0.60, 3.60,  1.70, 1.74,  7.50, 7.64, "vent",   [-1.1, 0, 0]],
+  ["vent_7",  0.60, 3.60,  1.70, 1.74,  8.00, 8.14, "vent",   [-1.1, 0, 0]],
   ["foot_fl", 0.30, 0.90, -0.22, 0.00,  0.60, 1.40, "case2",  [0, -0.6, 0]],
   ["foot_fr", 3.30, 3.90, -0.22, 0.00,  0.60, 1.40, "case2",  [0, -0.6, 0]],
   ["foot_bl", 0.30, 0.90, -0.22, 0.00,  7.60, 8.40, "case2",  [0, -0.6, 0]],
@@ -51,7 +61,10 @@ export const RIG_MATS = {
   fin:    { color: 0xcbcbc6, roughness: 0.35, metalness: 0.85 },
   fan:    { color: 0x1a1a1c, roughness: 0.70, metalness: 0.10 },
   accent: { color: 0x0b57d0, emissive: 0x0b57d0, emissiveIntensity: 1.4, roughness: 0.40, metalness: 0.10 },
-  glass:  { color: 0x9db4c9, roughness: 0.06, metalness: 0.00, transparent: true, opacity: 0.16, depthWrite: false }
+  btn:    { color: 0x9a9ca1, roughness: 0.35, metalness: 0.70 },
+  port:   { color: 0x111113, roughness: 0.60, metalness: 0.20 },
+  vent:   { color: 0x131315, roughness: 0.70, metalness: 0.10 },
+  glass:  { color: 0x9db4c9, roughness: 0.04, metalness: 0.05, transparent: true, opacity: 0.2, depthWrite: false }
 };
 
 /* Kipas: cincin, hub, dan tujuh bilah miring. Cukup untuk terbaca sebagai
@@ -84,7 +97,9 @@ export function buildRig(THREE, slab, edgeMat, envIntensity) {
   for (const k in RIG_MATS) {
     mats[k] = new THREE.MeshStandardMaterial({ ...RIG_MATS[k], envMapIntensity: envIntensity });
   }
-  mats.glass.envMapIntensity = envIntensity * 1.6;
+  mats.glass.envMapIntensity = envIntensity * 2.4;
+  // bagian kecil tanpa garis rusuk: garisnya hanya akan jadi noda
+  const NO_EDGE = new Set(["accent", "btn", "port", "vent"]);
   const [ox, oy, oz] = RIG_CENTER;
   const parts = {};
 
@@ -99,9 +114,13 @@ export function buildRig(THREE, slab, edgeMat, envIntensity) {
     mesh.receiveShadow = solid;
     if (!solid) mesh.renderOrder = 10;
     holder.add(mesh);
-    const lines = new THREE.LineSegments(new THREE.EdgesGeometry(new THREE.BoxGeometry(w, h, d)), edgeMat);
-    if (!solid) lines.renderOrder = 11;
-    holder.add(lines);
+    if (!NO_EDGE.has(kind)) {
+      const box = new THREE.BoxGeometry(w, h, d);
+      const lines = new THREE.LineSegments(new THREE.EdgesGeometry(box), edgeMat);
+      box.dispose();
+      if (!solid) lines.renderOrder = 11;
+      holder.add(lines);
+    }
     group.add(holder);
     parts[name] = { holder, base, ex, bottom: y0 - oy, half: [w / 2, h / 2, d / 2] };
   }

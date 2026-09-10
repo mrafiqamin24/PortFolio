@@ -6,6 +6,10 @@ supaya frame pertama kanvas tetap jatuh persis di atas gambar diamnya.
 Butuh: agent-browser (CLI), Pillow, dan situs disajikan lokal, mis.
     python -m http.server 8123
     python tools/snap_cover.py http://127.0.0.1:8123
+
+Catatan Windows: daemon agent-browser mewarisi pipe stdout dari subprocess,
+jadi keluaran dialihkan ke berkas sementara, bukan ditangkap lewat pipe;
+kalau tidak, subprocess.run menunggu daemon itu selamanya.
 """
 import base64
 import io
@@ -13,6 +17,7 @@ import json
 import os
 import subprocess
 import sys
+import tempfile
 import time
 import datetime
 
@@ -20,11 +25,21 @@ from PIL import Image
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 BASE = sys.argv[1] if len(sys.argv) > 1 else "http://127.0.0.1:8123"
+SESSION = "snapcover%d" % int(time.time())
 
 def ab(*args):
-    cmd = subprocess.list2cmdline(["agent-browser", "--session", "snapcover", *args])
-    r = subprocess.run(cmd, shell=True, capture_output=True, text=True, timeout=120)
-    return (r.stdout or "") + (r.stderr or "")
+    """Jalankan satu perintah agent-browser; keluarannya dibaca dari berkas."""
+    fd, out = tempfile.mkstemp(suffix=".txt")
+    os.close(fd)
+    cmd = subprocess.list2cmdline(["agent-browser", "--session", SESSION, *args]) + ' > "%s" 2>&1' % out
+    subprocess.run(cmd, shell=True, stdin=subprocess.DEVNULL, timeout=180)
+    try:
+        return io.open(out, encoding="utf-8", errors="replace").read()
+    finally:
+        try:
+            os.remove(out)
+        except OSError:
+            pass    # daemon masih memegang berkasnya; biarkan di folder temp
 
 # salinan sementara index.html dengan mode tangkap: pose diam, buffer disimpan
 src = io.open(os.path.join(ROOT, "index.html"), encoding="utf-8").read()
