@@ -23,6 +23,22 @@ Live di https://portfolio.ownertech.id (GitHub Pages).
 - Angka di lembar 1 (kuantitas, revisi) dan di title block (`Rev`, tanggal) diperbarui manual.
 - CV di `cv.html` berdiri sendiri; ubah teks langsung.
 
+## Penting saat deploy: naikkan penanda versi
+
+Live disajikan lewat Cloudflare, yang menyimpan HTML **10 menit** tapi CSS dan JS
+**4 jam**. Tanpa penanda versi, pengunjung lama akan mendapat HTML baru dengan CSS
+lama, dan halaman tampil rusak sampai empat jam. Gejalanya persis: label melayang
+terpisah dari gambar, teks yang harusnya tersembunyi ikut tampil, dan model 3D tidak
+bisa diputar di HP karena `touch-action` belum ada.
+
+Jadi **setiap kali mengubah `style.css`, `script.js`, `iso.js`, atau `iso3d.js`,
+ganti semua `?v=...` di `index.html` dengan nilai baru** (pakai tanggal, mis.
+`?v=20260911a`). URL yang berbeda memaksa unduh ulang, jadi tidak perlu menunggu
+cache habis.
+
+Berkas yang isinya tidak pernah berubah tidak perlu penanda: `fonts/`, `vendor/`
+(Three.js dikunci versinya), dan `img/`.
+
 ## Menjalankan lokal
 
 ```powershell
