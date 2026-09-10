@@ -1182,6 +1182,25 @@ main {
   cursor: grabbing;
 }
 
+/* balon bernomor di benda, dan barisnya di daftar keterangan */
+.iso3d-labels .bl {
+  fill: var(--paper);
+  stroke: currentColor;
+  stroke-width: 1.5;
+}
+
+.iso3d-labels .bl-no {
+  fill: currentColor;
+  stroke: none;
+  font-family: var(--figures);
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.iso3d-labels .iso3d-row .bl-no {
+  font-size: 12px;
+}
+
 .iso3d-labels {
   position: absolute;
   inset: 0;

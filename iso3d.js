@@ -18,37 +18,52 @@
 
   // ------------------------------------------------------------- model
   const CX = 6, CY = 4;
-  // name: [x0, x1, y0, y1, tebal, z terurai, z terpasang]
+  /* name: [x0, x1, y0, y1, tebal, z terurai, z terpasang]
+     Penyimpanan sengaja dipecah jadi pelat pembawa + dua cakram: "mirror"
+     baru terbaca kalau kedua cakramnya benar-benar kelihatan. */
   const SOLIDS = [
-    ["tank",     0.0, 12.0, 0.0, 8.0, 0.50, -3.40, -1.50],
-    ["rpool",    0.0, 12.0, 0.0, 8.0, 0.50, -2.20, -1.00],
-    ["host",     0.0, 12.0, 0.0, 8.0, 0.50, -0.50, -0.50],
-    ["vmbr1",    1.0,  9.6, 3.75, 4.15, 0.15, 2.20, 0.00],
-    ["ct_web",   0.8,  4.2, 0.8, 3.2, 1.45, 2.35, 0.15],
-    ["ct_redis", 5.6,  9.0, 0.8, 3.2, 1.45, 2.35, 0.15],
-    ["ct_db",    2.6,  7.2, 4.8, 7.2, 1.45, 2.35, 0.15],
-    ["cf",       0.4,  5.2, 0.8, 3.2, 0.30, 6.00, 1.60],
-    ["ts",       6.4, 11.2, 0.8, 3.2, 0.30, 6.00, 1.60]
+    ["tank_a",      0.4,  5.6, 0.6, 7.4, 0.62, -3.30, -2.10],
+    ["tank_b",      6.4, 11.6, 0.6, 7.4, 0.62, -3.30, -2.10],
+    ["rpool_a",     0.4,  5.6, 1.2, 6.8, 0.36, -2.00, -1.30],
+    ["rpool_b",     6.4, 11.6, 1.2, 6.8, 0.36, -2.00, -1.30],
+    ["host",        0.0, 12.0, 0.0, 8.0, 0.50, -0.50, -0.50],
+    ["vmbr1",       1.0,  9.6, 3.75, 4.15, 0.15, 2.20, 0.00],
+    ["ct_web",      0.8,  4.2, 0.8, 3.2, 1.45, 2.35, 0.15],
+    ["ct_redis",    5.6,  9.0, 0.8, 3.2, 1.45, 2.35, 0.15],
+    ["ct_db",       2.6,  7.2, 4.8, 7.2, 1.45, 2.35, 0.15],
+    ["cf",          0.4,  5.2, 0.8, 3.2, 0.30, 6.00, 1.60],
+    ["ts",          6.4, 11.2, 0.8, 3.2, 0.30, 6.00, 1.60]
   ];
 
-  // urutan tetap dari atas ke bawah, jadi label tidak pernah melompat
-  const CALLOUTS = [
-    ["cf", "Cloudflare Tunnel", "situs & aplikasi ke publik"],
-    ["ts", "Tailscale · SSH · 2FA", "jalur admin, bukan port terbuka"],
-    ["ct_web", "CT 100 web", "nginx + cloudflared"],
-    ["ct_redis", "CT 102 redis", "cache & antrean"],
-    ["ct_db", "CT 120 db · MySQL 8.4", "hanya mendengar di 10.10.10.120"],
-    ["vmbr1", "vmbr1 · 10.10.10.0/24", "bridge internal tanpa port fisik"],
-    ["host", "Proxmox VE 9.2", "Ryzen 9 9900X · 32 GB"],
-    ["rpool", "rpool · 2× NVMe 2 TB", "mirror, root & container"],
-    ["tank", "tank · 2× HDD 4 TB", "mirror, backup & data"]
+  /* Balon bernomor menempel di bendanya, keterangannya di daftar bernomor
+     yang sama. Itu cara gambar teknik menautkan benda ke daftar material,
+     dan jauh lebih mudah diikuti daripada sembilan garis penunjuk. */
+  const ITEMS = [
+    [1, "cf",       "Cloudflare Tunnel", "situs & aplikasi ke publik"],
+    [2, "ts",       "Tailscale · SSH · 2FA", "jalur admin, bukan port terbuka"],
+    [3, "ct_web",   "CT 100 web", "nginx + cloudflared"],
+    [4, "ct_redis", "CT 102 redis", "cache & antrean"],
+    [5, "ct_db",    "CT 120 db · MySQL 8.4", "hanya mendengar di 10.10.10.120"],
+    [6, "vmbr1",    "vmbr1 · 10.10.10.0/24", "bridge internal tanpa port fisik"],
+    [7, "host",     "Proxmox VE 9.2", "Ryzen 9 9900X · 32 GB"],
+    [8, "rpool_a",  "rpool · 2× NVMe 2 TB", "mirror ZFS: root & container"],
+    [9, "tank_a",   "tank · 2× HDD 4 TB", "mirror ZFS: backup & data"]
+  ];
+
+  // jalur data yang benar-benar ada; ikut memanjang saat model terurai
+  const LINKS = [
+    ["cf", "ct_web"],
+    ["ts", "host"],
+    ["ct_web", "vmbr1"],
+    ["ct_redis", "vmbr1"],
+    ["ct_db", "vmbr1"]
   ];
 
   const LAYERS = [
     ["TEPI", ["cf", "ts"]],
     ["CONTAINER", ["ct_web", "ct_redis", "ct_db", "vmbr1"]],
     ["HOST", ["host"]],
-    ["PENYIMPANAN", ["rpool", "tank"]]
+    ["PENYIMPANAN", ["rpool_a", "rpool_b", "tank_a", "tank_b"]]
   ];
 
   const INK = 0xffffff;
@@ -104,7 +119,7 @@
 
     const scene = new THREE.Scene();
     const camera = new THREE.OrthographicCamera(-1, 1, 1, -1, 0.1, 200);
-    const target = new THREE.Vector3(0, 1.45, 0);
+    const target = new THREE.Vector3(0, 1.50, 0);
 
     const faceMat = new THREE.MeshBasicMaterial({
       color: PAPER, polygonOffset: true, polygonOffsetFactor: 1, polygonOffsetUnits: 1
@@ -163,6 +178,34 @@
     axis.computeLineDistances();
     scene.add(axis);
 
+    /* Jalur data antar bagian. Titik sambungnya dihitung ulang tiap frame dari
+       posisi bagian, jadi garisnya ikut memanjang saat model terurai dan
+       memendek saat merapat. */
+    const linkPos = new Float32Array(LINKS.length * 6);
+    const linkGeo = new THREE.BufferGeometry();
+    linkGeo.setAttribute("position", new THREE.BufferAttribute(linkPos, 3));
+    const links = new THREE.LineSegments(
+      linkGeo,
+      new THREE.LineBasicMaterial({ color: INK, transparent: true, opacity: 0.72 })
+    );
+    scene.add(links);
+
+    function updateLinks() {
+      LINKS.forEach(([na, nb], i) => {
+        const a = parts[na], b = parts[nb];
+        const hi = a.holder.position.y >= b.holder.position.y ? a : b;
+        const lo = hi === a ? b : a;
+        const o = i * 6;
+        linkPos[o] = hi.cx;
+        linkPos[o + 1] = hi.holder.position.y - hi.half[1];
+        linkPos[o + 2] = hi.cz;
+        linkPos[o + 3] = lo.cx;
+        linkPos[o + 4] = lo.holder.position.y + lo.half[1];
+        linkPos[o + 5] = lo.cz;
+      });
+      linkGeo.attributes.position.needsUpdate = true;
+    }
+
     // -------------------------------------------------------- keadaan
     const reduced = window.matchMedia("(prefers-reduced-motion: reduce)");
     const narrow = window.matchMedia("(max-width: 760px)");
@@ -177,22 +220,40 @@
     const clamp = (v, a, b) => Math.min(b, Math.max(a, v));
 
     // --------------------------------------------------------- label
-    const labelEls = CALLOUTS.map(([of, l1, l2]) => {
-      const g = document.createElementNS(NS, "g");
-      const leader = document.createElementNS(NS, "path");
-      leader.setAttribute("class", "leader");
-      const dot = document.createElementNS(NS, "circle");
-      dot.setAttribute("class", "fill");
-      dot.setAttribute("r", "2.6");
+    const itemEls = ITEMS.map(([no, of, l1, l2]) => {
+      // balon yang menempel di benda
+      const bal = document.createElementNS(NS, "g");
+      bal.setAttribute("class", "iso3d-balloon");
+      const ring = document.createElementNS(NS, "circle");
+      ring.setAttribute("class", "bl");
+      ring.setAttribute("r", "11");
+      const num = document.createElementNS(NS, "text");
+      num.setAttribute("class", "bl-no");
+      num.setAttribute("text-anchor", "middle");
+      num.textContent = String(no);
+      bal.append(ring, num);
+      overlay.appendChild(bal);
+
+      // barisnya di daftar keterangan
+      const row = document.createElementNS(NS, "g");
+      row.setAttribute("class", "iso3d-row");
+      const ring2 = document.createElementNS(NS, "circle");
+      ring2.setAttribute("class", "bl");
+      ring2.setAttribute("r", "9");
+      const num2 = document.createElementNS(NS, "text");
+      num2.setAttribute("class", "bl-no");
+      num2.setAttribute("text-anchor", "middle");
+      num2.textContent = String(no);
       const t1 = document.createElementNS(NS, "text");
       t1.setAttribute("class", "b");
       t1.textContent = l1;
       const t2 = document.createElementNS(NS, "text");
       t2.setAttribute("class", "s");
       t2.textContent = l2;
-      g.append(leader, dot, t1, t2);
-      overlay.appendChild(g);
-      return { of, g, leader, dot, t1, t2, ly: 0 };
+      row.append(ring2, num2, t1, t2);
+      overlay.appendChild(row);
+
+      return { of, bal, ring, num, ring2, num2, t1, t2, ly: 0, bx: 0, by: 0 };
     });
 
     const layerEls = LAYERS.map(([caption, members]) => {
@@ -226,7 +287,7 @@
       overlay.setAttribute("width", String(W));
       overlay.setAttribute("height", String(H));
 
-      const halfH = 8.6;
+      const halfH = 9.0;
       const halfW = halfH * (W / H);
       shift = isNarrow ? 0 : 0.16 * halfW * 2;
       camera.left = -halfW + shift;
@@ -235,15 +296,19 @@
       camera.bottom = -halfH;
       camera.updateProjectionMatrix();
 
-      // kolom keterangan di kanan, dibagi rata supaya leader tak menyilang
-      labelX = W - Math.min(250, W * 0.32) + 30;
-      const top = 30, step = (H - 74) / (labelEls.length - 1);
-      labelEls.forEach((L, i) => {
+      // daftar keterangan bernomor di kanan
+      labelX = W - Math.min(258, W * 0.33) + 34;
+      const top = 34, step = (H - 80) / (itemEls.length - 1);
+      itemEls.forEach((L, i) => {
         L.ly = top + i * step;
+        L.ring2.setAttribute("cx", String(labelX - 20));
+        L.ring2.setAttribute("cy", L.ly.toFixed(1));
+        L.num2.setAttribute("x", String(labelX - 20));
+        L.num2.setAttribute("y", (L.ly + 4).toFixed(1));
         L.t1.setAttribute("x", String(labelX));
-        L.t1.setAttribute("y", (L.ly + 4).toFixed(1));
+        L.t1.setAttribute("y", (L.ly + 1).toFixed(1));
         L.t2.setAttribute("x", String(labelX));
-        L.t2.setAttribute("y", (L.ly + 20).toFixed(1));
+        L.t2.setAttribute("y", (L.ly + 17).toFixed(1));
       });
       overlay.classList.toggle("is-narrow", isNarrow);
       kick();
@@ -256,25 +321,45 @@
       return [(v.x * 0.5 + 0.5) * W, (-v.y * 0.5 + 0.5) * H];
     }
 
-    function anchorOf(name) {
-      const p = parts[name];
-      const [hx, hy, hz] = p.half;
-      let best = null;
-      for (const sx of [-1, 1]) for (const sy of [-1, 1]) for (const sz of [-1, 1]) {
-        const s = toScreen(p.cx + sx * hx, p.holder.position.y + sy * hy, p.cz + sz * hz);
-        if (!best || s[0] > best[0] + 0.01 || (Math.abs(s[0] - best[0]) < 0.01 && s[1] < best[1])) best = s;
-      }
-      return best;
-    }
-
     function paintLabels() {
       if (narrow.matches) return;
-      for (const L of labelEls) {
-        const a = anchorOf(L.of);
-        const knee = labelX - 26;
-        L.leader.setAttribute("d", `M${a[0].toFixed(1)} ${a[1].toFixed(1)} L${knee.toFixed(1)} ${L.ly.toFixed(1)} L${(labelX - 8).toFixed(1)} ${L.ly.toFixed(1)}`);
-        L.dot.setAttribute("cx", a[0].toFixed(1));
-        L.dot.setAttribute("cy", a[1].toFixed(1));
+
+      /* Balon dipasang di sudut benda yang paling dekat ke kamera. Memakai
+         pusat muka atas tidak cukup: muka atas lapisan penyimpanan selalu
+         tertutup slab host di atasnya, jadi balonnya melayang di benda lain. */
+      const dir = camera.position.clone().sub(target).normalize();
+      for (const L of itemEls) {
+        const p = parts[L.of];
+        const [hx, hy, hz] = p.half;
+        let best = null, bestDot = -Infinity;
+        for (const sx of [-1, 1]) for (const sy of [-1, 1]) for (const sz of [-1, 1]) {
+          const wx = p.cx + sx * hx, wy = p.holder.position.y + sy * hy, wz = p.cz + sz * hz;
+          const d = wx * dir.x + wy * dir.y + wz * dir.z;
+          if (d > bestDot) { bestDot = d; best = [wx, wy, wz]; }
+        }
+        const c = toScreen(best[0], best[1], best[2]);
+        L.bx = c[0]; L.by = c[1];
+      }
+      // dorong yang bertumpuk, sedikit saja, supaya tetap menempel di bendanya
+      for (let pass = 0; pass < 3; pass++) {
+        for (let i = 0; i < itemEls.length; i++) {
+          for (let j = i + 1; j < itemEls.length; j++) {
+            const a = itemEls[i], b = itemEls[j];
+            let dx = b.bx - a.bx, dy = b.by - a.by;
+            let d = Math.hypot(dx, dy);
+            if (d > 25 || d === 0) continue;
+            const push = (25 - d) / 2;
+            dx /= d; dy /= d;
+            a.bx -= dx * push; a.by -= dy * push;
+            b.bx += dx * push; b.by += dy * push;
+          }
+        }
+      }
+      for (const L of itemEls) {
+        L.ring.setAttribute("cx", L.bx.toFixed(1));
+        L.ring.setAttribute("cy", L.by.toFixed(1));
+        L.num.setAttribute("x", L.bx.toFixed(1));
+        L.num.setAttribute("y", (L.by + 5).toFixed(1));
       }
       /* Nama lapisan mengikuti tinggi lapisannya di layar, tapi dijaga tidak
          saling menempel: dari pandangan hampir tegak lurus keempat lapisan
@@ -321,6 +406,8 @@
         p.holder.position.y = y;
         p.gh.position.y = y;
       }
+
+      updateLinks();
 
       const a = az + (reduced.matches ? 0 : azScroll);
       const r = 40;
