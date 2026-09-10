@@ -3,311 +3,794 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Portofolio Muhammad Rafiq Amin, Network & Web Developer yang berfokus pada MikroTik, web, server, IoT, dan cybersecurity." />
-  <title>Muhammad Rafiq Amin | Network & Full Stack Developer</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Space+Grotesk:wght@500;600;700&display=swap" />
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
+  <title>Muhammad Rafiq Amin — Full-Stack Web Developer & Network Engineer</title>
+  <meta name="description" content="Muhammad Rafiq Amin membangun aplikasi bisnis (POS, restoran, hotel) dengan Laravel, Next.js, dan Flutter, lalu menjalankannya di server Proxmox yang ia rakit dan amankan sendiri. Terbuka untuk magang, freelance, dan full-time." />
+  <meta name="author" content="Muhammad Rafiq Amin" />
+  <link rel="canonical" href="https://portfolio.ownertech.id/" />
+  <meta name="theme-color" content="#fbfbf8" />
+
+  <meta property="og:type" content="profile" />
+  <meta property="og:locale" content="id_ID" />
+  <meta property="og:title" content="Muhammad Rafiq Amin — Full-Stack Web Developer & Network Engineer" />
+  <meta property="og:description" content="Laravel · Next.js · Flutter · MikroTik · Proxmox. 8+ produk dibangun, 980+ commit, satu server produksi yang dirakit dan diamankan sendiri." />
+  <meta property="og:url" content="https://portfolio.ownertech.id/" />
+  <meta property="og:image" content="https://portfolio.ownertech.id/img/og-cover.jpg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Muhammad Rafiq Amin — Full-Stack Web Developer & Network Engineer" />
+  <meta name="twitter:description" content="Laravel · Next.js · Flutter · MikroTik · Proxmox. Portofolio dengan studi kasus dan demo." />
+  <meta name="twitter:image" content="https://portfolio.ownertech.id/img/og-cover.jpg" />
+
+  <link rel="icon" href="img/favicon.png" type="image/png" />
+  <link rel="apple-touch-icon" href="img/apple-touch-icon.png" />
+
+  <link rel="preload" href="fonts/saira-800.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="fonts/saira-400.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="stylesheet" href="style.css" />
-  <link rel="icon" href="img/Favicon.png" type="image/png" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Muhammad Rafiq Amin",
+    "url": "https://portfolio.ownertech.id/",
+    "image": "https://portfolio.ownertech.id/img/og-cover.jpg",
+    "jobTitle": "Full-Stack Web Developer & Network Engineer",
+    "email": "mailto:rafiqamin085252@gmail.com",
+    "address": { "@type": "PostalAddress", "addressRegion": "Kalimantan Barat", "addressCountry": "ID" },
+    "sameAs": ["https://github.com/mrafiqamin24", "https://instagram.com/m_rafiq_amin"],
+    "knowsAbout": ["Laravel", "Next.js", "Flutter", "MySQL", "MikroTik RouterOS", "Proxmox VE", "Cloudflare", "Linux"]
+  }
+  </script>
 </head>
 <body>
-  <div class="scroll-progress" id="scrollProgress"></div>
+  <svg width="0" height="0" class="sprite" aria-hidden="true" focusable="false">
+    <symbol id="i-arrow" viewBox="0 0 16 16"><path d="M4 12 12 4M5.5 4H12v6.5" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="square" /></symbol>
+    <symbol id="i-arrow-right" viewBox="0 0 16 16"><path d="M2 8h11M9 3.5 13.5 8 9 12.5" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="square" /></symbol>
+  </svg>
+  <a class="skip-link" href="#umum">Langsung ke isi</a>
 
-  <header class="site-header" id="navbar">
-    <a href="#home" class="brand" aria-label="Kembali ke beranda">
-      <img src="img/Brand.png" alt="" />
-      <span>MRA</span>
+  <header class="index-bar" aria-label="Daftar gambar">
+    <a class="index-set" href="#umum">
+      <span class="index-mono">MRA</span>
+      <span class="index-set-title">Set gambar · Portofolio</span>
     </a>
-
-    <nav class="nav-menu" id="navMenu" aria-label="Navigasi utama">
-      <a href="#home">Beranda</a>
-      <a href="#about">Profil</a>
-      <a href="#work">Project</a>
-      <a href="#skills">Skill</a>
-      <a href="#contact">Kontak</a>
+    <nav class="index-sheets" aria-label="Navigasi lembar">
+      <ol id="sheetIndex">
+        <li><a href="#umum"><span class="idx-no">1</span><span class="idx-name">Umum</span></a></li>
+        <li><a href="#project"><span class="idx-no">2</span><span class="idx-name">Project</span></a></li>
+        <li><a href="#server"><span class="idx-no">3</span><span class="idx-name">Server</span></a></li>
+        <li><a href="#keahlian"><span class="idx-no">4</span><span class="idx-name">Keahlian</span></a></li>
+        <li><a href="#prosedur"><span class="idx-no">5</span><span class="idx-name">Prosedur</span></a></li>
+        <li><a href="#kontak"><span class="idx-no">6</span><span class="idx-name">Kontak</span></a></li>
+      </ol>
     </nav>
-
-    <button class="menu-btn" id="menuBtn" aria-label="Buka menu" aria-expanded="false">
-      <span></span>
-      <span></span>
-    </button>
+    <div class="index-meta">
+      <span class="index-rev">Rev C · Sep 2026</span>
+      <a class="index-action" href="https://wa.me/6282152400352?text=Halo%20Rafiq%2C%20saya%20lihat%20portofolio%20Anda" target="_blank" rel="noopener">Chat WhatsApp</a>
+    </div>
   </header>
 
   <main>
-    <section class="hero hero-portrait-mode" id="home" aria-label="Muhammad Rafiq Amin portfolio hero">
-      <img class="hero-bg" src="img/profile-cutout.png" alt="Foto cutout Muhammad Rafiq Amin untuk hero portofolio" />
-      <div class="hero-shade"></div>
+    <!-- LEMBAR 1 -->
+    <section class="sheet sheet-1" id="umum" aria-labelledby="ttl-umum">
+      <div class="zones zones-x" aria-hidden="true"><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span></div>
+      <div class="zones zones-y" aria-hidden="true"><span>A</span><span>B</span><span>C</span><span>D</span><span>E</span><span>F</span></div>
 
-      <div class="hero-content reveal">
-        <p class="eyebrow">
-          <span class="status-dot" aria-hidden="true"></span>
-          Perkenalkan Nama Saya
-        </p>
-        <h1>Muhammad Rafiq Amin</h1>
-        <p class="hero-role">Network & Full Stack Developer</p>
-        <p class="hero-desc">
-          Saya membangun solusi jaringan, web, hotspot, App dan home server dengan pendekatan yang rapi memahami kebutuhan client, menyusun sistem, lalu membuatnya mudah untuk dipakai semua orang.
-        </p>
+      <div class="sheet-body ga-grid">
+        <div class="ga-head">
+          <h1 id="ttl-umum">Muhammad Rafiq Amin</h1>
+          <p class="role">Full-Stack Web Developer <span aria-hidden="true">·</span> Network &amp; Server</p>
+          <p class="status-line">Mahasiswa D3 Teknologi Informasi · Kalimantan Barat · remote atau on-site</p>
+        </div>
 
-        <div class="hero-actions">
-          <a href="#work" class="btn btn-light">Lihat Project</a>
-          <a href="#contact" class="btn btn-ghost">Hubungi Saya</a>
+        <figure class="elevation" id="elevation">
+          <div class="elevation-box">
+            <img src="img/profile-cutout.webp" alt="Muhammad Rafiq Amin berdiri dengan tangan terlipat, jas hitam" width="900" height="1352" fetchpriority="high" />
+            <svg class="elevation-marks" viewBox="0 0 600 760" aria-hidden="true" focusable="false">
+              <!-- garis dimensi keseluruhan -->
+              <line class="dm" x1="8" y1="22" x2="60" y2="22" pathLength="1" />
+              <line class="dm" x1="8" y1="742" x2="60" y2="742" pathLength="1" />
+              <line class="dm dm-main" x1="26" y1="22" x2="26" y2="742" pathLength="1" />
+              <path class="dm-arrow" d="M26 22 l-4 10 h8 z" />
+              <path class="dm-arrow" d="M26 742 l-4 -10 h8 z" />
+              <text class="dm-label" transform="translate(16 382) rotate(-90)" text-anchor="middle">UJUNG KE UJUNG: PRD · API/UI · UJI · DEPLOY · BACKUP</text>
+
+              <!-- callout 1: kepala -->
+              <line class="ld" x1="502" y1="74" x2="348" y2="62" pathLength="1" />
+              <circle class="ld-dot" cx="348" cy="62" r="3.5" />
+              <circle class="bl" cx="520" cy="72" r="18" pathLength="1" />
+              <text class="bl-no" x="520" y="78" text-anchor="middle">1</text>
+
+              <!-- callout 2: bahu -->
+              <line class="ld" x1="136" y1="292" x2="212" y2="250" pathLength="1" />
+              <circle class="ld-dot" cx="212" cy="250" r="3.5" />
+              <circle class="bl" cx="120" cy="300" r="18" pathLength="1" />
+              <text class="bl-no" x="120" y="306" text-anchor="middle">2</text>
+
+              <!-- callout 3: saku dada -->
+              <line class="ld" x1="522" y1="302" x2="396" y2="292" pathLength="1" />
+              <circle class="ld-dot" cx="396" cy="292" r="3.5" />
+              <circle class="bl" cx="540" cy="302" r="18" pathLength="1" />
+              <text class="bl-no" x="540" y="308" text-anchor="middle">3</text>
+
+              <!-- callout 4: tangan terlipat -->
+              <line class="ld" x1="504" y1="466" x2="334" y2="384" pathLength="1" />
+              <circle class="ld-dot" cx="334" cy="384" r="3.5" />
+              <circle class="bl" cx="520" cy="474" r="18" pathLength="1" />
+              <text class="bl-no" x="520" y="480" text-anchor="middle">4</text>
+            </svg>
+          </div>
+          <figcaption><span>Elevasi depan</span><span>Skala NTS</span></figcaption>
+        </figure>
+
+        <div class="ga-notes">
+          <div class="notes">
+            <h2>Catatan umum</h2>
+            <ol>
+              <li>Membangun aplikasi bisnis untuk toko, restoran, dan hotel dengan Laravel, Next.js, dan Flutter.</li>
+              <li>Menjalankannya sendiri di server Proxmox yang dirakit, diisolasi jaringannya, dan diamankan; mengelola hotspot MikroTik.</li>
+              <li>Setiap project punya PRD, uji otomatis, dan dokumentasi deploy, supaya bisa diserahkan ke orang berikutnya. Terbuka untuk magang, freelance, dan full-time.</li>
+            </ol>
+          </div>
+        </div>
+
+        <div class="ga-tables">
+            <table class="dt legend">
+              <caption>Keterangan callout</caption>
+              <thead><tr><th scope="col">No</th><th scope="col">Item</th><th scope="col">Bukti</th></tr></thead>
+              <tbody>
+                <tr><td class="fig">1</td><td>Laravel · Next.js · Flutter</td><td><a href="#project">Lbr 2</a></td></tr>
+                <tr><td class="fig">2</td><td>MikroTik · hotspot</td><td><a href="#project">Lbr 2 (E)</a></td></tr>
+                <tr><td class="fig">3</td><td>Proxmox VE · server</td><td><a href="#server">Lbr 3</a></td></tr>
+                <tr><td class="fig">4</td><td>Cloudflare · Tunnel, Worker</td><td><a href="#server">Lbr 3</a></td></tr>
+              </tbody>
+            </table>
+
+            <table class="dt qty">
+              <caption>Kuantitas</caption>
+              <tbody>
+                <tr><th scope="row">Produk &amp; tools dibangun</th><td class="fig">8+</td></tr>
+                <tr><th scope="row">Commit Git, 7 repo aktif</th><td class="fig">980+</td></tr>
+                <tr><th scope="row">Tes otomatis lolos (Crypt-Man)</th><td class="fig">692</td></tr>
+                <tr><th scope="row">Server produksi dirakit sendiri</th><td class="fig">1</td></tr>
+              </tbody>
+            </table>
+
         </div>
       </div>
 
-      <div class="hero-status reveal" aria-label="Fokus pengembangan">
-        <span>Sedang mendalami</span>
-        <strong>MikroTik · Hotspot · Cloud Server · IoT · Cybersecurity</strong>
-      </div>
-
-      <a href="#about" class="scroll-cue" aria-label="Gulir ke bawah">
-        <span>Scroll</span>
-        <i class="bi bi-arrow-down" aria-hidden="true"></i>
-      </a>
-    </section>
-
-    <section class="snapshot" aria-label="Ringkasan portfolio">
-      <div class="snapshot-item reveal">
-        <span>01</span>
-        <strong>Jaringan</strong>
-        <p>MikroTik, hotspot voucher, monitoring, dan RT/RW Net.</p>
-      </div>
-      <div class="snapshot-item reveal">
-        <span>02</span>
-        <strong>Web</strong>
-        <p>Landing page, aplikasi web, UI hotspot, dan interface operasional.</p>
-      </div>
-      <div class="snapshot-item reveal">
-        <span>03</span>
-        <strong>Server</strong>
-        <p>Zimaboard, Cloudflare, hosting, dan layanan cloud mandiri.</p>
-      </div>
-    </section>
-
-    <section class="section about" id="about">
-      <div class="section-kicker reveal">Profil</div>
-      <div class="about-grid">
-        <div class="section-title reveal">
-          <h2>Belajar lewat eksperimen, memperbaiki kesalahan, tercipta banyak pengalaman</h2>
+      <footer class="title-block">
+        <div class="tb-cell tb-mono"><span class="mono-mark">MRA</span></div>
+        <div class="tb-cell tb-project">
+          <span class="tb-k">Project</span>
+          <span class="tb-v">Portofolio · Muhammad Rafiq Amin</span>
+          <span class="tb-k">Judul lembar</span>
+          <span class="tb-v">Susunan umum</span>
         </div>
-        <div class="about-copy reveal">
-          <p>
-            Saya Muhammad Rafiq Amin, mahasiswa D3 Teknologi Informasi yang terus mencari pengalaman di bidang jaringan komputer, MikroTik, pengembangan web, manajemen server, IoT, dan keamanan siber.
-          </p>
-          <p>
-            Bagi saya, portofolio bukan hanya galeri tampilan. Ini adalah ruang untuk menunjukkan cara berpikir, proses membangun, dan menghasilkan teknologi yang bermanfaat untuk semua orang.
-          </p>
+        <div class="tb-cell tb-meta">
+          <span class="tb-k">Lembar</span><span class="tb-v fig">1 / 6</span>
+          <span class="tb-k">Rev</span><span class="tb-v fig">C · 09-2026</span>
+          <span class="tb-k">Skala</span><span class="tb-v fig">NTS</span>
+          <span class="tb-k">Digambar</span><span class="tb-v">MRA</span>
         </div>
-      </div>
+        <div class="tb-cell tb-rev">
+          <span class="tb-k">Revisi</span>
+          <ul class="tb-revlist">
+            <li><span class="fig">A</span><span class="fig">2025</span><span>Web statis: Herbify, SIPPDAM</span></li>
+            <li><span class="fig">B</span><span class="fig">2026</span><span>Produk bisnis: POS, restoran, hotel, cloud</span></li>
+            <li><span class="fig">C</span><span class="fig">09-2026</span><span>Server Proxmox produksi</span></li>
+          </ul>
+        </div>
+        <div class="tb-cell tb-stamp">
+          <span class="stamp">Tersedia<small>magang · freelance · full-time</small></span>
+        </div>
+        <a class="tb-cell tb-action tb-action-primary" href="https://wa.me/6282152400352?text=Halo%20Rafiq%2C%20saya%20lihat%20portofolio%20Anda" target="_blank" rel="noopener">
+          <span class="tb-k">Aksi utama</span>
+          <span class="tb-v">Chat WhatsApp <svg class="ico" aria-hidden="true" focusable="false"><use href="#i-arrow" /></svg></span>
+        </a>
+        <a class="tb-cell tb-action" href="cv.html">
+          <span class="tb-k">Dokumen</span>
+          <span class="tb-v">Buka CV</span>
+        </a>
+      </footer>
     </section>
 
-    <section class="section work" id="work">
-      <div class="work-heading reveal">
-        <div>
-          <p class="section-kicker">Project Board</p>
-          <h2>Berikut adalah beberapa Demo dan Prototype project yang telah saya kerjakan</h2>
-        </div>        
-      </div>
-      <div class="project-board">
-        <article class="project-row reveal">
-          <a class="project-thumb" href="https://mrafiqamin24.github.io/App-POS/" target="_blank" rel="noopener" aria-label="Buka demo App POS di GitHub Pages">
-            <img src="img/projects/App POS.png" alt="Screenshot App POS" loading="lazy" />
-            <span class="project-number">01</span>
-          </a>
-          <div class="project-main">
-            <p class="project-type">App POS</p>
-            <h3>Ownertech.id - Smart Solution For Owner</h3>
-            <p class="project-desc">
-              Aplikasi point of sale (POS) yang dirancang untuk membantu pemilik usaha dalam mengelola banyak cabang dengan lebih efisien, termasuk 
-              fitur manajemen produk, penjualan, dan laporan keuangan, aplikasi ini dilengkapi juga dengan fitur absensi menggunakan pengenalan wajah secara Real-Time yang memanfaatkan 
-              teknologi AI untuk meningkatkan keamanan dan kemudahan dalam proses absensi karyawan.
-            </p>
-          </div>
-          <ul class="tags">
-            <li>PHP</li>
-            <li>Laravel</li>
-            <li>JavaScript</li>
-            <li>Dart</li>
-            <li>UI/UX</li>
-            <li>Flutter</li>
-          </ul>
-          <a href="https://mrafiqamin24.github.io/App-POS/" class="project-link" target="_blank" rel="noopener" aria-label="Buka demo App POS di GitHub Pages">
-            <span>Lihat di GitHub Pages</span>
-            <i class="bi bi-github" aria-hidden="true"></i>
-          </a>
-        </article>
+    <!-- LEMBAR 2 -->
+    <section class="sheet sheet-2" id="project" aria-labelledby="ttl-project">
+      <div class="zones zones-x" aria-hidden="true"><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span></div>
+      <div class="zones zones-y" aria-hidden="true"><span>A</span><span>B</span><span>C</span><span>D</span><span>E</span><span>F</span></div>
 
-        <article class="project-row reveal">
-          <a class="project-thumb" href="https://mrafiqamin24.github.io/Secure-Viewer/" target="_blank" rel="noopener" aria-label="Buka demo Secure Viewer di GitHub Pages">
-            <img src="img/projects/Tools File.png" alt="Screenshot Secure Viewer" loading="lazy" />
-            <span class="project-number">02</span>
-          </a>
-          <div class="project-main">
-            <p class="project-type">Tools Berbagi File Dengan Aman</p>
-            <h3>Secure Viewer</h3>
-            <p class="project-desc">
-              Tools ini dirancang untuk semua orang yang ingin berbagi file dengan aman tanpa takut 
-              file nya ditiru atau diakses tanpa izin. Tools ini juga menyediakan pengaturan berapakali file bisa diakses
-              dan berapa lama file bisa diakses. Tools ini juga menyediakan fitur untuk menghapus file secara otomatis setelah jangka waktu tertentu. 
-            </p>
+      <div class="sheet-body">
+        <div class="sheet-head">
+          <div>
+            <h2 id="ttl-project">Detail A–F: masalah, yang dibangun, hasil</h2>
           </div>
-          <ul class="tags">
-            <li>Node.js</li>
-            <li>Cloudflare</li>
-          </ul>
-          <a href="https://github.com/mrafiqamin24/Secure-Viewer/" class="project-link" target="_blank" rel="noopener" aria-label="Buka repository Sistem Voucher Hotspot di GitHub">
-            <span>Lihat di GitHub</span>
-            <i class="bi bi-github" aria-hidden="true"></i>
-          </a>
-        </article>
+          <dl class="key">
+            <div><dt class="stamp stamp-live">Live</dt><dd>bisa dicoba sekarang</dd></div>
+            <div><dt class="stamp stamp-demo">Demo statis</dt><dd>tampilan saja, tanpa backend</dd></div>
+            <div><dt class="stamp stamp-private">Kode privat</dt><dd>didemokan saat wawancara</dd></div>
+          </dl>
+        </div>
 
-        <article class="project-row reveal">
-          <a class="project-thumb" href="https://mrafiqamin24.github.io/MikroTik-Login/" target="_blank" rel="noopener" aria-label="Buka demo MikroTik Login di GitHub Pages">
-            <img src="img/projects/Hotspot UI.png" alt="" loading="lazy" />
-            <span class="project-number">03</span>
-          </a>
-          <div class="project-main">
-            <p class="project-type">MikroTik Login Page</p>
-            <h3>Home.Net - Custom MikroTik Login</h3>
-            <p class="project-desc">
-              Sistem costom login page ini dirancang untuk memberikan pengalaman baru bagi pengguna hotspot mikrotik karna Home.Net hadir dengan tampilan yang mudah 
-              dipahami,lebih banyak fitur dan lebih aman untuk portal mikrotik hotspot. sistem ini juga akan menampilkan sisa waktu dan akan mengirim pemberitahuan ketika waktu habis.
-              Maka dari itu sistem ini akan memberikan UX yang lebih baik bagi pengguna hotspot mikrotik dan juga akan memberikan kemudahan bagi admin hotspot mikrotik untuk mengelola jarinhannya.
-            </p>
+        <div class="details">
+          <article class="detail">
+            <div class="detail-frame">
+              <a href="https://hotel.ownertech.id" target="_blank" rel="noopener" aria-label="Buka MR Hotel yang sedang live">
+                <img src="img/projects/mr-hotel.webp" alt="Halaman pesan kamar MR Hotel dengan pilihan tanggal masuk dan pulang" width="1280" height="800" loading="lazy" />
+              </a>
+              <div class="detail-caption"><span class="detail-id">Detail A</span><span>MR Hotel</span><span class="stamp stamp-live">Live</span></div>
+            </div>
+            <div class="detail-notes">
+              <h3>MR Hotel — pemesanan kamar tanpa aplikasi tambahan</h3>
+              <p class="detail-type">Hotel · Google Apps Script di atas Google Spreadsheet</p>
+              <table class="dt case">
+                <tbody>
+                  <tr><th scope="row">Masalah</th><td>Hotel kecil mencatat pesanan di spreadsheet. Tamu harus menelepon, petugas sering salah hitung sisa kamar dan denda telat check-out.</td></tr>
+                  <tr><th scope="row">Dibangun</th><td>Web app: tamu memesan tanpa login dan mengunggah bukti bayar, petugas login PIN untuk serah kunci, walk-in, verifikasi pembayaran, dan kas. Sisa kamar dihitung dari data kamar nyata, bukan angka ketikan.</td></tr>
+                  <tr><th scope="row">Hasil</th><td>Online di hotel.ownertech.id. Sekitar 9.900 baris kode, 105 commit, skrip verifikasi otomatis untuk ketersediaan, denda, dan alur pesanan.</td></tr>
+                </tbody>
+              </table>
+              <ul class="bom" aria-label="Stack"><li>Apps Script</li><li>Google Sheets</li><li>Cloudflare</li><li>JavaScript</li></ul>
+              <div class="detail-links">
+                <a class="cell-link cell-link-primary" href="https://hotel.ownertech.id" target="_blank" rel="noopener">Coba live <svg class="ico" aria-hidden="true" focusable="false"><use href="#i-arrow" /></svg></a>
+              </div>
+            </div>
+          </article>
+
+          <article class="detail">
+            <div class="detail-frame">
+              <a href="https://mrafiqamin24.github.io/App-POS/" target="_blank" rel="noopener" aria-label="Buka demo statis Ownertech.id di GitHub Pages">
+                <img src="img/projects/ownertech.webp" alt="Layar masuk demo statis Ownertech.id" width="1280" height="681" loading="lazy" />
+              </a>
+              <div class="detail-caption"><span class="detail-id">Detail B</span><span>Ownertech.id</span><span class="stamp stamp-private">Kode privat</span><span class="stamp stamp-demo">Demo statis</span></div>
+            </div>
+            <div class="detail-notes">
+              <h3>Ownertech.id — kasir multi-cabang dengan absensi wajah</h3>
+              <p class="detail-type">POS · Laravel 12 REST API + klien Flutter (Windows &amp; Android)</p>
+              <table class="dt case">
+                <tbody>
+                  <tr><th scope="row">Masalah</th><td>Pemilik toko dengan beberapa cabang butuh satu tempat untuk produk, kasir, stok, karyawan, dan laporan, yang tetap jalan saat internet putus.</td></tr>
+                  <tr><th scope="row">Dibangun</th><td>API Laravel dengan Sanctum, klien Flutter dengan antrean offline (Drift + SQLite), layanan pengenalan wajah terpisah (Python) untuk absensi. Distribusi lewat halaman unduh sendiri, bukan app store.</td></tr>
+                  <tr><th scope="row">Hasil</th><td>300 commit, 122 berkas uji Pest. Landing page ownertech.id disajikan dari Cloudflare Worker sehingga tetap hidup saat server rumah dimatikan.</td></tr>
+                </tbody>
+              </table>
+              <ul class="bom" aria-label="Stack"><li>Laravel 12</li><li>Flutter</li><li>MySQL 8.4</li><li>Python</li><li>Pest</li></ul>
+              <div class="detail-links">
+                <a class="cell-link cell-link-primary" href="https://ownertech.id" target="_blank" rel="noopener">Buka ownertech.id <svg class="ico" aria-hidden="true" focusable="false"><use href="#i-arrow" /></svg></a>
+                <a class="cell-link" href="https://mrafiqamin24.github.io/App-POS/" target="_blank" rel="noopener">Demo tampilan</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="detail">
+            <div class="detail-frame">
+              <a href="https://mrafiqamin24.github.io/Secure-Viewer/" target="_blank" rel="noopener" aria-label="Buka demo statis Secure Viewer di GitHub Pages">
+                <img src="img/projects/secure-viewer.webp" alt="Formulir Secure Viewer untuk membuat tautan aman dengan timer dan batas perangkat" width="1280" height="683" loading="lazy" />
+              </a>
+              <div class="detail-caption"><span class="detail-id">Detail C</span><span>Secure Viewer</span><span class="stamp stamp-demo">Demo statis</span></div>
+            </div>
+            <div class="detail-notes">
+              <h3>Secure Viewer — berbagi file lihat-saja dengan tautan sekali pakai</h3>
+              <p class="detail-type">Tools · Node.js + Express, dipublikasikan lewat Cloudflare Tunnel</p>
+              <table class="dt case">
+                <tbody>
+                  <tr><th scope="row">Masalah</th><td>Mengirim dokumen lewat chat berarti kehilangan kendali: file bisa disimpan, diteruskan, dan dibuka kapan saja.</td></tr>
+                  <tr><th scope="row">Dibangun</th><td>Tautan 6 karakter, timer kedaluwarsa per perangkat, batas jumlah perangkat, QR code, watermark bergerak, proteksi blur saat screenshot. PDF dirender dengan PDF.js, DOCX dikonversi ke HTML, video di-streaming dengan Range.</td></tr>
+                  <tr><th scope="row">Hasil</th><td>Dipakai untuk mengirim dokumen pribadi; demo di GitHub Pages hanya mensimulasikan alurnya di browser.</td></tr>
+                </tbody>
+              </table>
+              <ul class="bom" aria-label="Stack"><li>Node.js</li><li>Express</li><li>PDF.js</li><li>Cloudflare Tunnel</li></ul>
+              <div class="detail-links">
+                <a class="cell-link cell-link-primary" href="https://mrafiqamin24.github.io/Secure-Viewer/" target="_blank" rel="noopener">Demo tampilan <svg class="ico" aria-hidden="true" focusable="false"><use href="#i-arrow" /></svg></a>
+                <a class="cell-link" href="https://github.com/mrafiqamin24/Secure-Viewer" target="_blank" rel="noopener">Repo demo</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="detail">
+            <div class="detail-frame">
+              <a href="https://mrafiqamin24.github.io/MI-Al-Amin/" target="_blank" rel="noopener" aria-label="Buka landing page MI Al-Amin Tumbang Titi">
+                <img src="img/projects/mi-al-amin.webp" alt="Hero landing page MI Al-Amin Tumbang Titi dengan foto siswa dan tombol jadwal PPDB" width="1280" height="687" loading="lazy" />
+              </a>
+              <div class="detail-caption"><span class="detail-id">Detail D</span><span>MI Al-Amin</span><span class="stamp stamp-live">Live</span></div>
+            </div>
+            <div class="detail-notes">
+              <h3>MI Al-Amin Tumbang Titi — profil sekolah dan info PPDB</h3>
+              <p class="detail-type">Landing page · HTML, CSS, JavaScript tanpa framework</p>
+              <table class="dt case">
+                <tbody>
+                  <tr><th scope="row">Masalah</th><td>Sekolah hanya punya akun Facebook. Orang tua sulit menemukan jadwal PPDB, kegiatan, dan kontak resmi.</td></tr>
+                  <tr><th scope="row">Dibangun</th><td>Halaman dari brief dan foto asli sekolah: hero, angka kunci, rute PPDB, galeri kegiatan, kontak. Ringan untuk jaringan desa.</td></tr>
+                  <tr><th scope="row">Hasil</th><td>Online di GitHub Pages; bisa dipindah ke domain sekolah kapan saja.</td></tr>
+                </tbody>
+              </table>
+              <ul class="bom" aria-label="Stack"><li>HTML</li><li>CSS</li><li>JavaScript</li><li>GitHub Pages</li></ul>
+              <div class="detail-links">
+                <a class="cell-link cell-link-primary" href="https://mrafiqamin24.github.io/MI-Al-Amin/" target="_blank" rel="noopener">Lihat live <svg class="ico" aria-hidden="true" focusable="false"><use href="#i-arrow" /></svg></a>
+                <a class="cell-link" href="https://github.com/mrafiqamin24/MI-Al-Amin" target="_blank" rel="noopener">Lihat kode</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="detail">
+            <div class="detail-frame">
+              <a href="https://mrafiqamin24.github.io/MikroTik-Login/" target="_blank" rel="noopener" aria-label="Buka demo halaman login hotspot Home.Net">
+                <img src="img/projects/home-net.webp" alt="Halaman login hotspot Home.Net dengan kolom kode voucher dan tombol scan QR" width="1280" height="682" loading="lazy" />
+              </a>
+              <div class="detail-caption"><span class="detail-id">Detail E</span><span>Home.Net</span><span class="stamp stamp-demo">Demo statis</span></div>
+            </div>
+            <div class="detail-notes">
+              <h3>Home.Net — portal hotspot MikroTik dengan voucher dan QR</h3>
+              <p class="detail-type">Jaringan · halaman hotspot RouterOS (login, status, alogin, rlogin, logout, error)</p>
+              <table class="dt case">
+                <tbody>
+                  <tr><th scope="row">Masalah</th><td>Halaman login bawaan MikroTik sulit dipakai di HP, dan pengguna tidak tahu sisa waktu vouchernya.</td></tr>
+                  <tr><th scope="row">Dibangun</th><td>Set lengkap halaman hotspot yang membaca variabel RouterOS, pemindaian voucher lewat QR (jsQR), mode gelap, halaman bantuan, pemberitahuan saat waktu hampir habis.</td></tr>
+                  <tr><th scope="row">Hasil</th><td>Dipakai pada hotspot RT/RW yang saya kelola; demo statis mengganti variabel RouterOS dengan data contoh.</td></tr>
+                </tbody>
+              </table>
+              <ul class="bom" aria-label="Stack"><li>RouterOS Hotspot</li><li>JavaScript</li><li>jsQR</li><li>CSS</li></ul>
+              <div class="detail-links">
+                <a class="cell-link cell-link-primary" href="https://mrafiqamin24.github.io/MikroTik-Login/" target="_blank" rel="noopener">Demo tampilan <svg class="ico" aria-hidden="true" focusable="false"><use href="#i-arrow" /></svg></a>
+                <a class="cell-link" href="https://github.com/mrafiqamin24/MikroTik-Login" target="_blank" rel="noopener">Lihat kode</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="detail">
+            <div class="detail-frame detail-frame-plan">
+              <a href="#server" aria-label="Lompat ke lembar server">
+                <svg viewBox="0 0 640 400" role="img" aria-labelledby="planMini" xmlns="http://www.w3.org/2000/svg">
+                  <title id="planMini">Denah kecil: Cloudflare dan Tailscale masuk ke Proxmox, container web dan database terpisah di bridge internal</title>
+                  <g class="plan-ink">
+                    <rect x="24" y="52" width="150" height="44" />
+                    <text x="99" y="79" text-anchor="middle">Cloudflare Tunnel</text>
+                    <rect x="24" y="112" width="150" height="44" />
+                    <text x="99" y="139" text-anchor="middle">Tailscale · SSH</text>
+                    <rect class="dash" x="230" y="20" width="386" height="360" />
+                    <text x="248" y="44" class="plan-label">PROXMOX VE · ZFS MIRROR</text>
+                    <rect x="252" y="66" width="160" height="54" />
+                    <text x="332" y="88" text-anchor="middle" class="b">CT web</text>
+                    <text x="332" y="108" text-anchor="middle" class="s">nginx + cloudflared</text>
+                    <rect x="436" y="66" width="160" height="54" />
+                    <text x="516" y="88" text-anchor="middle" class="b">CT redis</text>
+                    <text x="516" y="108" text-anchor="middle" class="s">cache &amp; antrean</text>
+                    <line class="thick" x1="252" y1="180" x2="596" y2="180" />
+                    <text x="424" y="170" text-anchor="middle" class="s">vmbr1 · bridge internal, tanpa port fisik</text>
+                    <rect x="344" y="212" width="190" height="62" />
+                    <text x="439" y="236" text-anchor="middle" class="b">CT db · MySQL 8.4</text>
+                    <text x="439" y="256" text-anchor="middle" class="s">hanya 10.10.10.120</text>
+                    <rect x="252" y="306" width="344" height="52" />
+                    <text x="424" y="327" text-anchor="middle" class="s">rpool 2× NVMe mirror · tank 2× HDD mirror</text>
+                    <text x="424" y="345" text-anchor="middle" class="s">snapshot harian · vzdump · off-site GPG</text>
+                    <path d="M174 74 C 210 74, 210 93, 252 93" />
+                    <path d="M174 134 C 210 134, 205 40, 236 40" />
+                    <line x1="332" y1="120" x2="332" y2="180" />
+                    <line x1="516" y1="120" x2="516" y2="180" />
+                    <line x1="439" y1="180" x2="439" y2="212" />
+                  </g>
+                </svg>
+              </a>
+              <div class="detail-caption"><span class="detail-id">Detail F</span><span>Server produksi</span><span class="stamp stamp-live">Produksi</span></div>
+            </div>
+            <div class="detail-notes">
+              <h3>Server rumah kelas produksi: ZFS, LXC, dan firewall default-deny</h3>
+              <p class="detail-type">Infrastruktur · Proxmox VE 9 di Ryzen 9, dua ZFS mirror, tiga container</p>
+              <table class="dt case">
+                <tbody>
+                  <tr><th scope="row">Masalah</th><td>Semua produk di atas butuh database dan hosting yang bisa dikendalikan penuh, tanpa membuka port ke internet, tanpa kehilangan data saat satu disk mati.</td></tr>
+                  <tr><th scope="row">Dibangun</th><td>Container terpisah untuk web, Redis, dan MySQL 8.4; database hanya mendengar di bridge internal. Akses admin lewat Tailscale dengan 2FA dan SSH berbasis kunci. Backup harian ditambah salinan off-site terenkripsi GPG.</td></tr>
+                  <tr><th scope="row">Hasil</th><td>Bertahan reboot, port diuji dari luar (dua yang dianggap tertutup ternyata terbuka, lalu ditutup), dashboard pemantauan buatan sendiri.</td></tr>
+                </tbody>
+              </table>
+              <ul class="bom" aria-label="Stack"><li>Proxmox VE</li><li>ZFS</li><li>LXC</li><li>MySQL 8.4</li><li>Tailscale</li><li>Cloudflare Tunnel</li></ul>
+              <div class="detail-links">
+                <a class="cell-link cell-link-primary" href="#server">Lihat lembar 3</a>
+              </div>
+            </div>
+          </article>
+        </div>
+
+        <div class="schedule">
+          <h3>Jadwal project lain <span>kode privat, siap didemokan saat wawancara</span></h3>
+          <p class="scroll-cue">Tabel lebar, geser ke samping <svg class="ico" aria-hidden="true" focusable="false"><use href="#i-arrow-right" /></svg></p>
+          <div class="table-scroll">
+            <table class="dt sched">
+              <thead>
+                <tr><th scope="col">No</th><th scope="col">Project</th><th scope="col">Fungsi</th><th scope="col">Stack</th><th scope="col">Ukuran</th></tr>
+              </thead>
+              <tbody>
+                <tr><td class="fig">7</td><th scope="row">Restotech.id</th><td>Manajemen restoran multi-tenant: pesan lewat QR meja, kasir, dapur, shift kas, loyalti, PWA. JWT + RBAC, passkey untuk pemilik.</td><td>Next.js 16 · React 19 · Prisma 6 · MySQL 8.4</td><td class="fig">120 commit</td></tr>
+                <tr><td class="fig">8</td><th scope="row">Homtech.id</th><td>Manajemen hotel multi-tenant; ledger RoomNight menjamin anti double-booking di level database.</td><td>Next.js · Prisma · TypeScript</td><td class="fig">220 commit</td></tr>
+                <tr><td class="fig">9</td><th scope="row">Amin Cloud</th><td>Penyimpanan awan keluarga setara Google Drive di server sendiri. Login passkey/WebAuthn, pemindaian ClamAV, thumbnail libvips.</td><td>Laravel 13 · Inertia · React 19 · PHPStan lv 8</td><td class="fig">146 berkas uji</td></tr>
+                <tr><td class="fig">10</td><th scope="row">Crypt-Man</th><td>Pengelola sandi dengan kriptografi sepenuhnya di browser (Argon2id + AES-256-GCM di Web Worker). Server tidak pernah melihat plaintext.</td><td>Next.js · Prisma · Docker · CI dengan MySQL</td><td class="fig">692 tes · LH 94/100/100</td></tr>
+                <tr><td class="fig">11</td><th scope="row">PlatformHQ</th><td>Konsol operator di atas Ownertech, Restotech, Homtech: metrik agregat, status kesehatan, registry rilis. Hanya baca DB produk, 2FA wajib.</td><td>Laravel 13 · Filament v5 · Larastan</td><td class="fig">84 commit</td></tr>
+                <tr><td class="fig">12</td><th scope="row">Absensi GPS Toko Berkah Jaya</th><td>Absensi karyawan berbasis lokasi untuk sebuah toko; aturan shift dan zona ambigu diuji otomatis.</td><td>Google Apps Script · Spreadsheet</td><td class="fig">4 suite uji</td></tr>
+                <tr><td class="fig">13</td><th scope="row">Catat Fiq</th><td>Aplikasi catatan Android tanpa server; semua data di SQLite terenkripsi, dipasang lewat ADB.</td><td>Flutter · SQLite</td><td class="fig">—</td></tr>
+                <tr><td class="fig">14</td><th scope="row">Foto-Kita-Blurrr</th><td>Kamera real-time yang dikendalikan gestur tangan: lima gestur memicu teks, animasi, dan suara.</td><td>Python · MediaPipe · OpenCV</td><td class="fig">—</td></tr>
+              </tbody>
+            </table>
           </div>
-          <ul class="tags">
-            <li>JavaScript</li>
-            <li>MikroTik</li>
-            <li>RouterOS</li>
-            <li>Security</li>
-          </ul>
-          <a href="https://mrafiqamin24.github.io/MikroTik-Login/" class="project-link" target="_blank" rel="noopener" aria-label="Buka repository Integrasi Server di GitHub">
-            <span>Lihat di GitHub</span>
-            <i class="bi bi-github" aria-hidden="true"></i>
-          </a>
-        </article>
-
-        <article class="project-row reveal">
-          <a class="project-thumb" href="https://mrafiqamin24.github.io/MI-Al-Amin/" target="_blank" rel="noopener" aria-label="Buka demo MI Al-Amin di GitHub Pages">
-            <img src="img/projects/LP Project 1.png" alt="" loading="lazy" />
-            <span class="project-number">03</span>
-          </a>
-          <div class="project-main">
-            <p class="project-type">Landing Page Instansi</p>
-            <h3>MI Al-Amin - Landing Page</h3>
-            <p class="project-desc">
-              Landing Page dibuat untuk memberikan sebuah informasi untuk suatu instansi, lembaga, usaha atau organisasi. dizaman serba digitaln seperti sekarang ini tentu anda akat sangat membutuhkan compeny profile untuk mengenalkan 
-              instansi, lembaga, usaha atau organisasi anda kepada masyarakat luas disitulah Landing page berperan sebagai media informasi.
-            </p>
-          </div>
-          <ul class="tags">
-            <li>UI/UX Design</li>
-            <li>JavaScript</li>
-            <li>Bootstrap-icons</li>
-          </ul>
-          <a href="https://mrafiqamin24.github.io/MI-Al-Amin/" class="project-link" target="_blank" rel="noopener" aria-label="Buka repository Integrasi Server di GitHub">
-            <span>Lihat di GitHub</span>
-            <i class="bi bi-github" aria-hidden="true"></i>
-          </a>
-        </article>
-
-        <!-- Slot project berikutnya: ganti href dan screenshot saat sudah siap -->
-        <article class="project-row project-row-empty reveal">
-          <a class="project-thumb" href="ht" target="_blank" rel="noopener" aria-label="Slot project baru">
-            <img src="img/projects/coming-soon.png" alt="Slot screenshot project baru" loading="lazy" />
-            <span class="project-number">04</span>
-          </a>
-          <div class="project-main">
-            <p class="project-type">Cloud Server</p>
-            <h3>Coming Soon</h3>
-            <p class="project-desc">
-              Tunggu project saya selanjutnya yang sedang dalam tahap pengerjaan, project ini akan menampilkan sebuah layanan cloud server yang bisa digunakan untuk hosting, penyimpanan data, dan layanan cloud lainnya dengan performa tinggi dan keamanan yang terjamin.
-            </p>
-          </div>
-          <ul class="tags">
-            <li>TrueNAS</li>
-            <li>Storage</li>
-            <li>Server</li>
-          </ul>
-          <a href="#" class="project-link" target="_blank" rel="noopener" aria-label="Tambahkan link project baru di GitHub">
-            <span>Isi link</span>
-            <i class="bi bi-link-45deg" aria-hidden="true"></i>
-          </a>
-        </article>
-      </div>
-    </section>
-
-    <section class="section skills" id="skills">
-      <div class="section-kicker reveal">Keahlian</div>
-      <div class="skills-layout">
-        <h2 class="reveal">Berikut skill yang saya gunakan untuk membangun sebuah project dan saya akan terus mengembangkannya</h2>
-        <div class="skill-cloud reveal" aria-label="Daftar keahlian">
-          <span>MikroTik</span>
-          <span>Hotspot System</span>
-          <span>Media Jaringan</span>
-          <span>Networking</span>
-          <span>PHP</span>
-          <span>Laravel</span>
-          <span>JavaScript</span>
-          <span>C++</span>
-          <span>UI/UX Design</span>
-          <span>Cloud Server</span>
-          <span>IoT</span>
-          <span>Cybersecurity</span>
+          <p class="schedule-note">Karya awal 2025 masih online: <a href="https://mrafiqamin24.github.io/SIPPDAM/" target="_blank" rel="noopener">SIPPDAM</a> dan <a href="https://mrafiqamin24.github.io/Herbify/" target="_blank" rel="noopener">Herbify</a>. Semua repo publik ada di <a href="https://github.com/mrafiqamin24" target="_blank" rel="noopener">github.com/mrafiqamin24</a>.</p>
         </div>
       </div>
+
+      <footer class="title-block">
+        <div class="tb-cell tb-mono"><span class="mono-mark">MRA</span></div>
+        <div class="tb-cell tb-project">
+          <span class="tb-k">Project</span><span class="tb-v">Portofolio · Muhammad Rafiq Amin</span>
+          <span class="tb-k">Judul lembar</span><span class="tb-v">Detail project A–F, jadwal 7–14</span>
+        </div>
+        <div class="tb-cell tb-meta">
+          <span class="tb-k">Lembar</span><span class="tb-v fig">2 / 6</span>
+          <span class="tb-k">Rev</span><span class="tb-v fig">C · 09-2026</span>
+          <span class="tb-k">Skala</span><span class="tb-v fig">NTS</span>
+          <span class="tb-k">Digambar</span><span class="tb-v">MRA</span>
+        </div>
+        <a class="tb-cell tb-action tb-action-primary" href="https://hotel.ownertech.id" target="_blank" rel="noopener">
+          <span class="tb-k">Aksi utama</span>
+          <span class="tb-v">Coba MR Hotel live <svg class="ico" aria-hidden="true" focusable="false"><use href="#i-arrow" /></svg></span>
+        </a>
+      </footer>
     </section>
 
-    <section class="section contact" id="contact">
-      <div class="contact-panel reveal">
-        <p class="section-kicker">Kontak</p>
-        <h2>Terbuka untuk kolaborasi, belajar bareng, atau membangun solusi jaringan dan web.</h2>
-        <div class="contact-links">
-          <a href="mailto:rafiqamin085252@gmail.com">
-            <i class="bi bi-envelope-fill" aria-hidden="true"></i>
-            <span>Email</span>
-          </a>
-          <a href="https://wa.me/6282152400352" target="_blank" rel="noopener">
-            <i class="bi bi-whatsapp" aria-hidden="true"></i>
-            <span>WhatsApp</span>
-          </a>
-          <a href="https://github.com/mrafiqamin24" target="_blank" rel="noopener">
-            <i class="bi bi-github" aria-hidden="true"></i>
-            <span>GitHub</span>
-          </a>
-          <a href="https://instagram.com/m_rafiq_amin" target="_blank" rel="noopener">
-            <i class="bi bi-instagram" aria-hidden="true"></i>
-            <span>Instagram</span>
-          </a>
+    <!-- LEMBAR 3 -->
+    <section class="sheet sheet-3 blueprint" id="server" aria-labelledby="ttl-server">
+      <div class="zones zones-x" aria-hidden="true"><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span></div>
+      <div class="zones zones-y" aria-hidden="true"><span>A</span><span>B</span><span>C</span><span>D</span><span>E</span><span>F</span></div>
+
+      <div class="sheet-body bp-grid">
+        <div class="bp-plan">
+          <h2 id="ttl-server">Server produksi: tiap keputusan ada alasannya</h2>
+          <p class="bp-lead">Server ini menjalankan database dan web untuk produk di lembar 2. Saya merakit hardware-nya, memasang Proxmox VE 9, dan mengujinya seperti sistem produksi: mematikan container untuk memastikan situs tetap hidup, memindai port dari luar, dan menghitung apa yang terjadi kalau satu disk mati.</p>
+
+          <figure class="plan">
+            <svg viewBox="0 0 640 420" role="img" aria-labelledby="planTitle" xmlns="http://www.w3.org/2000/svg">
+              <title id="planTitle">Denah jaringan: internet masuk lewat Cloudflare Tunnel dan Tailscale; container web, redis, dan database berada di dalam Proxmox; database hanya terhubung ke bridge internal</title>
+              <g class="plan-ink plan-ink-white">
+                <text x="24" y="34" class="plan-label">INTERNET</text>
+                <rect x="24" y="48" width="150" height="46" />
+                <text x="99" y="76" text-anchor="middle">Cloudflare Tunnel</text>
+                <rect x="24" y="110" width="150" height="46" />
+                <text x="99" y="138" text-anchor="middle">Tailscale · SSH · 2FA</text>
+                <text x="24" y="196" class="s">Tidak ada port terbuka ke internet</text>
+                <text x="24" y="214" class="s">WoL untuk menyalakan dari LAN</text>
+
+                <rect class="dash" x="230" y="20" width="386" height="380" />
+                <text x="248" y="46" class="plan-label">PROXMOX VE 9.2 · RYZEN 9 · 32 GB</text>
+
+                <rect x="252" y="66" width="160" height="58" />
+                <text x="332" y="90" text-anchor="middle" class="b">CT 100 web</text>
+                <text x="332" y="108" text-anchor="middle" class="s">nginx + cloudflared</text>
+
+                <rect x="436" y="66" width="160" height="58" />
+                <text x="516" y="90" text-anchor="middle" class="b">CT 102 redis</text>
+                <text x="516" y="108" text-anchor="middle" class="s">cache &amp; antrean</text>
+
+                <line class="thick" x1="252" y1="182" x2="596" y2="182" />
+                <text x="424" y="172" text-anchor="middle" class="s">vmbr1 · 10.10.10.0/24 · bridge internal tanpa port fisik</text>
+
+                <rect x="344" y="212" width="190" height="66" />
+                <text x="439" y="238" text-anchor="middle" class="b">CT 120 db · MySQL 8.4</text>
+                <text x="439" y="256" text-anchor="middle" class="s">hanya mendengar di 10.10.10.120</text>
+
+                <rect x="252" y="306" width="344" height="72" />
+                <text x="424" y="330" text-anchor="middle" class="s">rpool: 2× NVMe 2 TB mirror · tank: 2× HDD 4 TB mirror</text>
+                <text x="424" y="348" text-anchor="middle" class="s">dump MySQL 23:30 · vzdump 00:00 · snapshot ZFS 00:30</text>
+                <text x="424" y="366" text-anchor="middle" class="s">salinan off-site terenkripsi GPG AES-256</text>
+
+                <path d="M174 71 C 210 71, 210 95, 252 95" />
+                <path d="M174 133 C 210 133, 205 40, 238 40" />
+                <line x1="332" y1="124" x2="332" y2="182" />
+                <line x1="516" y1="124" x2="516" y2="182" />
+                <line x1="439" y1="182" x2="439" y2="212" />
+              </g>
+            </svg>
+            <figcaption><span>Denah jaringan</span><span>Skala NTS</span></figcaption>
+          </figure>
+        </div>
+
+        <div class="bp-notes">
+          <table class="dt spec">
+            <caption>Spesifikasi</caption>
+            <tbody>
+              <tr><th scope="row">Hypervisor</th><td>Proxmox VE 9.2</td></tr>
+              <tr><th scope="row">CPU / RAM</th><td>Ryzen 9 9900X · 32 GB</td></tr>
+              <tr><th scope="row">Disk</th><td>2× NVMe 2 TB + 2× HDD 4 TB, ZFS mirror</td></tr>
+              <tr><th scope="row">Container</th><td>web, redis, db (LXC)</td></tr>
+              <tr><th scope="row">Database</th><td>MySQL 8.4 LTS</td></tr>
+              <tr><th scope="row">Akses</th><td>Tailscale · Cloudflare Tunnel</td></tr>
+            </tbody>
+          </table>
+
+          <div class="notes">
+            <h3>Pekerjaan yang sudah diverifikasi</h3>
+            <ol>
+              <li><strong>Penyimpanan.</strong> Dua ZFS mirror, ARC dibatasi, kedua partisi boot terisi sehingga tetap boot walau satu NVMe mati.</li>
+              <li><strong>Isolasi.</strong> MySQL hanya di bridge internal; aplikasi menjangkaunya lewat NIC kedua. Firewall per container dan firewall host default-deny.</li>
+              <li><strong>Akses.</strong> Tidak ada port diteruskan ke internet. Tailscale dengan ACL, SSH hanya kunci, 2FA di web UI, fail2ban, pembaruan keamanan otomatis.</li>
+              <li><strong>Edge.</strong> Cloudflare Tunnel untuk aplikasi; Cloudflare Worker untuk halaman statis agar tetap hidup saat server dimatikan.</li>
+              <li><strong>Backup.</strong> Dump MySQL harian, vzdump semua container, snapshot ZFS, salinan off-site GPG. Penjaga backup memeriksa struktur dump, bukan ukurannya.</li>
+              <li><strong>Pemantauan.</strong> Dashboard buatan sendiri membaca satu aliran JSON lewat SSH: daya CPU, keausan NVMe, umur scrub, status backup. Tanpa port tambahan.</li>
+            </ol>
+          </div>
+
+          <div class="notes lessons">
+            <h3>Tiga pelajaran yang saya bawa</h3>
+            <ol>
+              <li>Uji dari luar, jangan asumsikan. <code>bind-address</code> saja tidak menutup semua port MySQL.</li>
+              <li>Pasang mekanisme rollback sebelum mengubah firewall dari jarak jauh.</li>
+              <li>Verifikasi arsitektur image sebelum menyalahkan hardware.</li>
+            </ol>
+          </div>
         </div>
       </div>
+
+      <footer class="title-block">
+        <div class="tb-cell tb-mono"><span class="mono-mark">MRA</span></div>
+        <div class="tb-cell tb-project">
+          <span class="tb-k">Project</span><span class="tb-v">Portofolio · Muhammad Rafiq Amin</span>
+          <span class="tb-k">Judul lembar</span><span class="tb-v">Denah jaringan &amp; spesifikasi server</span>
+        </div>
+        <div class="tb-cell tb-meta">
+          <span class="tb-k">Lembar</span><span class="tb-v fig">3 / 6</span>
+          <span class="tb-k">Rev</span><span class="tb-v fig">C · 09-2026</span>
+          <span class="tb-k">Skala</span><span class="tb-v fig">NTS</span>
+          <span class="tb-k">Digambar</span><span class="tb-v">MRA</span>
+        </div>
+        <a class="tb-cell tb-action tb-action-primary" href="https://wa.me/6282152400352?text=Halo%20Rafiq%2C%20saya%20mau%20tanya%20soal%20server%20di%20portofolio%20Anda" target="_blank" rel="noopener">
+          <span class="tb-k">Aksi utama</span>
+          <span class="tb-v">Tanya soal server <svg class="ico" aria-hidden="true" focusable="false"><use href="#i-arrow" /></svg></span>
+        </a>
+      </footer>
+    </section>
+
+    <!-- LEMBAR 4 -->
+    <section class="sheet sheet-4" id="keahlian" aria-labelledby="ttl-keahlian">
+      <div class="zones zones-x" aria-hidden="true"><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span></div>
+      <div class="zones zones-y" aria-hidden="true"><span>A</span><span>B</span><span>C</span><span>D</span><span>E</span><span>F</span></div>
+
+      <div class="sheet-body">
+        <div class="sheet-head">
+          <div>
+            <h2 id="ttl-keahlian">Daftar material: keahlian dan buktinya</h2>
+          </div>
+          <p class="sheet-head-note">Kolom <em>Dipakai di</em> merujuk detail di lembar 2 dan denah di lembar 3. Tidak ada item tanpa bukti.</p>
+        </div>
+
+        <p class="scroll-cue">Tabel lebar, geser ke samping <svg class="ico" aria-hidden="true" focusable="false"><use href="#i-arrow-right" /></svg></p>
+        <div class="table-scroll">
+          <table class="dt bom-table">
+            <thead>
+              <tr><th scope="col">No</th><th scope="col">Item</th><th scope="col">Spesifikasi</th><th scope="col">Dipakai di</th></tr>
+            </thead>
+            <tbody>
+              <tr class="group"><th scope="rowgroup" colspan="4">Backend &amp; data</th></tr>
+              <tr><td class="fig">1</td><th scope="row">PHP · Laravel</th><td>Laravel 12–13, Sanctum, queue, Pest/PHPUnit</td><td>Ownertech (B), Amin Cloud (9), PlatformHQ (11)</td></tr>
+              <tr><td class="fig">2</td><th scope="row">Node.js · Express</th><td>Streaming Range, PDF.js, mammoth</td><td>Secure Viewer (C)</td></tr>
+              <tr><td class="fig">3</td><th scope="row">Desain API &amp; auth</th><td>REST, JWT httpOnly, RBAC granular, passkey/WebAuthn</td><td>Ownertech (B), Restotech (7), Amin Cloud (9)</td></tr>
+              <tr><td class="fig">4</td><th scope="row">MySQL 8.4 · Prisma · SQLite</th><td>Skema multi-tenant, migrasi, ledger anti double-booking</td><td>Semua produk, Homtech (8), Catat Fiq (13)</td></tr>
+              <tr><td class="fig">5</td><th scope="row">Google Apps Script</th><td>Web app di atas Spreadsheet, trigger, kunci penulisan</td><td>MR Hotel (A), Absensi GPS (12)</td></tr>
+
+              <tr class="group"><th scope="rowgroup" colspan="4">Frontend &amp; mobile</th></tr>
+              <tr><td class="fig">6</td><th scope="row">Next.js · React · TypeScript</th><td>Next.js 16 App Router, React 19, PWA, Recharts</td><td>Restotech (7), Homtech (8), Crypt-Man (10)</td></tr>
+              <tr><td class="fig">7</td><th scope="row">Inertia · Tailwind CSS 4</th><td>SPA di atas Laravel, Vite</td><td>Amin Cloud (9)</td></tr>
+              <tr><td class="fig">8</td><th scope="row">Flutter · Dart</th><td>Riverpod, go_router, Dio, Drift + SQLite offline</td><td>Ownertech (B), Catat Fiq (13)</td></tr>
+              <tr><td class="fig">9</td><th scope="row">HTML · CSS · JavaScript</th><td>Tanpa framework, responsif, aksesibilitas dasar</td><td>Portofolio ini, MI Al-Amin (D), Home.Net (E)</td></tr>
+              <tr><td class="fig">10</td><th scope="row">Filament v5</th><td>Panel admin, activitylog, 2FA</td><td>PlatformHQ (11)</td></tr>
+
+              <tr class="group"><th scope="rowgroup" colspan="4">Jaringan &amp; server</th></tr>
+              <tr><td class="fig">11</td><th scope="row">MikroTik RouterOS</th><td>Hotspot, voucher, halaman login kustom, RT/RW Net</td><td>Home.Net (E)</td></tr>
+              <tr><td class="fig">12</td><th scope="row">Proxmox VE · LXC · ZFS</th><td>Mirror, snapshot, vzdump, firewall per container</td><td>Server produksi (F, lembar 3)</td></tr>
+              <tr><td class="fig">13</td><th scope="row">Linux Debian</th><td>systemd, socket activation, fail2ban, unattended-upgrades</td><td>CT web, redis, db (lembar 3)</td></tr>
+              <tr><td class="fig">14</td><th scope="row">Cloudflare</th><td>Tunnel, Workers, Pages, DNS</td><td>ownertech.id, hotel.ownertech.id (A, B)</td></tr>
+              <tr><td class="fig">15</td><th scope="row">Tailscale · SSH · GPG</th><td>ACL, kunci ed25519, enkripsi backup off-site</td><td>Akses admin, backup (lembar 3)</td></tr>
+
+              <tr class="group"><th scope="rowgroup" colspan="4">Kualitas &amp; cara kerja</th></tr>
+              <tr><td class="fig">16</td><th scope="row">Uji otomatis</th><td>Pest, PHPUnit, Vitest, Playwright; CI dengan MySQL berkontainer</td><td>Amin Cloud (9), Crypt-Man (10)</td></tr>
+              <tr><td class="fig">17</td><th scope="row">Analisis statis</th><td>PHPStan level 8, Larastan, ESLint, Prettier, gitleaks</td><td>Amin Cloud (9), PlatformHQ (11)</td></tr>
+              <tr><td class="fig">18</td><th scope="row">Git · Docker</th><td>980+ commit, docker-compose, Dockerfile</td><td>Semua produk, Crypt-Man (10)</td></tr>
+              <tr><td class="fig">19</td><th scope="row">Dokumentasi</th><td>PRD, README, catatan deploy di tiap repo</td><td>Semua produk</td></tr>
+              <tr><td class="fig">20</td><th scope="row">Alur kerja dibantu AI</th><td>Claude Code, dengan uji otomatis sebagai pengaman</td><td>Sejak 2026</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <footer class="title-block">
+        <div class="tb-cell tb-mono"><span class="mono-mark">MRA</span></div>
+        <div class="tb-cell tb-project">
+          <span class="tb-k">Project</span><span class="tb-v">Portofolio · Muhammad Rafiq Amin</span>
+          <span class="tb-k">Judul lembar</span><span class="tb-v">Daftar material: keahlian &amp; bukti</span>
+        </div>
+        <div class="tb-cell tb-meta">
+          <span class="tb-k">Lembar</span><span class="tb-v fig">4 / 6</span>
+          <span class="tb-k">Rev</span><span class="tb-v fig">C · 09-2026</span>
+          <span class="tb-k">Skala</span><span class="tb-v fig">NTS</span>
+          <span class="tb-k">Digambar</span><span class="tb-v">MRA</span>
+        </div>
+        <a class="tb-cell tb-action tb-action-primary" href="cv.html">
+          <span class="tb-k">Aksi utama</span>
+          <span class="tb-v">Buka CV versi cetak</span>
+        </a>
+      </footer>
+    </section>
+
+    <!-- LEMBAR 5 -->
+    <section class="sheet sheet-5" id="prosedur" aria-labelledby="ttl-prosedur">
+      <div class="zones zones-x" aria-hidden="true"><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span></div>
+      <div class="zones zones-y" aria-hidden="true"><span>A</span><span>B</span><span>C</span><span>D</span><span>E</span><span>F</span></div>
+
+      <div class="sheet-body">
+        <div class="sheet-head">
+          <div>
+            <h2 id="ttl-prosedur">Prosedur kerja: dari brief sampai serah terima</h2>
+          </div>
+          <p class="sheet-head-note">Urutan ini yang membuat produk di lembar 2 bisa dirawat orang lain.</p>
+        </div>
+
+        <figure class="flow">
+          <svg class="flow-wide" viewBox="0 0 1200 190" role="img" aria-labelledby="flowTitle" xmlns="http://www.w3.org/2000/svg">
+            <title id="flowTitle">Diagram alir prosedur: PRD, uji otomatis, keamanan sejak awal, lalu serah terima; tiap tahap mengalir ke tahap berikutnya</title>
+            <g class="plan-ink">
+              <line class="thick" x1="20" y1="100" x2="1180" y2="100" />
+              <rect x="40" y="52" width="230" height="96" />
+              <text x="58" y="82" class="plan-label">TAHAP 1 · PRD</text>
+              <text x="58" y="112" class="b">Tulis dulu, baru koding</text>
+              <text x="58" y="132" class="s">Pengguna, alur utama, batas lingkup</text>
+              <path d="M300 94 l10 6 -10 6z" class="fill" />
+              <rect x="330" y="52" width="230" height="96" />
+              <text x="348" y="82" class="plan-label">TAHAP 2 · UJI</text>
+              <text x="348" y="112" class="b">Uji yang bisa diulang</text>
+              <text x="348" y="132" class="s">Aturan bisnis diuji; DB ikut di CI</text>
+              <path d="M590 94 l10 6 -10 6z" class="fill" />
+              <rect x="620" y="52" width="230" height="96" />
+              <text x="638" y="82" class="plan-label">TAHAP 3 · AMAN</text>
+              <text x="638" y="112" class="b">Aman sejak awal</text>
+              <text x="638" y="132" class="s">Default-deny, 2FA, port diuji dari luar</text>
+              <path d="M880 94 l10 6 -10 6z" class="fill" />
+              <rect x="910" y="52" width="230" height="96" />
+              <text x="928" y="82" class="plan-label">TAHAP 4 · SERAH</text>
+              <text x="928" y="112" class="b">Bisa diserahkan</text>
+              <text x="928" y="132" class="s">README, catatan deploy, jalan buntu</text>
+              <path d="M1170 94 l10 6 -10 6z" class="fill" />
+            </g>
+          </svg>
+          <svg class="flow-tall" viewBox="0 0 400 560" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg">
+            <g class="plan-ink">
+              <line class="thick" x1="200" y1="10" x2="200" y2="550" />
+              <rect x="40" y="20" width="320" height="96" />
+              <text x="58" y="50" class="plan-label">TAHAP 1 · PRD</text>
+              <text x="58" y="80" class="b">Tulis dulu, baru koding</text>
+              <text x="58" y="100" class="s">Pengguna, alur utama, batas lingkup</text>
+              <path d="M194 140 l6 10 6 -10z" class="fill" />
+              <rect x="40" y="160" width="320" height="96" />
+              <text x="58" y="190" class="plan-label">TAHAP 2 · UJI</text>
+              <text x="58" y="220" class="b">Uji yang bisa diulang</text>
+              <text x="58" y="240" class="s">Aturan bisnis diuji; DB ikut di CI</text>
+              <path d="M194 280 l6 10 6 -10z" class="fill" />
+              <rect x="40" y="300" width="320" height="96" />
+              <text x="58" y="330" class="plan-label">TAHAP 3 · AMAN</text>
+              <text x="58" y="360" class="b">Aman sejak awal</text>
+              <text x="58" y="380" class="s">Default-deny, 2FA, port diuji dari luar</text>
+              <path d="M194 420 l6 10 6 -10z" class="fill" />
+              <rect x="40" y="440" width="320" height="96" />
+              <text x="58" y="470" class="plan-label">TAHAP 4 · SERAH</text>
+              <text x="58" y="500" class="b">Bisa diserahkan</text>
+              <text x="58" y="520" class="s">README, catatan deploy, jalan buntu</text>
+            </g>
+          </svg>
+          <figcaption><span>Diagram alir prosedur</span><span>Skala NTS</span></figcaption>
+        </figure>
+
+        <div class="notes flow-notes">
+          <h3>Keterangan tahap</h3>
+          <ol>
+            <li><strong>PRD sebelum kode.</strong> Setiap project dimulai dari dokumen singkat: siapa penggunanya, alur utamanya, dan apa yang sengaja tidak dibuat.</li>
+            <li><strong>Uji yang bisa diulang.</strong> Aturan bisnis penting punya tes otomatis. Tes yang butuh database ikut jalan di CI, bukan dilewati diam-diam.</li>
+            <li><strong>Aman sejak awal.</strong> Default-deny, rahasia di environment, 2FA untuk akun berkuasa, dan port diuji dari luar sebelum dinyatakan tertutup.</li>
+            <li><strong>Bisa diserahkan.</strong> README dan catatan deploy ditulis untuk orang berikutnya, termasuk jalan buntu yang sudah dicoba agar tidak diulang.</li>
+          </ol>
+        </div>
+      </div>
+
+      <footer class="title-block">
+        <div class="tb-cell tb-mono"><span class="mono-mark">MRA</span></div>
+        <div class="tb-cell tb-project">
+          <span class="tb-k">Project</span><span class="tb-v">Portofolio · Muhammad Rafiq Amin</span>
+          <span class="tb-k">Judul lembar</span><span class="tb-v">Prosedur kerja</span>
+        </div>
+        <div class="tb-cell tb-meta">
+          <span class="tb-k">Lembar</span><span class="tb-v fig">5 / 6</span>
+          <span class="tb-k">Rev</span><span class="tb-v fig">C · 09-2026</span>
+          <span class="tb-k">Skala</span><span class="tb-v fig">NTS</span>
+          <span class="tb-k">Digambar</span><span class="tb-v">MRA</span>
+        </div>
+        <a class="tb-cell tb-action tb-action-primary" href="mailto:rafiqamin085252@gmail.com?subject=Peluang%20kerja%20sama">
+          <span class="tb-k">Aksi utama</span>
+          <span class="tb-v">Kirim email</span>
+        </a>
+      </footer>
+    </section>
+
+    <!-- LEMBAR 6 -->
+    <section class="sheet sheet-6" id="kontak" aria-labelledby="ttl-kontak">
+      <div class="zones zones-x" aria-hidden="true"><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span></div>
+      <div class="zones zones-y" aria-hidden="true"><span>A</span><span>B</span><span>C</span><span>D</span><span>E</span><span>F</span></div>
+
+      <div class="sheet-body transmittal">
+        <div class="sheet-head">
+          <div>
+            <h2 id="ttl-kontak">Butuh developer yang juga memasang servernya? Kirim pesan</h2>
+          </div>
+        </div>
+
+        <div class="tr-grid">
+          <table class="dt tr-form">
+            <tbody>
+              <tr><th scope="row">Kepada</th><td>HRD &amp; rekruter · pemilik usaha · tech lead</td></tr>
+              <tr><th scope="row">Dari</th><td>Muhammad Rafiq Amin, Kalimantan Barat (WIB)</td></tr>
+              <tr><th scope="row">Perihal</th><td>Lamaran magang / junior, atau kerja sama project</td></tr>
+              <tr><th scope="row">Isi kiriman</th><td>6 lembar: umum, detail project, server, keahlian, prosedur, kontak. CV versi cetak di <a href="cv.html">cv.html</a>.</td></tr>
+              <tr><th scope="row">Balasan</th><td>WhatsApp paling cepat. Email dibalas dalam 24 jam.</td></tr>
+            </tbody>
+          </table>
+
+          <div class="contact-cells">
+            <a class="contact-cell contact-cell-primary" href="https://wa.me/6282152400352?text=Halo%20Rafiq%2C%20saya%20lihat%20portofolio%20Anda" target="_blank" rel="noopener">
+              <span class="tb-k">WhatsApp</span>
+              <span class="contact-v fig">+62 821-5240-0352</span>
+              <span class="contact-act">Chat sekarang <svg class="ico" aria-hidden="true" focusable="false"><use href="#i-arrow" /></svg></span>
+            </a>
+            <a class="contact-cell" href="mailto:rafiqamin085252@gmail.com?subject=Peluang%20kerja%20sama">
+              <span class="tb-k">Email</span>
+              <span class="contact-v">rafiqamin085252@gmail.com</span>
+              <span class="contact-act">Kirim email</span>
+            </a>
+            <a class="contact-cell" href="https://github.com/mrafiqamin24" target="_blank" rel="noopener">
+              <span class="tb-k">GitHub</span>
+              <span class="contact-v">github.com/mrafiqamin24</span>
+              <span class="contact-act">Lihat repo <svg class="ico" aria-hidden="true" focusable="false"><use href="#i-arrow" /></svg></span>
+            </a>
+            <a class="contact-cell" href="https://instagram.com/m_rafiq_amin" target="_blank" rel="noopener">
+              <span class="tb-k">Instagram</span>
+              <span class="contact-v">@m_rafiq_amin</span>
+              <span class="contact-act">Buka profil <svg class="ico" aria-hidden="true" focusable="false"><use href="#i-arrow" /></svg></span>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <footer class="title-block">
+        <div class="tb-cell tb-mono"><span class="mono-mark">MRA</span></div>
+        <div class="tb-cell tb-project">
+          <span class="tb-k">Project</span><span class="tb-v">Portofolio · Muhammad Rafiq Amin</span>
+          <span class="tb-k">Judul lembar</span><span class="tb-v">Lembar pengiriman &amp; kontak</span>
+        </div>
+        <div class="tb-cell tb-meta">
+          <span class="tb-k">Lembar</span><span class="tb-v fig">6 / 6</span>
+          <span class="tb-k">Rev</span><span class="tb-v fig">C · 09-2026</span>
+          <span class="tb-k">Skala</span><span class="tb-v fig">NTS</span>
+          <span class="tb-k">Digambar</span><span class="tb-v">MRA</span>
+        </div>
+        <div class="tb-cell tb-stamp">
+          <span class="stamp">Tersedia<small>magang · freelance · full-time</small></span>
+        </div>
+        <a class="tb-cell tb-action tb-action-primary" href="https://wa.me/6282152400352?text=Halo%20Rafiq%2C%20saya%20lihat%20portofolio%20Anda" target="_blank" rel="noopener">
+          <span class="tb-k">Aksi utama</span>
+          <span class="tb-v">Chat WhatsApp <svg class="ico" aria-hidden="true" focusable="false"><use href="#i-arrow" /></svg></span>
+        </a>
+      </footer>
     </section>
   </main>
 
-  <footer class="site-footer">
-    <p>© <span id="year">2026</span> Muhammad Rafiq Amin. Portfolio for network, web, and continuous learning.</p>
-    <div class="footer-socials" aria-label="Tautan sosial">
-      <a href="https://github.com/mrafiqamin24" target="_blank" rel="noopener" aria-label="GitHub">
-        <i class="bi bi-github" aria-hidden="true"></i>
-      </a>
-      <a href="https://instagram.com/m_rafiq_amin" target="_blank" rel="noopener" aria-label="Instagram">
-        <i class="bi bi-instagram" aria-hidden="true"></i>
-      </a>
-      <a href="https://wa.me/6282152400352" target="_blank" rel="noopener" aria-label="WhatsApp">
-        <i class="bi bi-whatsapp" aria-hidden="true"></i>
-      </a>
-      <a href="mailto:rafiqamin085252@gmail.com" aria-label="Email">
-        <i class="bi bi-envelope-fill" aria-hidden="true"></i>
-      </a>
-    </div>
+  <footer class="colophon">
+    <p>© <span id="year">2026</span> Muhammad Rafiq Amin. Halaman ini HTML, CSS, dan JavaScript tanpa framework; total aset di bawah 400 KB.</p>
+    <p><a href="https://github.com/mrafiqamin24/PortFolio" target="_blank" rel="noopener">Sumber halaman di GitHub</a></p>
   </footer>
 
-  <button class="to-top" id="toTop" aria-label="Kembali ke atas">
-    <i class="bi bi-arrow-up" aria-hidden="true"></i>
-  </button>
-
-  <script src="script.js"></script>
+  <script src="script.js" defer></script>
 </body>
 </html>

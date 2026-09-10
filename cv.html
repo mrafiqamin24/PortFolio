@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CV — Muhammad Rafiq Amin</title>
+  <meta name="description" content="Curriculum vitae Muhammad Rafiq Amin: Full-Stack Web Developer dan Network Engineer. Laravel, Next.js, Flutter, MikroTik, Proxmox." />
+  <meta name="robots" content="noindex" />
+  <link rel="icon" href="img/favicon.png" type="image/png" />
+  <style>
+    @font-face { font-family: "Saira"; font-weight: 400; font-display: swap; src: url("fonts/saira-400.woff2") format("woff2"); }
+    @font-face { font-family: "Saira"; font-weight: 600; font-display: swap; src: url("fonts/saira-600.woff2") format("woff2"); }
+    @font-face { font-family: "Saira"; font-weight: 700; font-display: swap; src: url("fonts/saira-700.woff2") format("woff2"); }
+    @font-face { font-family: "Saira"; font-weight: 800; font-display: swap; src: url("fonts/saira-800.woff2") format("woff2"); }
+    @font-face { font-family: "B612 Mono"; font-weight: 400; font-display: swap; src: url("fonts/b612mono-400.woff2") format("woff2"); }
+    @font-face { font-family: "B612 Mono"; font-weight: 700; font-display: swap; src: url("fonts/b612mono-700.woff2") format("woff2"); }
+    :root {
+      --paper: #fbfbf8;
+      --ink: #111111;
+      --ink-2: #3b3b3b;
+      --rule: rgba(17, 17, 17, 0.42);
+      --dim: #0b57d0;
+      --rev: #d3271b;
+      --lettering: "Saira", "Segoe UI", Arial, sans-serif;
+      --figures: "B612 Mono", Consolas, monospace;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { caret-color: var(--dim); scrollbar-color: var(--ink) var(--paper); scrollbar-width: thin; }
+
+    body {
+      background: var(--paper);
+      color: var(--ink);
+      font-family: var(--lettering);
+      font-size: 14px;
+      line-height: 1.5;
+      padding: 24px 16px 48px;
+    }
+
+    ::selection { background: var(--dim); color: var(--paper); }
+    :focus-visible { outline: 2px dashed var(--dim); outline-offset: 3px; }
+
+    a { color: var(--dim); text-decoration: underline; text-underline-offset: 0.18em; text-decoration-thickness: 1px; }
+
+    .fig { font-family: var(--figures); font-variant-numeric: tabular-nums; }
+
+    .toolbar {
+      max-width: 210mm;
+      margin: 0 auto 16px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .toolbar a,
+    .toolbar button {
+      display: inline-flex;
+      align-items: center;
+      min-height: 40px;
+      padding: 8px 16px;
+      border: 1.5px solid var(--ink);
+      background: var(--paper);
+      color: var(--ink);
+      font: inherit;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      text-decoration: none;
+      cursor: pointer;
+      transition: background 0.15s ease, color 0.15s ease;
+    }
+
+    .toolbar button { background: var(--dim); border-color: var(--dim); color: var(--paper); }
+    .toolbar a:hover, .toolbar button:hover { background: var(--ink); border-color: var(--ink); color: var(--paper); }
+
+    .page {
+      max-width: 210mm;
+      margin: 0 auto;
+      padding: 14mm 14mm 12mm;
+      border: 3px solid var(--ink);
+      background: var(--paper);
+    }
+
+    .head {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 12px 24px;
+      align-items: end;
+      padding-bottom: 12px;
+      border-bottom: 3px solid var(--ink);
+    }
+
+    h1 {
+      font-size: 30px;
+      font-weight: 800;
+      line-height: 1;
+      letter-spacing: -0.02em;
+      text-transform: uppercase;
+    }
+
+    .title {
+      margin-top: 6px;
+      font-size: 15px;
+      font-weight: 600;
+    }
+
+    .contact {
+      display: grid;
+      gap: 2px;
+      font-size: 12px;
+      font-style: normal;
+      text-align: right;
+    }
+
+    .contact a { color: var(--ink); }
+
+    h2 {
+      margin: 18px 0 6px;
+      padding-bottom: 4px;
+      border-bottom: 1.5px solid var(--ink);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    .summary { font-size: 14px; line-height: 1.55; max-width: 72ch; }
+
+    .skills { display: grid; grid-template-columns: 1fr 1fr; gap: 6px 24px; }
+    .skills div { display: grid; grid-template-columns: 96px 1fr; gap: 10px; padding: 5px 0; border-bottom: 1px solid var(--rule); font-size: 13px; }
+    .skills dt { font-weight: 700; }
+    .skills dd { color: var(--ink-2); }
+
+    .items { list-style: none; }
+    .item { display: grid; grid-template-columns: 1fr auto; gap: 2px 16px; padding: 8px 0; border-bottom: 1px solid var(--rule); }
+    .item h3 { font-size: 14px; font-weight: 700; }
+    .item .when { font-family: var(--figures); font-size: 12px; color: var(--ink-2); white-space: nowrap; }
+    .item p { grid-column: 1 / -1; font-size: 13px; line-height: 1.5; color: var(--ink-2); }
+    .item .stack { grid-column: 1 / -1; font-size: 12.5px; font-weight: 600; color: var(--ink); }
+    .tag { display: inline-block; padding: 1px 6px; margin-left: 6px; border: 1.5px solid currentColor; font-size: 11px; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; vertical-align: middle; }
+    .tag-live { color: var(--rev); }
+    .tag-demo { color: var(--dim); }
+    .tag-private { color: var(--ink); }
+
+    .two { display: grid; grid-template-columns: 1fr 1fr; gap: 0 24px; }
+
+    .foot {
+      margin-top: 18px;
+      padding-top: 8px;
+      border-top: 1.5px solid var(--ink);
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      font-size: 12px;
+      color: var(--ink-2);
+    }
+
+    @media (max-width: 640px) {
+      .page { padding: 20px 16px; }
+      .head, .skills, .two { grid-template-columns: 1fr; }
+      .contact { text-align: left; }
+      h1 { font-size: 26px; }
+    }
+
+    @media print {
+      @page { size: A4; margin: 10mm; }
+      body { padding: 0; background: #fff; font-size: 12.5px; }
+      .toolbar { display: none; }
+      .page { max-width: none; padding: 6mm 8mm; border-width: 2px; }
+      a { color: var(--ink); text-decoration: none; }
+      .item, .skills div { break-inside: avoid; }
+    }
+  </style>
+</head>
+<body>
+  <div class="toolbar">
+    <a href="index.html">Kembali ke portofolio</a>
+    <button type="button" onclick="window.print()">Cetak / simpan sebagai PDF</button>
+  </div>
+
+  <main class="page">
+    <header class="head">
+      <div>
+        <h1>Muhammad Rafiq Amin</h1>
+        <p class="title">Full-Stack Web Developer · Network &amp; Server</p>
+      </div>
+      <address class="contact">
+        <a href="https://wa.me/6282152400352" class="fig">+62 821-5240-0352 (WhatsApp)</a>
+        <a href="mailto:rafiqamin085252@gmail.com">rafiqamin085252@gmail.com</a>
+        <a href="https://github.com/mrafiqamin24">github.com/mrafiqamin24</a>
+        <a href="https://portfolio.ownertech.id">portfolio.ownertech.id</a>
+        <span>Kalimantan Barat, Indonesia · remote / on-site</span>
+      </address>
+    </header>
+
+    <h2>Ringkasan</h2>
+    <p class="summary">
+      Mahasiswa D3 Teknologi Informasi yang membangun aplikasi bisnis untuk toko, restoran, dan hotel
+      dengan Laravel, Next.js, dan Flutter, lalu menjalankannya di server Proxmox yang dirakit dan diamankan
+      sendiri. Terbiasa bekerja dari PRD, menulis uji otomatis, dan mendokumentasikan deploy. 8+ produk dan tools,
+      980+ commit di 7 repo aktif, satu server produksi. Terbuka untuk magang, freelance, dan full-time.
+    </p>
+
+    <h2>Keahlian</h2>
+    <dl class="skills">
+      <div><dt>Backend</dt><dd>PHP 8, Laravel 12–13, Node.js/Express, REST API, Sanctum, JWT, RBAC, passkey/WebAuthn, Google Apps Script</dd></div>
+      <div><dt>Frontend</dt><dd>Next.js 16, React 19, TypeScript, Inertia, Tailwind CSS 4, HTML/CSS/JS tanpa framework, Filament v5</dd></div>
+      <div><dt>Mobile</dt><dd>Flutter, Dart, Riverpod, Drift + SQLite offline (Windows &amp; Android)</dd></div>
+      <div><dt>Data</dt><dd>MySQL 8.4, Prisma 6, SQLite, skema multi-tenant, migrasi</dd></div>
+      <div><dt>Jaringan</dt><dd>MikroTik RouterOS (hotspot, voucher, login kustom), RT/RW Net, firewall default-deny</dd></div>
+      <div><dt>Server</dt><dd>Proxmox VE 9, LXC, ZFS, Debian, systemd, Cloudflare Tunnel/Workers/Pages/DNS, Tailscale, SSH, GPG</dd></div>
+      <div><dt>Kualitas</dt><dd>Pest, PHPUnit, Vitest, Playwright, PHPStan level 8, ESLint, Prettier, gitleaks, CI dengan MySQL</dd></div>
+      <div><dt>Alat</dt><dd>Git, Docker, VS Code, Claude Code (dengan uji otomatis sebagai pengaman)</dd></div>
+    </dl>
+
+    <h2>Project pilihan</h2>
+    <ul class="items">
+      <li class="item">
+        <h3>MR Hotel — sistem pemesanan kamar <span class="tag tag-live">Live</span></h3>
+        <span class="when">2026</span>
+        <p>Web app di atas Google Spreadsheet: tamu memesan tanpa login, petugas login PIN untuk serah kunci, walk-in, verifikasi bayar, kas. Online di hotel.ownertech.id; ±9.900 baris, 105 commit, skrip verifikasi otomatis.</p>
+        <span class="stack">Google Apps Script · Sheets · Cloudflare</span>
+      </li>
+      <li class="item">
+        <h3>Ownertech.id — POS multi-cabang dengan absensi wajah <span class="tag tag-private">Kode privat</span></h3>
+        <span class="when">2026</span>
+        <p>REST API Laravel 12 + Sanctum, klien Flutter Windows/Android dengan antrean offline, layanan pengenalan wajah (Python). 300 commit, 122 berkas uji Pest. Landing page ownertech.id dari Cloudflare Worker.</p>
+        <span class="stack">Laravel 12 · Flutter · MySQL 8.4 · Python · Pest</span>
+      </li>
+      <li class="item">
+        <h3>Server produksi Proxmox VE</h3>
+        <span class="when">Agu–Sep 2026</span>
+        <p>Ryzen 9, dua ZFS mirror, container web/redis/MySQL 8.4 dengan database hanya di bridge internal. Tanpa port terbuka ke internet: Tailscale + 2FA, SSH kunci, Cloudflare Tunnel. Backup harian + off-site GPG, dashboard pemantauan buatan sendiri.</p>
+        <span class="stack">Proxmox · ZFS · LXC · Debian · Cloudflare · Tailscale</span>
+      </li>
+      <li class="item">
+        <h3>Restotech.id — manajemen restoran multi-tenant <span class="tag tag-private">Kode privat</span></h3>
+        <span class="when">2026</span>
+        <p>Pesan lewat QR meja, kasir, dapur, shift kas, loyalti, PWA. JWT httpOnly + RBAC, passkey untuk pemilik. 120 commit.</p>
+        <span class="stack">Next.js 16 · React 19 · Prisma 6 · MySQL 8.4</span>
+      </li>
+      <li class="item">
+        <h3>Crypt-Man — pengelola sandi, kriptografi di browser <span class="tag tag-private">Kode privat</span></h3>
+        <span class="when">2026</span>
+        <p>Argon2id + AES-256-GCM di Web Worker; server tidak pernah melihat plaintext. 610 tes unit/integrasi + 82 E2E, Lighthouse 94/100/100, CI dengan MySQL berkontainer.</p>
+        <span class="stack">Next.js · Prisma · Docker · Vitest · Playwright</span>
+      </li>
+      <li class="item">
+        <h3>Secure Viewer, Home.Net, MI Al-Amin <span class="tag tag-demo">Demo statis / live</span></h3>
+        <span class="when">2026</span>
+        <p>Berbagi file lihat-saja dengan tautan sekali pakai (Node.js/Express); portal hotspot MikroTik dengan voucher dan QR; landing page sekolah. Demo di github.com/mrafiqamin24.</p>
+        <span class="stack">Node.js · RouterOS Hotspot · HTML/CSS/JS</span>
+      </li>
+    </ul>
+
+    <div class="two">
+      <section>
+        <h2>Pengalaman &amp; kegiatan</h2>
+        <ul class="items">
+          <li class="item">
+            <h3>Freelance &amp; project mandiri</h3>
+            <span class="when">2025 – sekarang</span>
+            <p>Sistem pemesanan untuk sebuah hotel (MR Hotel), absensi GPS untuk Toko Berkah Jaya, landing page MI Al-Amin Tumbang Titi, pengelolaan hotspot RT/RW Net berbasis MikroTik, dan produk sendiri (Ownertech, Restotech, Homtech, Amin Cloud, PlatformHQ).</p>
+          </li>
+        </ul>
+      </section>
+      <section>
+        <h2>Pendidikan &amp; bahasa</h2>
+        <ul class="items">
+          <li class="item">
+            <h3>D3 Teknologi Informasi</h3>
+            <span class="when">sedang berjalan</span>
+            <p>Fokus jaringan komputer, pengembangan web, dan administrasi server.</p>
+          </li>
+          <li class="item">
+            <h3>Bahasa</h3>
+            <span class="when"></span>
+            <p>Indonesia (asli); Inggris teknis untuk dokumentasi dan kode.</p>
+          </li>
+        </ul>
+      </section>
+    </div>
+
+    <p class="foot">
+      <span>Portofolio lengkap dengan demo dan studi kasus: portfolio.ownertech.id</span>
+      <span class="fig">Rev C · 09-2026</span>
+    </p>
+  </main>
+</body>
+</html>

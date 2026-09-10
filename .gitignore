@@ -1,0 +1,7 @@
+# Arsip aset asli dan berkas yang tidak boleh dipublikasikan
+_archive/
+# Berkas kerja alat desain (bukan bagian situs)
+.impeccable/
+# Sistem
+.DS_Store
+Thumbs.db

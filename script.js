@@ -1,67 +1,48 @@
-const menuBtn = document.getElementById("menuBtn");
-const navMenu = document.getElementById("navMenu");
-const navbar = document.getElementById("navbar");
-const scrollProgress = document.getElementById("scrollProgress");
-const toTop = document.getElementById("toTop");
-const navLinks = document.querySelectorAll(".nav-menu a");
+// Portofolio Muhammad Rafiq Amin — perilaku halaman.
+// Tanpa dependensi. Tiga tugas: tahun di kolofon, penanda lembar aktif di
+// daftar gambar, dan pemicu ulang animasi linework saat lembar 1 terlihat.
 
 const yearEl = document.getElementById("year");
 if (yearEl) yearEl.textContent = String(new Date().getFullYear());
 
-toTop?.addEventListener("click", () => {
-  window.scrollTo({ top: 0, behavior: "smooth" });
-});
+// Penanda "sekarang": lembar yang sedang dibaca disorot di daftar gambar.
+const indexLinks = [...document.querySelectorAll("#sheetIndex a")];
+const sheets = [...document.querySelectorAll("main .sheet[id]")];
 
-menuBtn?.addEventListener("click", () => {
-  const isOpen = navMenu.classList.toggle("active");
-  menuBtn.classList.toggle("active", isOpen);
-  menuBtn.setAttribute("aria-expanded", String(isOpen));
-});
-
-navLinks.forEach((link) => {
-  link.addEventListener("click", () => {
-    navMenu.classList.remove("active");
-    menuBtn?.classList.remove("active");
-    menuBtn?.setAttribute("aria-expanded", "false");
-  });
-});
-
-const updateScroll = () => {
-  const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
-  const progress = maxScroll > 0 ? (window.scrollY / maxScroll) * 100 : 0;
-
-  scrollProgress.style.width = `${progress}%`;
-  navbar.classList.toggle("scrolled", window.scrollY > 12);
-  toTop?.classList.toggle("show", window.scrollY > 480);
-
-  const current = [...document.querySelectorAll("section[id]")].findLast((section) => {
-    return window.scrollY >= section.offsetTop - 160;
-  });
-
-  navLinks.forEach((link) => {
-    link.classList.toggle("active", current && link.getAttribute("href") === `#${current.id}`);
+const setActive = (id) => {
+  indexLinks.forEach((link) => {
+    const isActive = link.getAttribute("href") === `#${id}`;
+    link.classList.toggle("active", isActive);
+    if (isActive) {
+      link.setAttribute("aria-current", "true");
+      link.scrollIntoView({ block: "nearest", inline: "nearest" });
+    } else {
+      link.removeAttribute("aria-current");
+    }
   });
 };
 
-window.addEventListener("scroll", updateScroll, { passive: true });
-updateScroll();
+if ("IntersectionObserver" in window && sheets.length) {
+  const visible = new Map();
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => visible.set(entry.target.id, entry.intersectionRatio));
+      const top = [...visible.entries()].sort((a, b) => b[1] - a[1])[0];
+      if (top && top[1] > 0) setActive(top[0]);
+    },
+    { rootMargin: "-56px 0px -40% 0px", threshold: [0, 0.1, 0.25, 0.5, 0.75, 1] }
+  );
+  sheets.forEach((sheet) => observer.observe(sheet));
+} else if (sheets.length) {
+  setActive(sheets[0].id);
+}
 
-document.querySelectorAll(".project-thumb img").forEach((img) => {
-  const markEmpty = () => img.closest(".project-thumb")?.classList.add("is-empty");
-  img.addEventListener("error", markEmpty);
-  if (img.complete && img.naturalWidth === 0) markEmpty();
-});
-
-const revealObserver = new IntersectionObserver((entries) => {
-  entries.forEach((entry) => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add("show");
-      revealObserver.unobserve(entry.target);
-    }
+// Linework lembar 1 digambar sekali saat font siap, supaya label tidak
+// muncul dengan huruf pengganti lalu berganti bentuk.
+const marks = document.querySelector(".elevation-marks");
+if (marks && document.fonts && document.fonts.ready) {
+  marks.style.visibility = "hidden";
+  document.fonts.ready.then(() => {
+    marks.style.visibility = "";
   });
-}, { threshold: 0.14 });
-
-document.querySelectorAll(".reveal").forEach((element, index) => {
-  element.style.transitionDelay = `${Math.min(index * 45, 180)}ms`;
-  revealObserver.observe(element);
-});
+}
