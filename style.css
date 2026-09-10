@@ -318,6 +318,13 @@ main {
   border-top: var(--lw-thin) solid var(--ink);
 }
 
+.sheet-body,
+.plan,
+.title-block {
+  position: relative;
+  z-index: 1;
+}
+
 .sheet-body {
   padding: clamp(28px, 4vw, 56px) clamp(24px, 4vw, 56px) clamp(32px, 4vw, 56px) calc(var(--zone) + clamp(24px, 4vw, 56px));
 }
@@ -1102,9 +1109,92 @@ main {
   stroke: none;
 }
 
-.iso-flat,
 .plan figcaption .cap-flat {
   display: none;
+}
+
+/* model bisa diputar: seret mendatar memutar, usapan tegak tetap menggulir */
+.iso-wide {
+  touch-action: pan-y;
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+.iso-live .iso-wide {
+  cursor: grab;
+}
+
+.iso-live .iso-wide.is-dragging {
+  cursor: grabbing;
+}
+
+.iso-wide.is-narrow .iso-callout,
+.iso-wide.is-narrow .iso-layer {
+  display: none;
+}
+
+.sr-only {
+  text-transform: none;
+  letter-spacing: normal;
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border: 0;
+}
+
+.iso-hint {
+  display: none;
+  margin-top: 12px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--ink-2);
+}
+
+.iso-live .iso-hint {
+  display: block;
+}
+
+/* bayangan model yang sama sebagai latar lembar, dekoratif saja */
+.iso-echo {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  opacity: 0.09;
+  pointer-events: none;
+}
+
+.iso-echo .face {
+  fill: none;
+}
+
+.iso-echo .thin {
+  stroke-width: 1;
+}
+
+.flat-wrap {
+  display: none;
+}
+
+.flat-cap {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  margin-top: 10px;
+  padding-top: 8px;
+  border-top: var(--lw-med) solid currentColor;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
 }
 
 /* --------------------------------------------------------------------------
@@ -1563,12 +1653,15 @@ main {
     grid-template-columns: auto 1fr;
   }
 
-  .iso-wide {
+  /* juga berlaku tanpa JavaScript, saat viewBox belum sempat dipersempit */
+  .iso-wide .iso-callout,
+  .iso-wide .iso-layer {
     display: none;
   }
 
-  .iso-flat {
+  .flat-wrap {
     display: block;
+    margin-top: 30px;
   }
 
   .plan figcaption .cap-wide {

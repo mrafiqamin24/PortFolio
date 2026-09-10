@@ -11,6 +11,7 @@ Live di https://portfolio.ownertech.id (GitHub Pages).
 | `cv.html` | CV versi cetak (Ctrl+P → simpan sebagai PDF) |
 | `style.css` | Seluruh gaya; token warna dan garis ada di `:root` |
 | `script.js` | Penanda lembar aktif di daftar gambar dan tahun di kolofon |
+| `iso.js` | Model isometrik lembar 3: proyeksi 3D tiap frame, putar lewat gulir, seret, usap, atau tombol panah |
 | `img/` | Aset yang dipakai halaman (WebP, total di bawah 400 KB) |
 | `PRODUCT.md` | Fakta produk untuk pekerjaan desain berikutnya |
 
