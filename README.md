@@ -12,6 +12,8 @@ Live di https://portfolio.ownertech.id (GitHub Pages).
 | `style.css` | Seluruh gaya; token warna dan garis ada di `:root` |
 | `script.js` | Penanda lembar aktif di daftar gambar dan tahun di kolofon |
 | `iso.js` | Model isometrik lembar 3: proyeksi 3D tiap frame, putar lewat gulir, seret, usap, atau tombol panah |
+| `iso3d.js` | Versi WebGL model itu (Three.js): orbit dua sumbu, animasi rakit-urai saat digulir. Dimuat hanya saat lembar 3 mendekat; kalau gagal, `iso.js` tetap dipakai |
+| `vendor/` | Three.js r180 di-host sendiri (module + core), bukan dari CDN |
 | `img/` | Aset yang dipakai halaman (WebP, total di bawah 400 KB) |
 | `PRODUCT.md` | Fakta produk untuk pekerjaan desain berikutnya |
 

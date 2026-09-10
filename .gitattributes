@@ -1,0 +1,2 @@
+vendor/** -text
+*.woff2 -text binary

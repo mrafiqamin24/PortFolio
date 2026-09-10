@@ -225,6 +225,8 @@
   const target = () => dragTheta + (reduced.matches ? 0 : scrollTheta);
 
   function loop() {
+    // WebGL mengambil alih: hentikan gelung SVG, elemennya sudah dilepas
+    if (document.documentElement.classList.contains("iso-3d")) { running = false; return; }
     const t = target();
     const diff = t - current;
     current += diff * (dragging ? 0.45 : 0.16);

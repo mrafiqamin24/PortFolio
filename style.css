@@ -1161,6 +1161,36 @@ main {
   display: block;
 }
 
+/* ---- versi WebGL: kanvas menggantikan SVG saat Three.js berhasil dimuat --- */
+
+.iso3d {
+  position: relative;
+  line-height: 0;
+}
+
+.iso3d-canvas {
+  display: block;
+  width: 100%;
+  height: auto;
+  touch-action: pan-y;
+  -webkit-user-select: none;
+  user-select: none;
+  cursor: grab;
+}
+
+.iso3d-canvas.is-dragging {
+  cursor: grabbing;
+}
+
+.iso3d-labels {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  overflow: visible;
+}
+
 /* bayangan model yang sama sebagai latar lembar, dekoratif saja */
 .iso-echo {
   position: absolute;
@@ -1655,7 +1685,8 @@ main {
 
   /* juga berlaku tanpa JavaScript, saat viewBox belum sempat dipersempit */
   .iso-wide .iso-callout,
-  .iso-wide .iso-layer {
+  .iso-wide .iso-layer,
+  .iso3d-labels {
     display: none;
   }
 
