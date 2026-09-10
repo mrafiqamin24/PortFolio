@@ -23,10 +23,10 @@ typography:
     letterSpacing: "-0.035em"
   headline:
     fontFamily: "Saira, Segoe UI, Arial, sans-serif"
-    fontSize: "clamp(20px, 2.3vw, 30px)"
+    fontSize: "clamp(24px, 2.6vw, 34px)"
     fontWeight: 700
-    lineHeight: 1.2
-    letterSpacing: "0.05em"
+    lineHeight: 1.15
+    letterSpacing: "-0.01em"
   title:
     fontFamily: "Saira, Segoe UI, Arial, sans-serif"
     fontSize: "clamp(20px, 2vw, 26px)"
@@ -442,3 +442,5 @@ folder so the two Three files can never desync in the CDN cache; modules read
 **Grain.** The paper stock is a `feTurbulence` layer painted as the first
 background of every sheet (`--grain`, alpha 0.045), never a blended overlay, so
 it costs nothing while the canvases repaint; it is absent in print.
+
+**Sheet titles (2026-09-10, late).** Sheet titles (`.sheet h2`) are set in sentence case at `clamp(24px, 2.6vw, 34px)` / 700 / 1.15 / -0.01em, no longer tracked caps: a five-line uppercase heading on a phone reads as a passage, not a label. Tracked caps stay reserved for short labels, table heads, captions, stamps, and the cover name.
