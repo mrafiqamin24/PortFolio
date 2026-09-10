@@ -395,7 +395,7 @@ function webglOK() {
       visible = false;
       wrap.remove();
       legend.remove();
-      svgModel.hidden = false;
+      svgModel.removeAttribute("hidden");
       document.documentElement.classList.remove("iso-3d");
       window.dispatchEvent(new Event("scroll"));
     });
@@ -404,7 +404,7 @@ function webglOK() {
     document.documentElement.classList.add("iso-3d");
     const echo = document.querySelector(".iso-echo");
     if (echo) echo.remove();
-    svgModel.hidden = true;
+    svgModel.setAttribute("hidden", "");
 
     if (reduced.matches) explode = 1;
     resize();

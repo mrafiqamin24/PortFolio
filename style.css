@@ -1115,6 +1115,11 @@ main {
   display: none;
 }
 
+/* atribut hidden harus menang atas svg { display: block } di atas */
+.iso-wide[hidden] {
+  display: none;
+}
+
 /* model bisa diputar: seret mendatar memutar, usapan tegak tetap menggulir */
 .iso-wide {
   touch-action: pan-y;
