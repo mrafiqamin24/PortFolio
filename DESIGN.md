@@ -17,10 +17,10 @@ colors:
 typography:
   display:
     fontFamily: "Saira, Segoe UI, Arial, sans-serif"
-    fontSize: "clamp(38px, 4.2vw, 60px)"
+    fontSize: "clamp(46px, 7vw, 96px)"
     fontWeight: 800
-    lineHeight: 0.98
-    letterSpacing: "-0.03em"
+    lineHeight: 0.92
+    letterSpacing: "-0.035em"
   headline:
     fontFamily: "Saira, Segoe UI, Arial, sans-serif"
     fontSize: "clamp(20px, 2.3vw, 30px)"
@@ -381,3 +381,63 @@ Character: the sheet-set footer, outside any frame.
 - **Don't** build a dark hero, a card grid, or a rounded pill button; the world rejected them at the direction stage and the build never contains them.
 - **Don't** add a second display-size heading; later sheets open with a tracked-caps h2.
 - **Don't** hard-code `#111111` or `#fbfbf8` in a component; it will not invert on the blueprint sheet.
+
+## Cover sheet and rendered figures (Rev C, 2026-09-10)
+
+**Cover (`.cover`, `#sampul`).** The set opens on a cover sheet, the way a CAD
+drawing set does: the name set as the drawing title at `clamp(46px, 7vw, 96px)`
+/ 800 / 0.92 / -0.035em, the role and a two-sentence positioning line, three
+cell actions (one blue), the production server rendered on the right in a
+square stage, and the sheet index (`.sheet-list`, a drawing table) at the
+bottom left. No eyebrow, no metric row; quantities stay on sheet 1. The figure
+caption carries a detail reference (`lihat lbr 3`) in dimension blue; the title
+block carries the availability stamp and the CV action.
+
+**The cover object is the real machine.** `server-rig.js` models the owner's
+tower: case panels, motherboard tray, PCB, a tower cooler with its fan, two RAM
+sticks, two NVMe heatsinks, two 3.5" drives in the front bay, the PSU shroud, a
+rear fan, four feet, a tinted glass side, and one power LED in dimension blue,
+the only accent on the cover. Unknown parts (case brand, PSU, fan count) are
+drawn generically and never labelled. Sheet 3 keeps the architecture model
+(edge, containers, host, storage) because that is what explains the isolation
+and the ZFS mirrors.
+
+**Render language.** Both figures are "shaded with edges", the way CAD shows a
+model: bevelled slabs (radius 0.1) in `MeshStandardMaterial`, a hemisphere
+fill, one key light with VSM shadows that fall onto the parts below and an
+invisible shadow-catcher (the paper is the studio table), a rim light from
+behind, a small procedural studio environment for the sheen on metal, ACES
+tone mapping, and the sharp box edges drawn over the body as hairlines (0.55
+on paper, 0.95 on the blueprint). The cover adds a shadowless fill through the
+glass side so the interior reads. Shadow maps re-render only when a part
+moves. Amendment to the depth rule: shadows exist only inside these two
+rendered figures; the 2D sheet still has none.
+
+**Motion thesis.** One authored moment: the cover opens on the machine exactly
+as its still image shows it; 650 ms later the case opens (glass, cooler, RAM,
+NVMe, drives and panels slide out over 550 ms, `cubic-bezier(0.16, 1, 0.3,
+1)`) and springs shut (Motion `animate(1, 0, { type: "spring", stiffness 42,
+damping 12.5, mass 1.1 })`), while the title, role, actions and sheet rows enter
+as a list (Motion stagger 65 ms, 0.85 s). One animation handle is kept, so a
+stalled tab never runs two springs. Afterwards the machine sways ±0.24 rad at
+0.35 rad/s so the glass side stays in view, tilts toward the cursor, and can be
+dragged or steered with arrow keys. Scrolling away opens the case to 55% and
+lifts the camera; sheet 3 keeps its scroll-driven explode. Sheet 1's linework
+draws itself when that sheet arrives in view, as explanatory motion, not a
+second signature. Reduced motion, toggled at any time: everything visible,
+machine closed, no sway, no parallax; drag still works because it is the
+reader's own gesture. Content is visible by default; the `js` class hides only
+what Motion is about to show, and an inline `js-late` class in `<head>` shows
+it after 2.6 s even if `script.js` never runs.
+
+**Fallback chain.** `img/server-rig.webp` (the same render, captured by
+`tools/snap_cover.py`) is the first frame, the no-WebGL image, the print image,
+and what returns if the WebGL context is lost. Sheet 3: static SVG → `iso.js`
+→ WebGL, likewise restored on context loss. Three.js r180 lives in
+`vendor/three-r180/` and Motion 13.2 in `vendor/motion-13.2.0/`, versioned by
+folder so the two Three files can never desync in the CDN cache; modules read
+`?v=` from `import.meta.url` so one bump in `index.html` versions the chain.
+
+**Grain.** The paper stock is a `feTurbulence` layer painted as the first
+background of every sheet (`--grain`, alpha 0.045), never a blended overlay, so
+it costs nothing while the canvases repaint; it is absent in print.

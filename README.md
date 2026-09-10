@@ -46,3 +46,34 @@ python -m http.server 4173
 ```
 
 Lalu buka `http://localhost:4173`.
+
+## Lembar sampul dan render (Rev C, 10 Sep 2026)
+
+Viewport pertama adalah lembar sampul: nama sebagai judul gambar, render
+**server produksi yang sungguhan** (tower ATX bersisi kaca yang dirakit
+pemilik) di kanan, daftar lembar di bawah. Render memakai bahasa "shaded with
+edges" ala CAD: material disinari studio, bayangan kontak di kertas, rusuk
+tipis di atasnya. Lembar 3 memakai bahasa yang sama untuk model arsitektur
+terurai (tepi, container, host, penyimpanan) di atas cetak biru.
+
+| Berkas | Isi |
+|---|---|
+| `server-model.js` | Helper bersama: geometri bevel, studio env (PMREM), cahaya + bayangan VSM (dihitung ulang hanya saat pose berubah), orbit; plus model arsitektur (SOLIDS, palet `paper` / `cyan`) untuk lembar 3 |
+| `server-rig.js` | Model fisik tower untuk sampul: panel casing, tray, motherboard, pendingin menara + kipas, 2 RAM, 2 NVMe, 2 HDD, shroud PSU, kipas belakang, kaca; tiap bagian punya pergeseran terurai |
+| `cover3d.js` | Sampul: perspektif, momen pembuka dua fase (membuka lalu merapat dengan pegas Motion), goyangan pelan, menoleh ke kursor, membuka saat digulir, pemulihan saat konteks WebGL hilang |
+| `iso3d.js` | Lembar 3: ortografis, rakit-urai saat digulir, balon di semua lebar, daftar bernomor (SVG di desktop, `<ol>` di HP), dimuat lebih awal begitu sampul siap |
+| `img/server-rig.webp` | Gambar diam sampul: render yang sama, ditangkap `tools/snap_cover.py`. Frame pertama, cadangan tanpa WebGL, dan gambar cetak |
+| `vendor/three-r180/` | Three.js r180, dua berkas (`three.module` mengimpor `./three.core`). Folder berversi supaya keduanya tidak pernah beda versi di cache |
+| `vendor/motion-13.2.0/` | Motion 13.2 (penerus Framer Motion), UMD global `Motion`; pegas 3D dan koreografi teks sampul |
+
+Rantai cadangan: gambar diam WebP (tanpa JS/WebGL) → kanvas WebGL; lembar 3:
+SVG statis → `iso.js` (SVG hidup) → WebGL. Konteks WebGL yang hilang
+mengembalikan gambar diam / SVG, bukan kotak kosong. Cetak memakai gambar diam.
+Tanpa Motion, teks sampul langsung tampil (pintu darurat `js-late` 2,6 detik
+dipasang inline di `<head>`) dan pegas diganti integrator kecil.
+
+Modul membaca `?v=` dari `import.meta.url` dan meneruskannya ke
+`server-model.js` / `server-rig.js`, jadi cukup naikkan penanda di
+`index.html` (termasuk `og:image` dan `img/server-rig.webp`) dan tautan balik
+di `cv.html`. Pustaka di `vendor/` berversi lewat nama folder: ganti folder,
+bukan isinya, saat memperbarui.

@@ -30,6 +30,7 @@
   --sheet-gap: 16px;
   --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
   --bar-h: 56px;
+  --grain: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.045 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
 }
 
 @font-face { font-family: "Saira"; font-weight: 400; font-display: swap; src: url("fonts/saira-400.woff2") format("woff2"); }
@@ -274,7 +275,7 @@ main {
   position: relative;
   margin: 0 var(--sheet-gap) var(--sheet-gap);
   border: var(--lw-thick) solid var(--ink);
-  background: var(--paper);
+  background: var(--grain), var(--paper);
   scroll-margin-top: calc(var(--bar-h) + var(--sheet-gap));
 }
 
@@ -543,7 +544,8 @@ main {
 }
 
 .elevation figcaption,
-.plan figcaption {
+.plan figcaption,
+.cover-fig figcaption {
   display: flex;
   justify-content: space-between;
   gap: 16px;
@@ -1210,6 +1212,45 @@ main {
   overflow: visible;
 }
 
+/* keterangan bernomor versi daftar, hanya di layar sempit saat WebGL aktif */
+.iso3d-legend {
+  display: none;
+  list-style: none;
+  margin-top: 14px;
+}
+
+.iso3d-legend li {
+  display: grid;
+  grid-template-columns: 24px 1fr;
+  column-gap: 10px;
+  padding: 7px 0;
+  border-bottom: var(--lw-thin) solid var(--rule);
+  font-size: 13px;
+  line-height: 1.35;
+}
+
+.iso3d-legend .lg-no {
+  display: grid;
+  place-items: center;
+  width: 20px;
+  height: 20px;
+  border: var(--lw-med) solid currentColor;
+  border-radius: 50%;
+  font-family: var(--figures);
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.iso3d-legend b {
+  font-weight: 700;
+}
+
+.iso3d-legend .lg-s {
+  grid-column: 2;
+  color: var(--ink-2);
+  font-size: 12px;
+}
+
 /* bayangan model yang sama sebagai latar lembar, dekoratif saja */
 .iso-echo {
   position: absolute;
@@ -1251,7 +1292,7 @@ main {
    -------------------------------------------------------------------------- */
 
 .blueprint {
-  background: radial-gradient(ellipse at 28% 18%, var(--cyan-2), var(--cyan) 62%);
+  background: var(--grain), radial-gradient(ellipse at 28% 18%, var(--cyan-2), var(--cyan) 62%);
   color: var(--cyan-ink);
   border-color: var(--cyan-ink);
   --ink: var(--cyan-ink);
@@ -1388,8 +1429,15 @@ main {
 }
 
 .flow-notes {
-  max-width: 72ch;
   margin-top: 36px;
+}
+
+@media (min-width: 981px) {
+  .flow-notes ol {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: clamp(28px, 4vw, 64px);
+  }
 }
 
 .scroll-cue {
@@ -1561,6 +1609,200 @@ main {
 }
 
 /* --------------------------------------------------------------------------
+   Lembar sampul: satu subjek, satu momen
+   Nama sebagai judul gambar, render rakitan server di kanan, daftar lembar
+   di bawah. Tanpa eyebrow, tanpa deretan angka: kuantitas ada di lembar 1,
+   buktinya di lembar 2 dan 3.
+   -------------------------------------------------------------------------- */
+
+.cover .sheet-body {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(320px, 0.94fr);
+  grid-template-rows: auto 1fr;
+  grid-template-areas:
+    "copy fig"
+    "index fig";
+  gap: 32px clamp(28px, 4.5vw, 80px);
+  min-height: calc(100vh - var(--bar-h) - var(--sheet-gap) * 2 - 92px);
+  min-height: calc(100svh - var(--bar-h) - var(--sheet-gap) * 2 - 92px);
+  padding-top: clamp(28px, 4vw, 52px);
+  padding-bottom: clamp(24px, 3vw, 40px);
+}
+
+.cover-copy {
+  grid-area: copy;
+}
+
+.cover-fig {
+  grid-area: fig;
+  align-self: center;
+}
+
+.cover-index {
+  grid-area: index;
+  align-self: end;
+  max-width: 60ch;
+}
+
+.cover-name {
+  max-width: 10ch;
+  font-size: clamp(46px, 7vw, 96px);
+  font-weight: 800;
+  line-height: 0.92;
+  letter-spacing: -0.035em;
+  text-transform: uppercase;
+  text-wrap: balance;
+}
+
+.cover-role {
+  margin-top: 20px;
+  font-size: clamp(17px, 1.55vw, 22px);
+  font-weight: 600;
+  letter-spacing: 0.01em;
+}
+
+.cover-lead {
+  max-width: 50ch;
+  margin-top: 14px;
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--ink-2);
+}
+
+.cover-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 28px;
+}
+
+/* panggung render: gambar statis dulu, kanvas menimpanya dengan pudar */
+.cover-stage {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+}
+
+.cover-static,
+.cover-canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.cover-static {
+  object-fit: contain;
+  transition: opacity 0.7s var(--ease-out);
+}
+
+.cover-canvas {
+  display: block;
+  opacity: 0;
+  touch-action: pan-y;
+  -webkit-user-select: none;
+  user-select: none;
+  cursor: grab;
+  transition: opacity 0.7s var(--ease-out);
+}
+
+.cover-stage.is-3d .cover-static {
+  opacity: 0;
+}
+
+.cover-stage.is-3d .cover-canvas {
+  opacity: 1;
+}
+
+.cover-canvas.is-dragging {
+  cursor: grabbing;
+}
+
+.cover-fig figcaption a {
+  color: var(--dim);
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+}
+
+.cover-hint {
+  display: none;
+  color: var(--ink-2);
+}
+
+.cover-stage.is-3d ~ figcaption .cover-hint {
+  display: inline;
+}
+
+.sheet-list th[scope="row"] {
+  white-space: nowrap;
+  font-weight: 700;
+}
+
+.sheet-list th a {
+  text-decoration: underline;
+  text-underline-offset: 0.18em;
+  text-decoration-thickness: 1px;
+  transition: color 0.15s ease;
+}
+
+.sheet-list th a:hover {
+  color: var(--dim);
+}
+
+.sheet-list td:last-child {
+  color: var(--ink-2);
+}
+
+/* koreografi pembuka: disembunyikan hanya kalau JS ada; Motion menampilkannya */
+.js .cover [data-enter] {
+  opacity: 0;
+}
+
+.js .cover [data-enter].is-in,
+.js.js-late .cover [data-enter] {
+  opacity: 1;
+  transform: none;
+}
+
+/* tanggapan tekan: sel yang ditekan turun satu piksel */
+.cell-link:active,
+.tb-action:active,
+.index-action:active,
+.contact-cell:active {
+  transform: translateY(1px);
+}
+
+/* bingkai detail: gambarnya maju sedikit saat disorot */
+.detail-frame a {
+  overflow: hidden;
+}
+
+.detail-frame img {
+  transition: transform 0.7s var(--ease-out);
+}
+
+.detail-frame:hover img {
+  transform: scale(1.025);
+}
+
+@media (max-width: 1280px) {
+  .cover-fig figcaption .cover-scale {
+    display: none;
+  }
+}
+
+/* dengan JS, linework lembar 1 menunggu lembarnya tiba di layar */
+.js .elevation-marks:not(.in) .dm,
+.js .elevation-marks:not(.in) .ld,
+.js .elevation-marks:not(.in) .bl,
+.js .elevation-marks:not(.in) .dm-arrow,
+.js .elevation-marks:not(.in) .dm-label,
+.js .elevation-marks:not(.in) .ld-dot,
+.js .elevation-marks:not(.in) .bl-no {
+  animation-play-state: paused;
+}
+
+/* --------------------------------------------------------------------------
    Responsif
    -------------------------------------------------------------------------- */
 
@@ -1587,6 +1829,29 @@ main {
 }
 
 @media (max-width: 980px) {
+  .cover .sheet-body {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+    grid-template-areas:
+      "copy"
+      "fig"
+      "index";
+    min-height: 0;
+  }
+
+  .cover-fig {
+    width: 100%;
+    max-width: 560px;
+  }
+
+  .cover-index {
+    max-width: none;
+  }
+
+  .cover .tb-stamp {
+    display: none;
+  }
+
   .ga-grid,
   .bp-grid,
   .tr-grid {
@@ -1630,6 +1895,15 @@ main {
 }
 
 @media (max-width: 760px) {
+  .cover-fig figcaption {
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .cover-fig figcaption .cover-scale {
+    display: none;
+  }
+
   :root {
     --sheet-gap: 10px;
   }
@@ -1705,8 +1979,13 @@ main {
   /* juga berlaku tanpa JavaScript, saat viewBox belum sempat dipersempit */
   .iso-wide .iso-callout,
   .iso-wide .iso-layer,
-  .iso3d-labels {
+  .iso3d-labels .iso3d-row,
+  .iso3d-labels .iso3d-layer {
     display: none;
+  }
+
+  .iso-3d .iso3d-legend {
+    display: block;
   }
 
   .flat-wrap {
@@ -1798,12 +2077,22 @@ main {
     font-size: 26px;
   }
 
-  .ga-notes h1 {
-    font-size: 38px;
+  .cover-name {
+    font-size: 42px;
   }
 }
 
 @media (prefers-reduced-motion: reduce) {
+  .js .cover [data-enter] {
+    opacity: 1;
+    transform: none;
+  }
+
+  .cover-static,
+  .cover-canvas {
+    transition: none;
+  }
+
   html {
     scroll-behavior: auto;
   }
@@ -1826,6 +2115,9 @@ main {
 }
 
 @media print {
+  .cover-canvas,
+  .iso3d,
+  .iso3d-legend,
   .index-bar,
   .skip-link {
     display: none;
@@ -1853,5 +2145,14 @@ main {
   .elevation,
   .detail-frame {
     position: static;
+  }
+
+  /* cetak memakai gambar diam: kanvas WebGL kosong di PDF */
+  .cover-stage.is-3d .cover-static {
+    opacity: 1;
+  }
+
+  .iso-wide[hidden] {
+    display: block;
   }
 }
