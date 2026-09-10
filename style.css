@@ -1331,8 +1331,27 @@ main {
 .bp-grid {
   display: grid;
   grid-template-columns: 1.28fr 0.72fr;
+  grid-template-rows: auto auto;
   gap: 40px clamp(32px, 5vw, 72px);
   align-items: start;
+}
+
+/* Tiga pelajaran di bawah gambar: kolom kanan (spesifikasi + verifikasi)
+   selalu lebih tinggi, jadi kolom kiri yang diisi supaya tidak kosong */
+.bp-plan {
+  grid-column: 1;
+  grid-row: 1;
+}
+
+.bp-notes {
+  grid-column: 2;
+  grid-row: 1 / span 2;
+}
+
+.bp-grid > .lessons {
+  grid-column: 1;
+  grid-row: 2;
+  margin-top: 4px;
 }
 
 .bp-lead {
@@ -1359,10 +1378,6 @@ main {
 
 .lessons {
   max-width: 62ch;
-}
-
-.bp-plan .lessons {
-  margin-top: 38px;
 }
 
 .lessons li {
@@ -1779,6 +1794,11 @@ main {
    -------------------------------------------------------------------------- */
 
 @media (max-width: 1180px) {
+  /* sel revisi mengalah supaya keenam nomor lembar tetap muat */
+  .index-rev {
+    display: none;
+  }
+
   .title-block {
     grid-template-columns: auto 1fr auto auto;
   }
@@ -1828,6 +1848,17 @@ main {
   .bp-grid,
   .tr-grid {
     grid-template-columns: 1fr;
+  }
+
+  .bp-grid {
+    grid-template-rows: auto;
+  }
+
+  .bp-plan,
+  .bp-notes,
+  .bp-grid > .lessons {
+    grid-column: 1;
+    grid-row: auto;
   }
 
   .ga-grid {
