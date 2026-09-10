@@ -47,34 +47,8 @@ if (marks && document.fonts && document.fonts.ready) {
   });
 }
 
-// Momen pembuka sampul: nama, peran, aksi, lalu daftar lembar baris demi
-// baris, dengan Motion (penerus Framer Motion, di-host sendiri). Tanpa Motion
-// atau dengan preferensi gerak dikurangi, semuanya langsung tampil.
-(() => {
-  const els = [...document.querySelectorAll(".cover [data-enter]")];
-  if (!els.length) return;
-  const show = () => els.forEach((el) => el.classList.add("is-in"));
-  const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-  const Mo = window.Motion;
-  if (reduced || !Mo || typeof Mo.animate !== "function" || typeof Mo.stagger !== "function") {
-    show();
-    return;
-  }
-  const safety = setTimeout(show, 2600);
-  try {
-    const run = Mo.animate(
-      els,
-      { opacity: [0, 1], y: [18, 0] },
-      { duration: 0.85, delay: Mo.stagger(0.065, { startDelay: 0.12 }), ease: [0.16, 1, 0.3, 1] }
-    );
-    Promise.resolve(run && run.finished).then(show, show).finally(() => clearTimeout(safety));
-  } catch (e) {
-    show();
-  }
-})();
-
 // Linework lembar 1 baru digambar saat lembarnya tiba di layar, bukan saat
-// halaman dimuat: sejak ada sampul, lembar 1 mulai di bawah lipatan.
+// halaman dimuat, supaya gerakannya terlihat pembaca.
 if (marks) {
   const drawn = () => marks.classList.add("in");
   if ("IntersectionObserver" in window) {

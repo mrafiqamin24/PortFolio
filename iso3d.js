@@ -3,7 +3,7 @@
  * Render "shaded with edges" di atas cetak biru: bidang bermaterial nada
  * biru, disinari studio, bayangan lembut jatuh ke lapisan di bawahnya, dan
  * rusuk putih di atasnya supaya tetap gambar teknik. Model, material, dan
- * cahaya ada di server-model.js, dipakai bersama lembar sampul.
+ * cahaya ada di server-model.js.
  *
  * Gulir memasang dan mengurai model; seret memutar; balon bernomor menempel
  * di tiap bagian dan daftar bernomor yang sama menjelaskannya.
@@ -42,14 +42,6 @@ function webglOK() {
   }, { rootMargin: "700px 0px" });
   io.observe(figure);
 
-  /* Sampul sudah memuat Three.js. Lembar 3 disiapkan lebih awal saat browser
-     senggang (setelah momen pembuka selesai) supaya halaman tidak pernah
-     menampilkan dua bahasa gambar untuk benda yang sama. Gelung rendernya
-     tetap berhenti selama lembar 3 di luar layar. */
-  if (document.querySelector(".cover-stage")) {
-    const idle = window.requestIdleCallback || ((fn) => setTimeout(fn, 2500));
-    setTimeout(() => idle(load, { timeout: 5000 }), 2200);
-  }
 
   function boot(THREE, M) {
     const wrap = document.createElement("div");
