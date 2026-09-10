@@ -1068,6 +1068,46 @@ main {
 }
 
 /* --------------------------------------------------------------------------
+   Gambar isometrik terurai (lembar 3)
+   Volume digambar cara gambar teknik: siluet 1.5px berisi warna kertas supaya
+   menutup yang di belakangnya, lalu tiga rusuk dalam 1px di sudut terdekat.
+   Tanpa nada, tanpa bayangan, tanpa gradien.
+   -------------------------------------------------------------------------- */
+
+.iso .face {
+  fill: var(--paper);
+  stroke: currentColor;
+  stroke-width: 1.5;
+  stroke-linejoin: round;
+}
+
+.iso .thin,
+.iso .leader {
+  stroke-width: 1;
+}
+
+.iso .axis {
+  stroke-width: 1;
+  stroke-dasharray: 5 7;
+  opacity: 0.5;
+}
+
+.iso .drop {
+  stroke-width: 1;
+  stroke-dasharray: 3 4;
+}
+
+.iso .fill {
+  fill: currentColor;
+  stroke: none;
+}
+
+.iso-flat,
+.plan figcaption .cap-flat {
+  display: none;
+}
+
+/* --------------------------------------------------------------------------
    Lembar 3: blueprint
    -------------------------------------------------------------------------- */
 
@@ -1106,7 +1146,7 @@ main {
 
 .bp-grid {
   display: grid;
-  grid-template-columns: 1.15fr 0.85fr;
+  grid-template-columns: 1.28fr 0.72fr;
   gap: 40px clamp(32px, 5vw, 72px);
   align-items: start;
 }
@@ -1133,13 +1173,23 @@ main {
   margin-top: 32px;
 }
 
-.bp-notes .lessons li {
+.lessons {
+  max-width: 62ch;
+}
+
+.bp-plan .lessons {
+  margin-top: 38px;
+}
+
+.lessons li {
   color: var(--cyan-ink-2);
 }
 
-.bp-notes .lessons li code {
+.lessons li code {
   color: var(--cyan-ink);
 }
+
+
 
 /* --------------------------------------------------------------------------
    Lembar 4: BOM
@@ -1511,6 +1561,22 @@ main {
 
   .sheet-6 .title-block {
     grid-template-columns: auto 1fr;
+  }
+
+  .iso-wide {
+    display: none;
+  }
+
+  .iso-flat {
+    display: block;
+  }
+
+  .plan figcaption .cap-wide {
+    display: none;
+  }
+
+  .plan figcaption .cap-flat {
+    display: inline;
   }
 
   .flow-wide {

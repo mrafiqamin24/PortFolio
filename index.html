@@ -447,7 +447,103 @@
           <p class="bp-lead">Server ini menjalankan database dan web untuk produk di lembar 2. Saya merakit hardware-nya, memasang Proxmox VE 9, dan mengujinya seperti sistem produksi: mematikan container untuk memastikan situs tetap hidup, memindai port dari luar, dan menghitung apa yang terjadi kalau satu disk mati.</p>
 
           <figure class="plan">
-            <svg viewBox="0 0 640 420" role="img" aria-labelledby="planTitle" xmlns="http://www.w3.org/2000/svg">
+            <svg class="iso-wide" viewBox="0 0 773 514" role="img" aria-labelledby="isoTitle" xmlns="http://www.w3.org/2000/svg">
+              <title id="isoTitle">Gambar isometrik terurai server: lapisan tepi berisi Cloudflare Tunnel dan Tailscale di atas, lalu tiga container web, redis, dan database yang duduk di bridge internal vmbr1, lalu host Proxmox, dan paling bawah dua lapis penyimpanan cermin ZFS rpool dan tank.</title>
+              <g class="plan-ink plan-ink-white iso">
+                <line class="axis" x1="315.8" y1="114.0" x2="315.8" y2="387.6" />
+                <path class="face" d="M274.3 236.4 L523.7 380.4 L523.7 392.4 L357.4 488.4 L108.0 344.4 L108.0 332.4 Z" />
+                <line class="thin" x1="357.4" y1="476.4" x2="523.7" y2="380.4" />
+                <line class="thin" x1="357.4" y1="476.4" x2="108.0" y2="332.4" />
+                <line class="thin" x1="357.4" y1="476.4" x2="357.4" y2="488.4" />
+                <path class="face" d="M274.3 207.6 L523.7 351.6 L523.7 363.6 L357.4 459.6 L108.0 315.6 L108.0 303.6 Z" />
+                <line class="thin" x1="357.4" y1="447.6" x2="523.7" y2="351.6" />
+                <line class="thin" x1="357.4" y1="447.6" x2="108.0" y2="303.6" />
+                <line class="thin" x1="357.4" y1="447.6" x2="357.4" y2="459.6" />
+                <path class="face" d="M274.3 166.8 L523.7 310.8 L523.7 322.8 L357.4 418.8 L108.0 274.8 L108.0 262.8 Z" />
+                <line class="thin" x1="357.4" y1="406.8" x2="523.7" y2="310.8" />
+                <line class="thin" x1="357.4" y1="406.8" x2="108.0" y2="262.8" />
+                <line class="thin" x1="357.4" y1="406.8" x2="357.4" y2="418.8" />
+                <path class="face" d="M217.1 167.4 L395.9 270.6 L395.9 274.2 L387.6 279.0 L208.8 175.8 L208.8 172.2 Z" />
+                <line class="thin" x1="387.6" y1="275.4" x2="395.9" y2="270.6" />
+                <line class="thin" x1="387.6" y1="275.4" x2="208.8" y2="172.2" />
+                <line class="thin" x1="387.6" y1="275.4" x2="387.6" y2="279.0" />
+                <path class="face" d="M274.3 94.8 L344.9 135.6 L344.9 170.4 L295.1 199.2 L224.4 158.4 L224.4 123.6 Z" />
+                <line class="thin" x1="295.1" y1="164.4" x2="344.9" y2="135.6" />
+                <line class="thin" x1="295.1" y1="164.4" x2="224.4" y2="123.6" />
+                <line class="thin" x1="295.1" y1="164.4" x2="295.1" y2="199.2" />
+                <path class="face" d="M374.0 152.4 L444.7 193.2 L444.7 228.0 L394.8 256.8 L324.2 216.0 L324.2 181.2 Z" />
+                <line class="thin" x1="394.8" y1="222.0" x2="444.7" y2="193.2" />
+                <line class="thin" x1="394.8" y1="222.0" x2="324.2" y2="181.2" />
+                <line class="thin" x1="394.8" y1="222.0" x2="394.8" y2="256.8" />
+                <path class="face" d="M228.6 164.4 L324.2 219.6 L324.2 254.4 L274.3 283.2 L178.7 228.0 L178.7 193.2 Z" />
+                <line class="thin" x1="274.3" y1="248.4" x2="324.2" y2="219.6" />
+                <line class="thin" x1="274.3" y1="248.4" x2="178.7" y2="193.2" />
+                <line class="thin" x1="274.3" y1="248.4" x2="274.3" y2="283.2" />
+                <path class="face" d="M266.0 30.0 L365.7 87.6 L365.7 94.8 L315.8 123.6 L216.1 66.0 L216.1 58.8 Z" />
+                <line class="thin" x1="315.8" y1="116.4" x2="365.7" y2="87.6" />
+                <line class="thin" x1="315.8" y1="116.4" x2="216.1" y2="58.8" />
+                <line class="thin" x1="315.8" y1="116.4" x2="315.8" y2="123.6" />
+                <path class="face" d="M390.7 102.0 L490.4 159.6 L490.4 166.8 L440.6 195.6 L340.8 138.0 L340.8 130.8 Z" />
+                <line class="thin" x1="440.6" y1="188.4" x2="490.4" y2="159.6" />
+                <line class="thin" x1="440.6" y1="188.4" x2="340.8" y2="130.8" />
+                <line class="thin" x1="440.6" y1="188.4" x2="440.6" y2="195.6" />
+                <line class="drop" x1="290.9" y1="80.4" x2="290.9" y2="128.4" />
+                <path class="fill" d="M290.9 128.4 l-3.6 -7.2 l7.2 0 Z" />
+                <line class="drop" x1="411.5" y1="150.0" x2="411.5" y2="198.0" />
+                <path class="fill" d="M411.5 198.0 l-3.6 -7.2 l7.2 0 Z" />
+                <line class="drop" x1="284.7" y1="165.6" x2="284.7" y2="217.4" />
+                <path class="fill" d="M284.7 217.4 l-3.6 -7.2 l7.2 0 Z" />
+                <line class="drop" x1="384.4" y1="223.2" x2="384.4" y2="275.0" />
+                <path class="fill" d="M384.4 275.0 l-3.6 -7.2 l7.2 0 Z" />
+                <line class="drop" x1="251.4" y1="242.4" x2="251.4" y2="294.2" />
+                <path class="fill" d="M251.4 294.2 l-3.6 -7.2 l7.2 0 Z" />
+                <text class="plan-label" x="18" y="116.8">TEPI</text>
+                <line class="thin" x1="18" y1="124.8" x2="46.8" y2="124.8" />
+                <text class="plan-label" x="18" y="193.0">CONTAINER</text>
+                <line class="thin" x1="18" y1="201.0" x2="82.8" y2="201.0" />
+                <text class="plan-label" x="18" y="296.8">HOST</text>
+                <line class="thin" x1="18" y1="304.8" x2="46.8" y2="304.8" />
+                <text class="plan-label" x="18" y="352.0">PENYIMPANAN</text>
+                <line class="thin" x1="18" y1="360.0" x2="97.2" y2="360.0" />
+                <path class="leader" d="M365.7 87.6 L527.0 81.6 L545.0 81.6" />
+                <circle class="fill" cx="365.7" cy="87.6" r="2.6" />
+                <text class="b" x="553.0" y="85.6">Cloudflare Tunnel</text>
+                <text class="s" x="553.0" y="101.6">situs & aplikasi ke publik</text>
+                <path class="leader" d="M344.9 135.6 L527.0 129.6 L545.0 129.6" />
+                <circle class="fill" cx="344.9" cy="135.6" r="2.6" />
+                <text class="b" x="553.0" y="133.6">CT 100 web</text>
+                <text class="s" x="553.0" y="149.6">nginx + cloudflared</text>
+                <path class="leader" d="M490.4 159.6 L527.0 169.6 L545.0 169.6" />
+                <circle class="fill" cx="490.4" cy="159.6" r="2.6" />
+                <text class="b" x="553.0" y="173.6">Tailscale · SSH · 2FA</text>
+                <text class="s" x="553.0" y="189.6">jalur admin, bukan port terbuka</text>
+                <path class="leader" d="M444.7 193.2 L527.0 209.6 L545.0 209.6" />
+                <circle class="fill" cx="444.7" cy="193.2" r="2.6" />
+                <text class="b" x="553.0" y="213.6">CT 102 redis</text>
+                <text class="s" x="553.0" y="229.6">cache & antrean</text>
+                <path class="leader" d="M324.2 219.6 L527.0 249.6 L545.0 249.6" />
+                <circle class="fill" cx="324.2" cy="219.6" r="2.6" />
+                <text class="b" x="553.0" y="253.6">CT 120 db · MySQL 8.4</text>
+                <text class="s" x="553.0" y="269.6">hanya mendengar di 10.10.10.120</text>
+                <path class="leader" d="M395.9 270.6 L527.0 289.6 L545.0 289.6" />
+                <circle class="fill" cx="395.9" cy="270.6" r="2.6" />
+                <text class="b" x="553.0" y="293.6">vmbr1 · 10.10.10.0/24</text>
+                <text class="s" x="553.0" y="309.6">bridge internal tanpa port fisik</text>
+                <path class="leader" d="M523.7 310.8 L527.0 329.6 L545.0 329.6" />
+                <circle class="fill" cx="523.7" cy="310.8" r="2.6" />
+                <text class="b" x="553.0" y="333.6">Proxmox VE 9.2</text>
+                <text class="s" x="553.0" y="349.6">Ryzen 9 9900X · 32 GB</text>
+                <path class="leader" d="M523.7 351.6 L527.0 369.6 L545.0 369.6" />
+                <circle class="fill" cx="523.7" cy="351.6" r="2.6" />
+                <text class="b" x="553.0" y="373.6">rpool · 2× NVMe 2 TB</text>
+                <text class="s" x="553.0" y="389.6">mirror, root & container</text>
+                <path class="leader" d="M523.7 380.4 L527.0 409.6 L545.0 409.6" />
+                <circle class="fill" cx="523.7" cy="380.4" r="2.6" />
+                <text class="b" x="553.0" y="413.6">tank · 2× HDD 4 TB</text>
+                <text class="s" x="553.0" y="429.6">mirror, backup & data</text>
+              </g>
+            </svg>
+            <svg class="iso-flat" viewBox="0 0 640 420" role="img" aria-labelledby="planTitle" xmlns="http://www.w3.org/2000/svg">
               <title id="planTitle">Denah jaringan: internet masuk lewat Cloudflare Tunnel dan Tailscale; container web, redis, dan database berada di dalam Proxmox; database hanya terhubung ke bridge internal</title>
               <g class="plan-ink plan-ink-white">
                 <text x="24" y="34" class="plan-label">INTERNET</text>
@@ -488,8 +584,16 @@
                 <line x1="439" y1="182" x2="439" y2="212" />
               </g>
             </svg>
-            <figcaption><span>Denah jaringan</span><span>Skala NTS</span></figcaption>
+            <figcaption><span class="cap-wide">Isometrik terurai</span><span class="cap-flat">Denah jaringan</span><span>Skala NTS</span></figcaption>
           </figure>
+          <div class="notes lessons">
+            <h3>Tiga pelajaran yang saya bawa</h3>
+            <ol>
+              <li>Uji dari luar, jangan asumsikan. <code>bind-address</code> saja tidak menutup semua port MySQL.</li>
+              <li>Pasang mekanisme rollback sebelum mengubah firewall dari jarak jauh.</li>
+              <li>Verifikasi arsitektur image sebelum menyalahkan hardware.</li>
+            </ol>
+          </div>
         </div>
 
         <div class="bp-notes">
@@ -517,14 +621,6 @@
             </ol>
           </div>
 
-          <div class="notes lessons">
-            <h3>Tiga pelajaran yang saya bawa</h3>
-            <ol>
-              <li>Uji dari luar, jangan asumsikan. <code>bind-address</code> saja tidak menutup semua port MySQL.</li>
-              <li>Pasang mekanisme rollback sebelum mengubah firewall dari jarak jauh.</li>
-              <li>Verifikasi arsitektur image sebelum menyalahkan hardware.</li>
-            </ol>
-          </div>
         </div>
       </div>
 

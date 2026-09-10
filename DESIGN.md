@@ -342,6 +342,12 @@ Character: the person drawn as a component.
 Character: schematics drawn in the sheet's current ink.
 - **Style:** `currentColor` strokes at 1.5 (thick 3, dashed 6 5), paper-filled boxes in the flow diagram, 13px 500 Saira text with 700 bold and 12px small variants and a 12px 700 +0.1em plan label. The flow ships wide and tall variants, swapped at 760px with a caps scroll cue.
 
+### Isometric Exploded View (`.iso`)
+Character: the assembly drawing that turns the server into a solid you can read.
+- **Geometry:** true isometric, 30 degree axes, `sx = (x - y)·cos30`, `sy = (x + y)·sin30 - z`, generated at 24px per world unit. Four exploded layers stacked on one dashed assembly axis: edge plates, containers seated on the `vmbr1` bar, the host slab, then two mirrored storage slabs.
+- **Style:** every solid is a 1.5px silhouette hexagon filled with `var(--paper)` so it occludes what sits behind it, plus the three 1px internal edges meeting at the near-top corner. No tone, no shadow, no gradient: volume is carried by line weight alone, the way an isometric line drawing does it. Explosion arrows are 1px dashed with a solid ink arrowhead; the assembly axis is 1px dashed at 0.5 opacity. Callouts leave the part on an ink dot, take one diagonal to a knee, then run horizontal to a 13px 700 label over a 12px small line; labels are distributed top-down with a 40px minimum gap so leaders never cross. Layer names sit in the left margin as tracked caps over a 1px rule, aligned to each layer's vertical centre.
+- **Responsive:** ships beside the flat plan (`.iso-flat`) and swaps to it at 760px, where the isometric's labels would fall below the legibility floor. The figcaption swaps with the view so the caption always names the drawing on screen.
+
 ### Contact Cells (`.contact-cells`)
 Character: a title block scaled up into a two-by-two form.
 - **Style:** 1.5px ink outer border, hairline inner grid, 20px padding; each cell stacks a tracked-caps key, a 16px 700 value (mono for the phone number), and a 12px caps underlined action.
