@@ -1,7 +1,6 @@
 # tools
 
-Skrip bantu, dijalankan dengan `python`.
-
-| Skrip | Keluaran | Kapan |
-|---|---|---|
-| `iso.py` | SVG isometrik hidden-line lembar 3 (keadaan istirahat), tempel ke `figure.plan` di `index.html` | Tiap kali SOLIDS di `iso.js` berubah; SOLIDS di keduanya harus sama supaya frame pertama JS jatuh persis di atas gambar statis |
+Folder ini kosong sejak 2026-09-15: generator SVG lembar 3 (`iso.py`) dan alat
+tangkap sampul dicabut bersama dunia "lembar gambar teknik". Screenshot project
+diambil dengan agent-browser pada viewport 1280×800 lalu dikonversi ke WebP
+dengan Pillow; asalnya dicatat di sidecar `.json` di samping tiap berkas.

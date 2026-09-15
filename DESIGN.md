@@ -1,414 +1,365 @@
 ---
 name: Portofolio Muhammad Rafiq Amin
-description: A portfolio drawn as a set of ISO 5457 engineering sheets; the person is dimensioned like a machine part.
+description: A portfolio written as a product changelog; white paper, one ink, one green dot for what is live.
 colors:
-  paper: "#fbfbf8"
-  ink: "#111111"
-  ink-2: "#3b3b3b"
-  rule: "rgba(17, 17, 17, 0.42)"
-  dim: "#0b57d0"
-  dim-deep: "#083f98"
-  rev: "#d3271b"
-  cyan: "#0f2f5f"
-  cyan-2: "#16407a"
-  cyan-ink: "#ffffff"
-  cyan-ink-2: "#bcd0ee"
-  cyan-rule: "rgba(255, 255, 255, 0.42)"
+  paper: "#ffffff"
+  paper-2: "#f6f7f8"
+  ink: "#111318"
+  ink-2: "#5b6068"
+  rule: "#e6e8eb"
+  rule-2: "#d3d6db"
+  live: "#0f7b3f"
+  live-dot: "#1fa35a"
 typography:
   display:
-    fontFamily: "Saira, Segoe UI, Arial, sans-serif"
-    fontSize: "clamp(46px, 7vw, 96px)"
-    fontWeight: 800
-    lineHeight: 0.92
-    letterSpacing: "-0.035em"
+    fontFamily: "Mona Sans, system-ui, Segoe UI, Roboto, Arial, sans-serif"
+    fontSize: "clamp(38px, 4.6vw, 60px)"
+    fontWeight: 600
+    lineHeight: 1.02
+    letterSpacing: "-0.022em"
   headline:
-    fontFamily: "Saira, Segoe UI, Arial, sans-serif"
-    fontSize: "clamp(24px, 2.6vw, 34px)"
-    fontWeight: 700
-    lineHeight: 1.15
-    letterSpacing: "-0.01em"
+    fontFamily: "Mona Sans, system-ui, Segoe UI, Roboto, Arial, sans-serif"
+    fontSize: "clamp(28px, 3vw, 40px)"
+    fontWeight: 600
+    lineHeight: 1.1
+    letterSpacing: "-0.018em"
+  page-title:
+    fontFamily: "Mona Sans, system-ui, Segoe UI, Roboto, Arial, sans-serif"
+    fontSize: "clamp(32px, 3.6vw, 48px)"
+    fontWeight: 600
+    lineHeight: 1.08
+    letterSpacing: "-0.02em"
   title:
-    fontFamily: "Saira, Segoe UI, Arial, sans-serif"
-    fontSize: "clamp(20px, 2vw, 26px)"
-    fontWeight: 700
-    lineHeight: 1.15
-    letterSpacing: "-0.01em"
+    fontFamily: "Mona Sans, system-ui, Segoe UI, Roboto, Arial, sans-serif"
+    fontSize: "22px"
+    fontWeight: 600
+    lineHeight: 1.2
+    letterSpacing: "-0.012em"
+  lead:
+    fontFamily: "Mona Sans, system-ui, Segoe UI, Roboto, Arial, sans-serif"
+    fontSize: "clamp(19px, 1.7vw, 23px)"
+    fontWeight: 450
+    lineHeight: 1.4
+    letterSpacing: "-0.005em"
+  body-lg:
+    fontFamily: "Mona Sans, system-ui, Segoe UI, Roboto, Arial, sans-serif"
+    fontSize: "17px"
+    fontWeight: 400
+    lineHeight: 1.55
+    letterSpacing: "normal"
   body:
-    fontFamily: "Saira, Segoe UI, Arial, sans-serif"
-    fontSize: "15px"
+    fontFamily: "Mona Sans, system-ui, Segoe UI, Roboto, Arial, sans-serif"
+    fontSize: "16px"
     fontWeight: 400
     lineHeight: 1.55
     letterSpacing: "normal"
   body-sm:
-    fontFamily: "Saira, Segoe UI, Arial, sans-serif"
-    fontSize: "14px"
-    fontWeight: 400
-    lineHeight: 1.5
+    fontFamily: "Mona Sans, system-ui, Segoe UI, Roboto, Arial, sans-serif"
+    fontSize: "15px"
+    fontWeight: 500
+    lineHeight: 1.55
     letterSpacing: "normal"
   label:
-    fontFamily: "Saira, Segoe UI, Arial, sans-serif"
-    fontSize: "12px"
-    fontWeight: 700
+    fontFamily: "Mona Sans, system-ui, Segoe UI, Roboto, Arial, sans-serif"
+    fontSize: "14px"
+    fontWeight: 500
     lineHeight: 1.3
-    letterSpacing: "0.1em"
-  figures:
-    fontFamily: "B612 Mono, Cascadia Mono, Consolas, monospace"
-    fontSize: "13px"
-    fontWeight: 400
-    lineHeight: 1.5
     letterSpacing: "normal"
-  figures-mark:
-    fontFamily: "B612 Mono, Cascadia Mono, Consolas, monospace"
-    fontSize: "18px"
-    fontWeight: 700
-    lineHeight: 1.1
-    letterSpacing: "0.1em"
+  caption:
+    fontFamily: "Mona Sans, system-ui, Segoe UI, Roboto, Arial, sans-serif"
+    fontSize: "13px"
+    fontWeight: 500
+    lineHeight: 1.4
+    letterSpacing: "normal"
 rounded:
-  none: "0px"
+  focus: "4px"
+  sm: "6px"
+  lg: "10px"
+  pill: "999px"
+  circle: "50%"
 spacing:
-  zone: "22px"
-  sheet-gap: "16px"
+  gutter: "clamp(16px, 4vw, 40px)"
   bar-h: "56px"
-  cell-pad: "14px 18px"
-  sheet-pad: "clamp(28px, 4vw, 56px)"
-  row-pad: "8px"
-  note-pad: "10px 0 10px 34px"
-  detail-gap: "40px"
+  wrap: "1120px"
+  measure: "720px"
+  rail: "180px"
+  rail-gap: "40px"
+  entry-gap: "44px"
+  section-pad: "clamp(40px, 5vw, 64px) clamp(44px, 6vw, 80px)"
+  month-pad: "32px 40px"
+  stack: "10px"
+  stack-md: "12px"
+  stack-lg: "20px"
+  row-pad: "14px 0"
 components:
-  index-bar:
+  button:
+    backgroundColor: "{colors.paper}"
+    textColor: "{colors.ink}"
+    rounded: "{rounded.sm}"
+    padding: "10px 18px"
+    height: "42px"
+    typography: "{typography.body-sm}"
+  button-hover:
+    backgroundColor: "{colors.paper-2}"
+  button-primary:
+    backgroundColor: "{colors.ink}"
+    textColor: "{colors.paper}"
+    rounded: "{rounded.sm}"
+    padding: "10px 18px"
+    height: "42px"
+  button-primary-hover:
+    backgroundColor: "#2a2e36"
+  button-sm:
+    padding: "7px 14px"
+    height: "36px"
+    typography: "{typography.label}"
+  chip:
+    backgroundColor: "{colors.paper}"
+    textColor: "{colors.ink}"
+    rounded: "{rounded.pill}"
+    padding: "7px 14px"
+    height: "34px"
+    typography: "{typography.label}"
+  chip-hover:
+    backgroundColor: "{colors.paper-2}"
+  chip-pressed:
+    backgroundColor: "{colors.ink}"
+    textColor: "{colors.paper}"
+  status:
+    backgroundColor: "{colors.paper}"
+    textColor: "{colors.ink-2}"
+    rounded: "{rounded.pill}"
+    padding: "4px 10px 4px 8px"
+    typography: "{typography.caption}"
+  status-live:
+    textColor: "{colors.live}"
+  shot:
+    backgroundColor: "{colors.paper-2}"
+    rounded: "{rounded.lg}"
+  shot-caption:
+    backgroundColor: "{colors.paper}"
+    textColor: "{colors.ink-2}"
+    padding: "9px 12px 11px"
+    typography: "{typography.caption}"
+  diagram:
+    backgroundColor: "{colors.paper}"
+    rounded: "{rounded.lg}"
+    padding: "12px"
+  topbar:
     backgroundColor: "{colors.paper}"
     textColor: "{colors.ink}"
     height: "{spacing.bar-h}"
-    typography: "{typography.label}"
-  index-tab:
-    backgroundColor: "{colors.paper}"
+  topbar-link:
+    textColor: "{colors.ink-2}"
+    typography: "{typography.body-sm}"
+  topbar-link-active:
     textColor: "{colors.ink}"
-    padding: "0 16px"
-    typography: "{typography.label}"
-  index-tab-hover:
-    backgroundColor: "rgba(17, 17, 17, 0.05)"
-  index-tab-active-number:
+  avatar:
+    rounded: "{rounded.circle}"
+    size: "116px"
+  date-rail:
+    textColor: "{colors.ink-2}"
+    width: "{spacing.rail}"
+    typography: "{typography.body-sm}"
+  skip-link:
     backgroundColor: "{colors.ink}"
     textColor: "{colors.paper}"
-    size: "22px"
-  index-action:
-    backgroundColor: "{colors.dim}"
-    textColor: "{colors.paper}"
-    padding: "0 18px"
-    typography: "{typography.label}"
-  index-action-hover:
-    backgroundColor: "{colors.ink}"
-  sheet:
-    backgroundColor: "{colors.paper}"
-    textColor: "{colors.ink}"
-    rounded: "{rounded.none}"
-    padding: "{spacing.sheet-pad}"
-  sheet-blueprint:
-    backgroundColor: "{colors.cyan}"
-    textColor: "{colors.cyan-ink}"
-    rounded: "{rounded.none}"
-  title-block-cell:
-    backgroundColor: "{colors.paper}"
-    textColor: "{colors.ink}"
-    padding: "{spacing.cell-pad}"
-    height: "84px"
-  title-block-action:
-    backgroundColor: "{colors.paper}"
-    textColor: "{colors.ink}"
-    padding: "{spacing.cell-pad}"
-    width: "190px"
-  title-block-action-hover:
-    backgroundColor: "{colors.ink}"
-    textColor: "{colors.paper}"
-  title-block-action-primary:
-    backgroundColor: "{colors.dim}"
-    textColor: "{colors.paper}"
-    padding: "{spacing.cell-pad}"
-  cell-link:
-    backgroundColor: "{colors.paper}"
-    textColor: "{colors.ink}"
-    padding: "8px 16px"
-    height: "42px"
-    typography: "{typography.label}"
-  cell-link-hover:
-    backgroundColor: "{colors.ink}"
-    textColor: "{colors.paper}"
-  cell-link-primary:
-    backgroundColor: "{colors.dim}"
-    textColor: "{colors.paper}"
-    padding: "8px 16px"
-    height: "42px"
-  cell-link-primary-hover:
-    backgroundColor: "{colors.ink}"
-  stamp:
-    textColor: "{colors.rev}"
-    padding: "5px 12px 6px"
-    typography: "{typography.label}"
-  stamp-live:
-    textColor: "{colors.rev}"
-    padding: "3px 8px"
-  stamp-demo:
-    textColor: "{colors.dim}"
-    padding: "3px 8px"
-  stamp-private:
-    textColor: "{colors.ink}"
-    padding: "3px 8px"
-  bom-chip:
-    textColor: "{colors.ink}"
-    padding: "4px 9px"
-    typography: "{typography.label}"
-  table-group-row:
-    backgroundColor: "{colors.ink}"
-    textColor: "{colors.paper}"
-    padding: "6px 10px"
-  contact-cell:
-    backgroundColor: "{colors.paper}"
-    textColor: "{colors.ink}"
-    padding: "20px"
-  contact-cell-hover:
-    backgroundColor: "{colors.ink}"
-    textColor: "{colors.paper}"
-  contact-cell-primary:
-    backgroundColor: "{colors.dim}"
-    textColor: "{colors.paper}"
-    padding: "20px"
+    rounded: "{rounded.sm}"
+    padding: "10px 14px"
 ---
 
 # Design System: Portofolio Muhammad Rafiq Amin
 
 ## Overview
 
-**Creative North Star: "The Drawing Set"**
+**Creative North Star: "The Release Log"**
 
-The whole site is one bound set of engineering drawings. Every surface is a sheet: a thick black border, A–F / 1–8 zone letters in the margin, a title block along the bottom edge, and content laid out as notes columns, drawing tables, detail frames, and callout balloons. The person is treated as the component being drawn: a photo cutout becomes an elevation with a dimension line and leadered balloons. Nothing is decorated; everything is annotated. Density is high and deliberate, closer to a datasheet than a landing page, and the reader is trusted to scan.
+The site reads like the changelog page of a product that keeps shipping, and the product is the person. Every project is a dated release entry with a checkable status; months run down the page with a sticky date rail on the left, and the reader sweeps from Sep 2026 back to Nov 2025 the way they would scan release notes. Nothing is pitched. A recruiter gets name, role, one sentence of position, and a live green dot on the newest entry inside the first screen; an engineer filters to Live and opens the links.
 
-Material is white drawing paper and black ink in three line weights. Colour is rationed like CAD layers: dimension blue for anything that measures or links, revision red for status stamps, and one cyanotype sheet where the server is drawn white-on-blue. Depth is entirely structural: rules, borders, and inversions, never shadows. Motion happens once, when the sheet-1 linework draws itself on, and then the set is still.
+Material is plain white paper and one near-black ink with a single grey secondary tone; structure is carried by hairline rules, not by fills or boxes. There are no cards. The only colour the system itself owns is one green, and it is spent on a single meaning: this thing is live right now. Brand colours appear only inside the technology logos on the skills pages, and they are the logos' own colours, not the system's. One typeface, Mona Sans in a single variable file, does display, body and label work; the hierarchy is built from size, weight and the grey tone alone.
 
-The build rejects the dark hero, the icon cloud, and the card grid. It also rejects glyph icons in general: the only icons are two hairline arrow marks in a sprite. Lettering is Saira in tracked uppercase; every figure, date, sheet number, and zone letter is set in B612 Mono.
+The build rejected the dark hero, the icon cloud, the card grid, and the previous engineering-drawing world (thick frames, title blocks, tracked-caps labels, a monospaced figures face, a 3D model). Motion is confined to entries rising 12px as they arrive and a 1px press on buttons; there is no opening choreography.
 
 **Key Characteristics:**
-- Sheet-per-section: one 3px-bordered frame per topic, stacked with a 16px gutter, each closing with a title block.
-- Three ink weights (3px border, 1.5px medium, 1px hairline) carry all hierarchy; there are no fills except inversions.
-- Rationed colour: blue for dimensions and links, red for stamps, one blueprint sheet inverted via token override.
-- Two faces with strict roles: Saira for lettering, B612 Mono for figures and marks.
-- Zero radius, zero shadow, one draw-on animation.
+- Changelog anatomy: every release has the same parts in the same order (title + status, one description, one result line or a Masalah/Solusi/Hasil list, stack tags, links, optional screenshot).
+- Hairline structure: 1px rules in two greys separate everything; no fills except the primary button, the pressed chip, and the tinted ground under screenshots.
+- One accent, one meaning: green exists only for the Live status pill.
+- One face: Mona Sans 600 for every heading, 400–550 for text, no uppercase tracking anywhere.
+- One shadow: the screenshot frame carries a soft offset shadow; nothing else has one.
 
 ## Colors
 
-A monochrome paper-and-ink base with two CAD layer colours and one inverted cyanotype sheet.
+A white-and-ink monochrome with a warm-neutral grey and one green reserved for live status.
 
 ### Primary
-- **Dimension Blue** (`dim`): the measuring layer. Inline links, dimension lines and arrowheads on the elevation, the primary action cell in the title block, the index-bar WhatsApp action, primary cell links, the primary contact cell, caret and selection colour. It is the only colour allowed to fill a surface on a white sheet.
-- **Dimension Blue, deep** (`dim-deep`): hover state for inline text links only.
+- **Ink** (`ink`): the only "brand" colour. All headings and body text, the primary button fill, the pressed filter chip, focus outlines, text selection, and the skip link. Hover on the primary button lifts it to a slightly lighter ink (`#2a2e36`, hard-coded in the build).
 
 ### Secondary
-- **Revision Red** (`rev`): the stamp layer. Used exclusively on stamps: the rotated TERSEDIA availability stamp in the sheet-1 title block and the LIVE stamp in detail captions. It never fills; it is always a 2px or 1.5px outline with matching text.
-
-### Tertiary
-- **Cyanotype** (`cyan` with a `cyan-2` highlight in a radial gradient at 28% 18%): the ground of the single blueprint sheet (sheet 3, server). On that sheet `cyan-ink` (white) replaces ink, `cyan-ink-2` replaces ink-2 for secondary text, and `cyan-rule` replaces the hairline. Blue and red both collapse to white there, so links, primary actions, and stamps are all white-on-cyan.
+- **Release Green** (`live`): the text and border tone of the Live status pill and nothing else. Its border is the same green at 35% alpha.
+- **Live Dot** (`live-dot`): the filled 7px dot inside the Live pill, and the single red-dot equivalent (`.rec`) inside the hand-tracking illustration's HUD.
 
 ### Neutral
-- **Drawing Paper** (`paper`): page and sheet ground, index bar ground, inverted-element text.
-- **Ink** (`ink`): all text, all borders, the fill of inverted cells (active tab number, group rows, hover states).
-- **Ink, secondary** (`ink-2`): title-block keys, head notes, status lines, detail type lines, last column of the BOM table, colophon.
-- **Hairline Rule** (`rule`, 42% ink): table row dividers, note dividers, detail dividers, index tab separators, contact-cell inner grid.
+- **Paper** (`paper`): page ground, topbar ground, button and chip ground, primary-button text, shot caption ground, diagram ground.
+- **Paper, tinted** (`paper-2`): hover ground for buttons and chips, the ground behind screenshot frames, the host box fill in the network diagram.
+- **Ink, secondary** (`ink-2`): role line, meta line, section intro paragraphs, release descriptions, stack tags, date rail, table cells, captions, colophon, and the resting colour of status pills other than Live. Topbar links rest here and turn to `ink` on hover or when current.
+- **Rule** (`rule`): the hairline. Topbar bottom, section tops, month tops, table row dividers, contact rows, skills-group tops, shot caption top.
+- **Rule, strong** (`rule-2`): borders on things you can touch or look at: buttons, chips, status pills, avatar ring, screenshot and diagram frames, table head rule, underline colour of resting text links, the "·" separator between tags. Hover on buttons and shot frames darkens it to `#b9bec6` (hard-coded).
 
 ### Named Rules
-**The Layer Rule.** Colour is a CAD layer, not decoration. Blue means "this measures or links", red means "this is a status stamp". No other hue enters a white sheet; if a new element needs emphasis, invert it to ink-on-paper instead.
+**The One Dot Rule.** Green means live and nothing else. It never colours a heading, a link, a button, or a decorative element. Demo statis, Kode privat and Repo publik pills stay grey; the honesty of the label comes from the words, not from a second or third colour.
 
-**The Override Rule.** The blueprint sheet inverts by reassigning the tokens (`--ink`, `--ink-2`, `--rule`, `--paper`, `--dim`, `--dim-deep`, `--rev`) on the sheet element, not by restyling components. Any new component that reads only from those tokens works on both grounds automatically; a component that hard-codes a hex will break on sheet 3.
+**The Logo Exception Rule.** The only other hues on the site are the official technology logos in `img/tech.svg` (22px inline, 26px in rows, 24px under 480px). They are the vendors' colours and are never sampled into the system palette.
 
-**The Print Rule.** In print the blueprint sheet drops its gradient and returns to black ink on white, and sticky elements go static. The system must survive on paper because the world is paper.
+**The Underline Rule.** Links are ink text underlined in `rule-2`, 1px thick, 0.2em offset; the underline turns to `ink` on hover. Links do not change colour and are never green or blue.
 
 ## Typography
 
-**Display Font:** Saira (with Segoe UI, Arial, sans-serif), self-hosted woff2 at 400/500/600/700/800
-**Body Font:** Saira (same family; the site is single-face for lettering)
-**Label/Mono Font:** B612 Mono (with Cascadia Mono, Consolas, monospace), self-hosted at 400/700
+**Display Font:** Mona Sans (with system-ui, Segoe UI, Roboto, Arial, sans-serif), one self-hosted variable woff2, weight 200–900, width 75–125%
+**Body Font:** Mona Sans (same file)
+**Label/Mono Font:** none; `time` elements use `font-variant-numeric: tabular-nums` in the same face
 
-**Character:** Saira is the drafter's lettering: wide, square, and set in tracked uppercase for every label, caption, and heading. B612 Mono (an aircraft-cockpit face) is reserved for anything a reader would check against a value: sheet numbers, revision letters, dates, counts, phone numbers, zone letters, and the MRA mark. The pairing reads as instrument panel, not editorial.
+**Character:** a single humanist grotesk doing everything, set tight at display size and loose nowhere. Weight is used in narrow steps (400 / 450 / 500 / 550 / 600) rather than jumps, so hierarchy reads as a quiet gradient. There is no uppercase, no letterspaced label voice, no italic, and no second face.
 
 ### Hierarchy
-- **Display** (800, `clamp(38px, 4.2vw, 60px)`, 0.98, -0.03em, uppercase): the h1 name on sheet 1 only. Tight tracking is unique to this size; everything smaller tracks open.
-- **Headline** (700, `clamp(20px, 2.3vw, 30px)`, 1.2, +0.05em, uppercase, max 34ch, balanced): sheet h2 titles in the sheet head.
-- **Title** (700, `clamp(20px, 2vw, 26px)`, 1.15, -0.01em, sentence case, balanced): detail h3 names (project titles). Schedule h3 is the fixed 22px sibling.
-- **Role** (600, `clamp(17px, 1.6vw, 21px)`, +0.01em): the job-title line under the h1.
-- **Body** (400, 15px, 1.55): note list items and case-table cells. Notes columns cap at 62ch, flow notes at 72ch, blueprint lead at 62ch.
-- **Body, small** (400, 14px, 1.5): drawing tables, head notes, status lines, title-block values (600), schedule notes.
-- **Label** (700, 12px, +0.1em, uppercase): the workhorse. Table captions, column heads (+0.12em), title-block keys, index tabs, cell links, BOM chips, stamps, figcaptions, detail captions (600, +0.06em). Group rows drop to 11px. Notes headings use +0.05em.
-- **Figures** (B612 Mono 400, 12–13px, tabular-nums): sheet/rev/scale values, revision list, table figure cells, note counters, zone labels (10px).
-- **Mark** (B612 Mono 700, 18px, +0.1em): the MRA mark in the title block; 15px in the index bar and callout balloon numbers.
+- **Display** (600, `clamp(38px, 4.6vw, 60px)`, 1.02, -0.022em, balanced): the h1 name on the home intro only.
+- **Page title** (600, `clamp(32px, 3.6vw, 48px)`, 1.08, -0.02em): the h1 of Rilis, Server, Keahlian, Kontak; may carry an inline status pill at 14px.
+- **Headline** (600, `clamp(28px, 3vw, 40px)`, 1.1, -0.018em): section h2s on the home page (Rilis terbaru, Keahlian, Kontak).
+- **Title** (600, 22px, 1.2, -0.012em; 20px under 720px): release entry titles (h2 on Rilis, h3 on home), two-column headings, "Cara saya bekerja" heading.
+- **Lead** (450, `clamp(19px, 1.7vw, 23px)`, 1.4, -0.005em, max 46ch): the one-sentence position under the name.
+- **Role** (500, 20px; 18px under 720px, `ink-2`): the job-title line.
+- **Body, large** (400, 17px, 1.55; 16px under 720px): section and page intros, release descriptions. The result line is the same size at 550 in `ink`.
+- **Body** (400, 16px, 1.55): the base; skills descriptions, case-list text, how-I-work list.
+- **Body, small** (500, 15px): buttons, text links, topbar links, date rail, meta line, tables, contact rows, proof lines.
+- **Label** (500, 14px): chips, button-sm, stack tags, case-list terms (600), skills-table head at 13px 600.
+- **Caption** (500, 13px, 1.4): status pills, shot captions, diagram hint, diagram text.
 
 ### Named Rules
-**The Figures Rule.** Any string a reader might verify (a number, a date, a sheet reference, a revision letter, a phone number) is set in B612 Mono with tabular figures. Prose numbers inside a sentence stay in Saira.
+**The One Face Rule.** Every glyph on the site, including SVG diagram and illustration text, is Mona Sans via `var(--font)`. Do not add a monospace for figures; use `tabular-nums` on `time` instead.
 
-**The Tracked Caps Rule.** Labels at 12px and below are uppercase with 0.1em tracking (0.12em on table heads, 0.06em on detail captions). Wide tracking on caps labels is native to the drafting world and is a deliberate decision, not a defect; do not "fix" it toward normal tracking. Display-size type tracks tight (-0.03em) and never goes wide.
+**The Weight Ladder Rule.** Headings are 600, never heavier. Emphasis inside text is 550 (the result line, the Hasil row), links and labels 500, prose 400. Weight 700 or above does not appear in the build.
 
-**The One Display Rule.** There is one display-size heading in the set, the h1 on sheet 1. Later sheets open with a Headline h2, never another display.
+**The Sentence Case Rule.** Nothing is uppercase and nothing is tracked open. Eyebrows, kickers and tracked-caps labels do not exist in this world.
 
 ## Layout
 
-The page is a vertical stack of full-width sheets under a fixed 56px index bar. Each sheet is a bordered frame with a 16px gutter on both sides and between sheets (`sheet-gap`); main content starts at `bar-h + sheet-gap`, and anchors scroll to the same offset. Inside the frame, a 22px zone strip runs along the top (1–8) and left (A–F) edges in 10px B612 Mono with 1px dividers; the sheet body pads `clamp(28px, 4vw, 56px)` and adds the zone width on the left.
+One centred column, max 1120px (`wrap`), with a fluid gutter of `clamp(16px, 4vw, 40px)` on every section, the topbar and the colophon. Reading widths are capped inside it: release entries at 720px (`measure`), intros at 70ch, the lead at 46ch, the CTA line at 60ch.
 
-Sheet 1 is a three-row, two-column general-arrangement grid: elevation (sticky, sized from viewport height at a 600/760 ratio) on the left at 0.92fr, head / notes / tables stacked on the right at 1.08fr, with a `clamp(28px, 4vw, 64px)` column gap and 16px row gap. Sheet 2 stacks details, each a two-column article (sticky detail frame 0.9fr, notes 1.1fr, 40px vertical padding, hairline divider). Sheets 3 and 6 use a 1.15/0.85 or 1/1 two-column grid with `clamp(32px, 5vw, 72px)` gaps. Wide tables (schedule 820px, BOM 760px) sit in a horizontal-scroll wrapper.
+The signature layout is the log: each month is a grid of a 180px date rail plus a 40px gap and the entries column. The rail is sticky at `bar-h + 28px` so the month label follows the entries under it. Months are separated by a hairline and padded 32px top / 40px bottom; entries within a month stack 44px apart. The home page shows three entries and a "Semua 16 rilis" link; Rilis shows all sixteen under a row of filter chips.
 
-Rhythm inside cells is tight and consistent: 8px table row padding, 10px note row padding with a 34px counter gutter, 14px 18px title-block cell padding on an 84px min height, 20px contact cell padding, 6px chip gap, 10px link gap.
+Other grids: the intro is 116px avatar + text with a 32px gap; the home skills summary is two equal columns at 32px 48px; Server uses a 1fr / 1.25fr two-column block at 40px 56px; the contact list is a 120px label column + value; the case list is an 88px term column + description; the skills table is a three-column table with a 30% first column.
 
-Breakpoints, each removing one layer of the drawing rather than reflowing everything:
-- **1180px**: title block collapses to four columns and the availability stamp hides (sheet 6 keeps it).
-- **980px**: all two-column grids become one column; sticky elevation and detail frames go static (max 520px / 560px); the index bar hides the set title and revision.
-- **760px**: `sheet-gap` drops to 10px; zone strips are removed; sheet body pads 24px 18px 28px; title block becomes a two-column form with meta, revision, and action rows spanning full width (64px action min height); the flow diagram switches to its tall variant with a scroll cue; scrolling tables gain a dashed right edge; contact cells stack; index tabs show numbers only.
-- **480px**: the MRA set mark leaves the index bar.
-- **420px**: h2 fixes at 26px and the h1 at 38px.
+Vertical rhythm: sections pad `clamp(40px, 5vw, 64px)` top and `clamp(44px, 6vw, 80px)` bottom and open with a hairline; the intro pads `clamp(40px, 6vw, 80px)` top. Inside an entry, each part sits 10–12px under the previous one and a screenshot 20px below. Rows in tables and lists pad 10–14px.
+
+Breakpoints, each collapsing one grid:
+- **900px**: the date rail goes static above its entries; entry gap 36px.
+- **760px**: skills summary and two-col become one column.
+- **720px**: intro stacks (avatar 96px), role 18px, entry titles 20px, body-large 16px.
+- **640px**: topbar becomes two rows (`bar-h` 90px): name + WhatsApp button, then a horizontally scrollable nav; skills table stacks each row as a block with `data-th` labels; phone-screenshot row becomes a horizontal scroll-snap strip at 62% width; the diagram hint appears.
+- **480px**: contact rows and case rows stack; buttons stretch to fill their row.
+
+Print: topbar, chips, CTA strip and more-links are hidden, the wrap goes full width, entries avoid page breaks, filtered-out entries return, shadows and underlines are dropped, body drops to 12.5px on a 14mm page margin. The CV page carries its own copy of the same tokens with an A4 page frame.
 
 ## Elevation & Depth
 
-There are no shadows anywhere in the build. Depth is structural: line weight, inversion, and stacking order. A sheet is defined by its 3px border, a cell by a 1.5px rule, a row by a 1px hairline at 42% ink. Emphasis is inversion (ink fill, paper text) and hover is the same inversion applied on demand. The index bar and sticky figures sit above the flow by z-index alone, closed off by a 1.5px rule rather than a drop shadow. The single tonal surface in the set is the blueprint sheet's radial gradient from `cyan-2` to `cyan`, which reads as paper texture, not light.
+The system is flat and stacked. The topbar is sticky and sits above content by z-index with a hairline underneath, not a shadow. Depth between elements is conveyed by the two rule greys (`rule` for dividers, `rule-2` for touchable or framed things) and by the tinted `paper-2` ground behind screenshots. The single exception is the screenshot frame, which carries a soft downward shadow so a 1024px capture reads as a placed print rather than a cutout.
+
+### Shadow Vocabulary
+- **Shot** (`box-shadow: 0 14px 32px -20px rgba(17, 19, 24, 0.4)`): the screenshot figure only. On hover it deepens to `0 18px 40px -20px rgba(17, 19, 24, 0.5)` and the border darkens, over 0.25s. Removed in print.
 
 ### Named Rules
-**The Three Weights Rule.** Every border in the system is one of 3px (sheet frame, title-block top), 1.5px (cells, table heads, captions, index bar, callout strokes), or 1px (rows, dividers, chips, zone lines). No other stroke width, and no shadow, may be introduced.
+**The One Shadow Rule.** Only `figure.shot` may cast a shadow. Buttons, chips, the topbar, the diagram, tables and any future container are flat with a `rule-2` border at most.
 
-**The Inversion Rule.** A hovered, active, or emphasised cell fills with ink and sets its text in paper (`.15s ease`); on the blueprint sheet it fills with `cyan-ink-2` and sets text in cyan. That is the only state change the system uses for surfaces.
+**The Press Rule.** Pressing a button or chip moves it down 1px (`translateY(1px)`, 0.1s). That is the only transform in the component set; nothing lifts on hover.
 
 ## Shapes
 
-Every corner in the set is square: 0px radius on sheets, cells, chips, stamps, links, frames, and the active tab number. Form is rectilinear and gridded, and the only rotation is the availability stamp at -3deg. Focus is a 2px dashed dimension-blue outline offset 3px, itself square. SVG linework uses square linecaps, `vector-effect: non-scaling-stroke`, and a 6 5 dash for hidden or dashed lines; callout balloons are paper-filled circles with a 1.5px ink stroke and a mono number. Detail images are cropped to 16/10 inside a 1.5px frame; the elevation cutout is a 600/760 box.
+Corners are gently rounded and come in exactly three sizes: 6px (`sm`) on buttons and the skip link, 10px (`lg`) on screenshot and diagram frames, and a full pill (999px) on chips and status pills. The avatar is a circle with a `rule-2` ring. Focus is a 2px solid ink outline offset 3px with a 4px radius. Borders are always 1px (1.5px only for the hollow status dot). Screenshots are clipped by the frame's overflow, phone screenshots are cropped to 430/900. SVG diagram boxes are 1.2px ink strokes with white fill; hosts are `paper-2` with a `rule-2` stroke; stores are dashed `3 3`; the bus is a 2px ink line and wires 1.2px `ink-2`.
 
 ## Components
 
-### Index Bar (`.index-bar`, daftar gambar)
-Character: the set's contents page, pinned to the top edge.
-- **Style:** fixed, 56px tall, paper ground, 1.5px ink rule beneath; three regions (set mark, sheet tabs, meta/action) divided by 1.5px rules.
-- **Tabs:** 12px 600 tracked-caps name beside a 22px square number in B612 Mono with a 1.5px ink border; tabs are separated by hairlines and hover to a 5% ink tint. The active tab's number inverts (ink fill, paper text, `.2s` ease-out); `script.js` moves the active class with an IntersectionObserver (`rootMargin -56px 0 -40% 0`) so it chases the sheet in view.
-- **Action:** the right-most cell is a dimension-blue fill with paper text (`Chat WhatsApp`), hovering to ink.
-- **Mobile:** set title and revision leave at 980px, tab names at 760px, the set mark at 480px.
+### Topbar (`.topbar`)
+Character: a thin masthead that stays put.
+- **Style:** sticky, 56px, paper ground, hairline bottom, three-column grid (name / nav / button) with a 24px gap inside the wrap.
+- **Name:** 15px 600 ink, no underline. **Nav links:** 15px 500 `ink-2`, 22px apart, ink on hover and when `aria-current="page"` (0.15s).
+- **Action:** one `btn btn-primary btn-sm` "Chat WhatsApp" at the right.
+- **Mobile (640px):** two rows, name and button on top, nav scrolls horizontally underneath with the scrollbar hidden; `bar-h` becomes 90px so sticky offsets still clear it.
 
-### Sheet (`.sheet`)
-Character: one bordered drawing sheet per topic.
-- **Corner Style:** square.
-- **Border:** 3px ink; blueprint variant borders in white.
-- **Background:** paper; `.blueprint` variant uses the cyan radial gradient and reassigns tokens.
-- **Zones:** 22px strips with 1–8 across the top and A–F down the left, hidden below 760px.
-- **Head:** `.sheet-head` grid, h2 plus a 34ch head note, closed by a 1.5px rule.
+### Buttons (`.btn`, `.btn-primary`, `.btn-sm`)
+Character: quiet, bordered, slightly rounded; the primary is the ink itself.
+- **Shape:** 6px radius, 1px `rule-2` border, 42px min height, 10px 18px padding, 15px 600, inline-flex with an 8px icon gap.
+- **Default:** paper ground; hover tints to `paper-2` with a darker border (`#b9bec6`).
+- **Primary:** ink fill and border, paper text; hover `#2a2e36`.
+- **Small:** 36px, 7px 14px, 14px.
+- **Active:** 1px press. **Focus:** global ink outline. Under 480px buttons grow to fill the row.
 
-### Title Block (`.title-block`, `.tb-cell`)
-Character: the signature component; every sheet ends with it, and it is where the reader acts.
-- **Style:** a 3px top rule, then a row of cells divided by 1.5px rules, each 84px min height, 14px 18px padding. Cell types: mono mark (84px square, B612 Mono 700 18px), project (key/value pairs), meta (four key/value pairs of sheet, rev, scale, drawn-by), revision list (three-column grid, 12px), stamp, and action.
-- **Keys (`.tb-k`):** 12px 700 tracked caps in ink-2. **Values (`.tb-v`):** 14px 600; figures take the mono face.
-- **Action (`.tb-action`):** 190px min width; value at 15px 700 uppercase. Hover inverts to ink. `.tb-action-primary` is dimension blue with paper text (white on cyan on the blueprint sheet).
-- **Mobile:** below 760px cells wrap into full-width rows separated by 1.5px top rules.
+### Text links (`.textlink`, `.links a`, inline `a`)
+- **Style:** ink, 500, underline in `rule-2` at 0.2em offset; hover underline in ink. Outbound links end with a 14px `#i-out` arrow and internal ones with `#i-right` from the inline sprite. `.more-link` is 16px 600 with no underline until hover.
 
-### Buttons (cell links, `.cell-link`)
-Character: a title-block cell that came loose; there is no rounded pill anywhere.
-- **Shape:** square, 1.5px ink border, 42px min height, 8px 16px padding.
-- **Default:** 12px 700 tracked caps on paper; hover inverts to ink/paper.
-- **Primary:** dimension-blue fill and border with paper text; hover goes to ink.
-- **Focus:** the global 2px dashed blue outline.
-- **Icons:** an optional 12px hairline arrow (`#i-arrow`) from the sprite, 6px after the label.
+### Chips (`.chip[aria-pressed]`)
+Character: status filter toggles on Rilis; a pressed chip inverts to ink.
+- **Style:** pill, 1px `rule-2` border, 34px min height, 7px 14px, 14px 500, paper ground; hover `paper-2`; active 1px press.
+- **State:** `aria-pressed="true"` fills with ink and sets paper text. Five chips: Semua, Live, Demo statis, Kode privat, Repo publik. Without JS all entries show; with JS the chip hides non-matching entries and empty months, and a hash link to a hidden entry resets the filter to Semua.
 
-### Stamps (`.stamp`, `.stamp-live`, `.stamp-demo`, `.stamp-private`)
-Character: rubber stamps on the drawing.
-- **Availability stamp:** 2px revision-red outline, red 13px 800 tracked caps with a 12px sub-line, rotated -3deg; lives in the sheet-1 and sheet-6 title blocks.
-- **Status stamps:** inline, unrotated, 1.5px `currentColor` outline, 12px 800 +0.1em caps, 3px 8px padding. Colour encodes status: `Live` in revision red, `Demo statis` in dimension blue, `Kode privat` in ink. These three labels are mandatory on every project detail.
+### Status pills (`.status`, `.status-live`, `.status-demo`, `.status-private`, `.status-public`)
+Character: the honesty label; sits inline after the entry title.
+- **Style:** pill, 1px `rule-2` border, 4px 10px 4px 8px, 13px 500, `ink-2`, with a leading 7px ring drawn in `currentColor` at 1.5px.
+- **Live:** text in `live`, border in `live` at 35% alpha, ring filled with `live-dot`.
+- **Kode privat:** ring filled with `ink-2`. **Demo statis** and **Repo publik:** the base hollow ring; the build has no dedicated rule for either, so they are visually identical.
 
-### Chips (BOM, `.bom li`)
-Character: material call-outs, not tags.
-- **Style:** 1px ink border, 12px 700 tracked caps, 4px 9px padding, 6px gap, no fill, no hover.
+### Release entry (`.release`)
+Character: the unit of the whole site; identical anatomy so the reader can sweep.
+- **Title:** 22px 600 with the status pill wrapped inline (6px 12px gap).
+- **Description** (`.desc`): 17px `ink-2`, 10px below.
+- **Result** (`.result`): 17px 550 ink, one line, 10px below; or a **case list** (`dl.case`): hairline-topped rows of Masalah / Solusi / Hasil with an 88px 14px 600 term column, `ink-2` descriptions, the last row (Hasil) in ink at 550.
+- **Tags** (`.tags`): 14px `ink-2` list separated by `rule-2` middle dots, 12px below.
+- **Links** (`.links`): 15px 500 underlined links, 8px 20px apart.
+- **Arrival:** with JS and motion allowed, entries not yet on screen start at opacity 0 / +12px and rise over 0.32s `cubic-bezier(0.2, 0.8, 0.2, 1)` when they intersect (rootMargin -8%); entries already in view get `.in` before the `reveal` class is set, so nothing flickers. Reduced motion or no IntersectionObserver: everything visible, no transition.
 
-### Drawing Tables (`.dt`)
-Character: schedules and bills of material.
-- **Caption:** 12px 700 tracked caps, left aligned, 1.5px rule beneath.
-- **Head:** 12px 700 +0.12em caps over a 1.5px rule. **Rows:** 8px 10px 8px 0 padding, hairline dividers, 14px text; figure cells 13px mono nowrap.
-- **Group rows:** ink fill, paper text, 11px caps, used to section the BOM table.
-- **Variants:** `.qty` (right-aligned 18px 700 totals), `.legend`, `.case` (104px caps row heads, 15px cells), `.sched` and `.bom-table` (min-width tables inside `.table-scroll`), `.tr-form` (120px row heads).
+### Date rail (`.log > .month > .when`)
+Character: the changelog's month column.
+- **Style:** 15px 500 `ink-2`, 180px wide, sticky at `bar-h + 28px`, static under 900px. `time` uses tabular figures.
 
-### Notes (`.notes`)
-Character: the GENERAL NOTES column of a drawing.
-- **Heading:** 12px 700 +0.05em caps over a 1.5px rule.
-- **Items:** counter-numbered in B612 Mono at the left gutter (34px), 15px body, 10px vertical padding, hairline dividers.
+### Screenshot frame (`figure.shot`, `.shot-cap`, `.shots-phone`, `.illus`)
+Character: a placed print with a soft shadow.
+- **Style:** 1px `rule-2` border, 10px radius, `paper-2` ground, overflow hidden, 20px above; the One Shadow; the image is a block at 100% width with explicit dimensions and lazy loading. Live screenshots are wrapped in a link to the live site.
+- **Caption:** hairline top, 9px 12px 11px, 13px `ink-2` on paper.
+- **Phone row:** flex row of frames at 180–250px, 16px gap, 430/900 crop; horizontal scroll-snap strip under 640px.
+- **Illustration variant** (`.illus`, `.il`): an inline SVG (handportal's 21-point hand) drawn in fixed dark greys (`#1b1e24`, `#2f343c`, `#8a8f98`) with white bones and a HUD in system tokens; captioned "Ilustrasi, bukan tangkapan layar".
 
-### Detail Frame (`.detail-frame`)
-Character: a numbered detail view with a caption strip.
-- **Style:** 1.5px ink border, sticky below the index bar on desktop, 16/10 image cropped from the top; border turns dimension blue on hover.
-- **Caption strip:** 1.5px top rule, 8px 12px padding, 12px 600 caps with a `Detail A` id at 800 / +0.1em, then the project name and its status stamps.
-- **Plan variant:** the same frame holding a `plan-ink` SVG with 16px 12px 8px padding.
+### Diagram (`figure.diagram`, `.dg`, `.diagram-hint`)
+Character: the network plan on Server, drawn in the page's own ink.
+- **Style:** 1px `rule-2` border, 10px radius, paper ground, 12px padding, horizontal scroll with a 600px minimum SVG width; a 13px hint appears under 640px. Text 13px 500 ink, small 12px 400 `ink-2`.
 
-### Elevation and Callouts (`.elevation`, `.elevation-marks`)
-Character: the person drawn as a component.
-- **Style:** photo cutout at a 600/760 aspect (grayscale 0.08, contrast 1.04) with an SVG overlay: dimension lines in blue (1.5px, square caps, blue arrowheads, 12px 700 Saira label), leader lines in ink ending in an ink dot, and balloons as paper-filled 1.5px ink circles with a 15px mono number. Figcaption is a space-between strip over a 1.5px rule in tracked caps.
-- **Motion:** stroke-dashoffset draw-on once on load, 0.9s with `cubic-bezier(0.16, 1, 0.3, 1)` (main dimension 1.2s), staggered 0.25s / 0.9s / 1.15s; labels and dots fade in 0.35s afterwards. `prefers-reduced-motion` renders the final state immediately and clamps every transition.
+### Tables (`table.spec`, `table.skills-table`)
+- **Spec:** 15px, 118px 600 heads, `ink-2` cells, hairline rows, 10px vertical padding.
+- **Skills:** 15px, 12px 20px 12px 0 cells, hairline rows; head row 13px 600 `ink-2` over a `rule-2` rule; group rows 18px 600 with 32px top padding over a `rule-2` rule; the first column carries 22px logo icons (`.ti-set`) before the name. Under 640px the head hides and each row stacks with `data-th:` prefixes in 600 ink.
 
-### Plan and Flow Diagrams (`.plan-ink`, `.flow`)
-Character: schematics drawn in the sheet's current ink.
-- **Style:** `currentColor` strokes at 1.5 (thick 3, dashed 6 5), paper-filled boxes in the flow diagram, 13px 500 Saira text with 700 bold and 12px small variants and a 12px 700 +0.1em plan label. The flow ships wide and tall variants, swapped at 760px with a caps scroll cue.
+### Skills summary (`.skills dl`, `.ti-row`) and How-I-work (`.how ol`)
+- **Skills:** two columns, each group hairline-topped with an 18px 600 term, `ink-2` description, a 15px proof line with underlined links, and a row of 26px logo icons 12px apart.
+- **How:** numbered list, 10px gap, 70ch, `ink-2` text with ink 600 tabular markers.
 
-### Isometric Exploded View (`.iso`)
-Character: the assembly drawing that turns the server into a solid you can read.
-- **Geometry:** true isometric, 30 degree axes, `sx = (x - y)·cos30`, `sy = (x + y)·sin30 - z`, generated at 24px per world unit. Four exploded layers stacked on one dashed assembly axis: edge plates, containers seated on the `vmbr1` bar, the host slab, then two mirrored storage slabs.
-- **Style:** every solid is a 1.5px silhouette hexagon filled with `var(--paper)` so it occludes what sits behind it, plus the three 1px internal edges meeting at the near-top corner. No tone, no shadow, no gradient: volume is carried by line weight alone, the way an isometric line drawing does it. Explosion arrows are 1px dashed with a solid ink arrowhead; the assembly axis is 1px dashed at 0.5 opacity. Callouts leave the part on an ink dot, take one diagonal to a knee, then run horizontal to a 13px 700 label over a 12px small line; labels are distributed top-down with a 40px minimum gap so leaders never cross. Layer names sit in the left margin as tracked caps over a 1px rule, aligned to each layer's vertical centre.
-- **Motion:** the model is live, not a picture. `iso.js` holds the same nine solids and re-projects every corner each frame around the vertical axis, so volumes, occlusion and paint order are recomputed rather than skewed. Rotation comes from three sources that sum: page scroll turns it 0.62 rad across the sheet's passage, horizontal drag or swipe adds 0.006 rad per pixel, and arrow keys step 0.14 rad with Home returning to zero. The rendered angle eases toward the target (0.16 per frame, 0.45 while dragging) and the loop stops when it settles. Leaders re-pick each part's rightmost corner every frame and layer names track their layer's screen centre, so nothing drifts out of register. `prefers-reduced-motion` drops the scroll contribution; drag stays, because it is the reader's own gesture.
-- **Depth order:** painted by layer first, then by rotated `(rx + ry)` within a layer; the DOM is only reordered when the resulting order actually changes.
-- **WebGL upgrade (`iso3d.js`, Three.js r180 self-hosted):** where WebGL exists, the same nine solids are rebuilt as real geometry and the SVG model is replaced. Deliberately not a shaded render: each box ships as a `MeshBasicMaterial` face in the paper colour plus white `EdgesGeometry` lines, which is hidden-line removal, the way CAD shows a model, so the world stays flat ink while the volume becomes genuine. An orthographic camera keeps it a drawing. Drag orbits in two axes with inertia (elevation clamped to 0.20-1.08 rad so it never falls into plan view); scroll drives an assembly animation, the stack seating together as the canvas enters and exploding while it is held on screen; arrow keys orbit and Home resets. Labels stay DOM text in an SVG overlay whose leaders track each part's rightmost projected corner, and layer names keep a 30px minimum gap because a near-overhead view collapses their true heights onto one line. The ghost underlay becomes a scaled, low-opacity clone inside the same scene.
-- **Informative model:** the WebGL model is built to be read, not just spun. Storage is two separate solids per pool, so a ZFS mirror is visible as two disks rather than asserted in a caption, and the two pools differ in proportion (thick blocks for the 4 TB spinning pair, thin sticks for the NVMe pair). Real data links are drawn between the parts that actually talk, recomputed each frame so they stretch as the assembly explodes. Naming follows the drawing's own parts-list convention rather than nine crossing leaders: a numbered balloon sits on each part and the right-hand column is the matching numbered list. Balloons anchor to the part corner nearest the camera, because a top-face anchor floats onto whatever solid sits above, and a short relaxation pass pushes overlapping balloons apart without letting them leave their part.
-- **Loading:** Three.js is fetched only when sheet 3 comes within 700px of the viewport, so the other five sheets cost nothing. If WebGL is absent or the module fails, the SVG model in `iso.js` simply stays; nothing is lost. Rendering pauses when the figure leaves the viewport and stops when the motion settles.
-- **Background echo (`.iso-echo`):** the same stack cloned into a sheet-filling SVG at 0.09 opacity, stroke-only, rotating 0.55 rad behind the model. Decorative, `aria-hidden`, `pointer-events: none`; the sheet's body, figure and title block sit above it on `z-index: 1`.
-- **Responsive:** ships beside the flat plan (`.iso-flat`). Above 760px the isometric carries its callouts and the plan is hidden; below, the model crops to a solids-only viewBox and stays draggable while the labelled flat plan appears underneath it, so the touchable object never costs the reader the facts. `touch-action: pan-y` keeps vertical swipes scrolling the page. The figcaption swaps with the view so the caption always names the drawing on screen.
-
-### Contact Cells (`.contact-cells`)
-Character: a title block scaled up into a two-by-two form.
-- **Style:** 1.5px ink outer border, hairline inner grid, 20px padding; each cell stacks a tracked-caps key, a 16px 700 value (mono for the phone number), and a 12px caps underlined action.
-- **States:** hover inverts to ink/paper; the primary (WhatsApp) cell is dimension blue at rest.
+### Contacts (`.contacts`) and CTA strip (`.cta-strip`)
+- **Contacts:** hairline-separated rows, 120px `ink-2` 500 label + underlined value, 14px vertical padding; stacks under 480px.
+- **CTA strip:** hairline-topped section with an 18px line at 60ch and a `.actions` row (primary button, secondary button, text links) 20–26px below.
 
 ### Colophon (`.colophon`)
-Character: the sheet-set footer, outside any frame.
-- **Style:** 13px ink-2, space-between, links in dimension blue, 8px / 32px vertical padding.
+- **Style:** hairline top, 14px `ink-2`, space-between, 32px / 56px vertical padding, links underlined in `rule-2`.
 
 ## Do's and Don'ts
 
 ### Do:
-- **Do** frame every new surface as a sheet: 3px ink border, zone strips, a sheet head over a 1.5px rule, and a title block at the bottom.
-- **Do** put every action in a cell: title-block action, cell link, index action, or contact cell, all square, all inverting to ink on hover, blue only for the single primary action per sheet.
-- **Do** set every verifiable figure in B612 Mono with `tabular-nums` via `.fig`.
-- **Do** keep labels at 12px, 700, uppercase, 0.1em tracking; that is the system's label voice.
-- **Do** read colour only through the tokens so the blueprint override and print stylesheet keep working.
-- **Do** ship one of the three status stamps (Live / Demo statis / Kode privat) on every project detail.
-- **Do** keep motion to a one-shot draw-on with the exponential ease-out and honour `prefers-reduced-motion` with a static final state.
+- **Do** give every project the release anatomy: title + status pill, description, result line or Masalah/Solusi/Hasil, tags, links, then the screenshot.
+- **Do** ship one of the status pills (Live / Demo statis / Kode privat / Repo publik) on every entry; only Live is green.
+- **Do** separate with 1px hairlines (`rule`) and frame touchables with 1px `rule-2`; let the tinted `paper-2` ground carry hover and screenshot backing.
+- **Do** keep Mona Sans 600 for all headings with negative tracking that scales with size (-0.012em at 22px to -0.022em at 60px), and step text weight in 400 / 450 / 500 / 550.
+- **Do** use the three radii only: 6px buttons, 10px frames, pill chips and pills.
+- **Do** keep motion to the 12px / 320ms entry arrival and the 1px press, and honour `prefers-reduced-motion` with no transition at all.
+- **Do** put technology logos from `img/tech.svg` only in the Keahlian table and the home skills rows, at 22–26px, next to the technology's name.
 
 ### Don't:
-- **Don't** add shadows, radii, gradients (beyond the blueprint ground), or fills other than ink and dimension blue on a white sheet.
-- **Don't** introduce a fourth stroke width or a second accent hue; red is for stamps only, blue for measurement and links only.
-- **Don't** use glyph or emoji icons, icon fonts, or an icon cloud; the sprite's two hairline arrows are the entire icon vocabulary.
-- **Don't** build a dark hero, a card grid, or a rounded pill button; the world rejected them at the direction stage and the build never contains them.
-- **Don't** add a second display-size heading; later sheets open with a tracked-caps h2.
-- **Don't** hard-code `#111111` or `#fbfbf8` in a component; it will not invert on the blueprint sheet.
-
-## Sheet 3 rendered figure (Rev C, 2026-09-10)
-
-**Render language.** The sheet-3 model is drawn "shaded with edges", the way
-CAD shows a model: bevelled slabs (radius 0.1) in `MeshStandardMaterial`, a
-hemisphere fill, one key light with VSM shadows that fall onto the layers
-below and an invisible shadow-catcher, a rim light, a small procedural studio
-environment, ACES tone mapping, and the sharp box edges drawn over the body as
-white hairlines. Shadow maps re-render only when a part moves. Amendment to
-the depth rule: shadows exist only inside this rendered figure; the 2D sheets
-still have none. Balloons are drawn at every width; under 760px the numbered
-legend becomes an HTML list under the figure and the flat network plan is not
-repeated while WebGL is active.
-
-**Sheet titles.** `.sheet h2` is set in sentence case at `clamp(24px, 2.6vw,
-34px)` / 700 / 1.15 / -0.01em; tracked caps stay reserved for short labels,
-table heads, captions, stamps, and the sheet-1 name.
-
-**Motion.** Sheet 1's leader and dimension strokes draw themselves when the
-sheet arrives in view; balloon numbers, dots and labels are visible from the
-start (and in print). Sheet 3 explodes and reassembles with scroll and can be
-dragged or steered with arrow keys; reduced motion keeps the model exploded
-and still, with drag intact.
-
-**History.** A cover sheet with a physical render of the owner's tower (Motion
-spring choreography, self-hosted Motion 13.2) shipped and was withdrawn the
-same day at the owner's request; the first viewport is the profile sheet
-again. Three.js therefore loads only when sheet 3 approaches.
-
-**Grain.** The paper stock is a `feTurbulence` layer painted as the first
-background of every sheet (`--grain`, alpha 0.045); it is absent in print.
+- **Don't** add a card, a filled panel, or a second shadow; `figure.shot` is the only shadowed element.
+- **Don't** use green for anything but the Live pill, and don't introduce any other accent hue in system styles.
+- **Don't** set anything in uppercase, tracked caps, or a second typeface; there are no eyebrows, kickers or monospaced figures.
+- **Don't** colour links or change their colour on hover; only the underline moves from `rule-2` to `ink`.
+- **Don't** build a dark hero, an icon cloud, a card grid, or any opening animation.
+- **Don't** raise any element on hover; the only transform is the 1px press.

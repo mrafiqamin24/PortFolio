@@ -8,11 +8,11 @@ web
 
 ## Users
 
-Three audiences, confirmed equally important by the owner (2026-09-10):
+Urutan prioritas ditetapkan pemilik 2026-09-15 ("posisikan diri sebagai HRD, tim rekrutmen, dan IT senior"):
 
-- **HRD / rekruter perusahaan IT** — membuka link dari lamaran di laptop, menilai dalam 30 detik pertama apakah kandidat magang/junior ini layak dipanggil. Butuh: posisi yang jelas, bukti nyata, CV, kontak.
-- **Klien freelance UMKM** (pemilik toko, hotel, sekolah) — membuka dari WhatsApp di HP. Butuh: produk yang sudah jalan, bisa dicoba, dan cara menghubungi.
-- **Tech lead / tim engineering** — membuka di monitor lebar, melompat ke project, GitHub, dan detail infrastruktur. Butuh: cara kerja, kualitas kode, kedalaman teknis, kejujuran label (live vs demo statis vs kode privat).
+- **HRD / tim rekrutmen perusahaan IT** (utama) — membuka link dari lamaran di laptop, menilai dalam 30 detik pertama apakah kandidat magang/junior ini layak dipanggil. Butuh: posisi yang jelas, bukti nyata bertanggal, CV, LinkedIn, kontak.
+- **Engineer senior / tech lead** (utama) — memverifikasi: membuka tautan live, GitHub, membaca detail server. Butuh: kedalaman teknis, kualitas kode, kejujuran label (live vs demo statis vs kode privat).
+- **Klien freelance UMKM** (pemilik toko, hotel, sekolah) — membuka dari WhatsApp di HP; tetap terlayani lewat tautan live dan tombol WhatsApp, tanpa bagian khusus.
 
 ## Product Purpose
 
@@ -24,32 +24,38 @@ Satu orang yang membangun aplikasi bisnisnya (Laravel, Next.js, Flutter) **dan**
 
 ## Operating Context
 
-- Halaman statis (HTML/CSS/JS tanpa framework), di-host di GitHub Pages dan dipetakan ke `portfolio.ownertech.id`.
+- Halaman statis (HTML/CSS/JS tanpa framework), di-host di GitHub Pages dan dipetakan ke `mra1.my.id` (sejak 2026-09-15; `portfolio.ownertech.id` dialihkan 301).
 - Bahasa utama Indonesia; istilah teknis Inggris.
-- Dibuka dari link WhatsApp/email; harus ringan (aset saat ini 348 KB total).
+- Dibuka dari link WhatsApp/email; harus ringan: Beranda di bawah 400 KB termasuk font dan gambar (terukur 190 KB pada 2026-09-15). Halaman Rilis memuat 13 gambar yang dimuat malas (lazy), terukur 350 KB total; screenshot dikodekan 1024 px lebar, WebP q72.
+- Pemilik meminta isi yang **singkat, elegan, profesional** (2026-09-15 pagi): satu kalimat isi dan satu baris hasil per project. **Dibalik pada hari yang sama** dengan kata-kata pemilik "coba lengkap tapi dipisah per page biar ga panjang": isi lengkap kembali, dipecah jadi lima halaman. Tabel Masalah/Solusi/Hasil dipakai di `rilis.html` untuk tujuh entri utama (Crypt-Man, Server produksi, MR Hotel, Ownertech, Secure Viewer, MI Al-Amin, Home.Net); entri lain memakai satu kalimat isi dan satu baris hasil. Beranda tetap ringkas.
 - Pemilik memperbarui sendiri lewat editor teks; tidak ada build step.
 
 ## Capabilities and Constraints
 
-- Konten yang harus ada: hero/posisi, tentang, studi kasus project (masalah / yang dibangun / hasil), server & jaringan, keahlian dengan bukti, cara kerja, kontak, tautan CV (`cv.html`).
+- Konten yang harus ada: posisi, daftar project bertanggal (isi, hasil, status, tautan), server & jaringan, keahlian dengan bukti, cara kerja, kontak, tautan CV (`cv.html`).
+- Tanggal project diambil dari commit pertama tiap repo (lokal `C:/Users/mrafi/Projects`, publik di GitHub), diverifikasi 2026-09-15: Herbify Nov 2025, SIPPDAM Jan 2026, MikroTik-Login Mar 2026, Ownertech 9 Jun 2026, MI Al-Amin 16 Jun, Secure-Viewer 18 Jun, Restotech dan PlatformHQ 5 Jul, Homtech 30 Jul, handportal 9 Agu, Absensi GPS 20 Agu, MR Hotel 22 Agu–3 Sep, Amin Cloud 1–9 Sep, Catat Fiq 7–8 Sep, Crypt-Man live 13 Sep 2026.
 - Label kejujuran wajib pada tiap project: **Live**, **Demo statis**, **Kode privat**.
 - Tidak boleh ada placeholder, "coming soon", atau link kosong.
-- Nama kampus, tahun lulus, dan LinkedIn **belum diberikan** — jangan dikarang. Tulis "D3 Teknologi Informasi" dan "Kalimantan Barat" saja.
-- Angka yang boleh dipakai (terverifikasi 2026-09-10 lewat `git rev-list --count HEAD`, hitung berkas uji, dan README tiap repo lokal): 8+ produk; 980+ commit di 7 repo; 692 tes lolos (Crypt-Man: 610 unit/integrasi + 82 E2E; README mencatat Lighthouse 94–95/100/100); 1 server produksi; MR Hotel ±9.900 baris, 105 commit; Ownertech 300 commit, 122 berkas uji; Restotech 120 commit; Homtech 220 commit; PlatformHQ 84 commit; Amin Cloud 126 commit, 146 berkas uji; Absensi GPS 4 suite uji (verify-local, verify-rules, verify-theme, verify-sheet-formulas).
+- Nama kampus dan tahun lulus **belum diberikan** — jangan dikarang. Tulis "D3 Teknologi Informasi" dan "Kalimantan Barat" saja. LinkedIn diberikan 2026-09-15: https://www.linkedin.com/in/muhammad-rafiq-amin-2524b4437.
+- Angka yang boleh dipakai (terverifikasi 2026-09-10 lewat `git rev-list --count HEAD`, hitung berkas uji, dan README tiap repo lokal): 8+ produk; 980+ commit di 7 repo; 692 tes lolos (Crypt-Man: 610 unit/integrasi + 82 E2E; README mencatat Lighthouse 94–95/100/100); 1 server produksi; MR Hotel ±9.900 baris, 105 commit; Ownertech 300 commit, 122 berkas uji; Restotech 120 commit; Homtech 222 commit; PlatformHQ 113 commit; Amin Cloud 126 commit, 146 berkas uji; Crypt-Man 42 commit; Absensi GPS 15 commit, 4 suite uji (verify-local, verify-rules, verify-theme, verify-sheet-formulas); Catat Fiq 10 commit; handportal 28 commit. Hitungan commit dihitung ulang 2026-09-15 dengan `git rev-list --count HEAD` di tiap repo lokal; halaman dan CV harus memakai angka ini.
 - Nama klien yang boleh disebut karena tercantum di repo pemilik sendiri: **Toko Berkah Jaya** (project `Absensi_GPS_Toko_Berkah_Jaya`), **MI Al-Amin Tumbang Titi**, **MR Hotel**. Tidak ada klien lain.
-- Kontak: WhatsApp +62 821-5240-0352, email rafiqamin085252@gmail.com, GitHub @mrafiqamin24, Instagram @m_rafiq_amin.
+- Kontak: WhatsApp +62 821-5240-0352, email rafiqamin085252@gmail.com, LinkedIn muhammad-rafiq-amin-2524b4437, GitHub @mrafiqamin24, Instagram @m_rafiq_amin.
 
 ## Brand Commitments
 
-Pemilik menyatakan **tidak ada** elemen visual lama yang wajib dipertahankan (foto, logo, warna, font boleh diganti). Aset yang tersedia dan boleh dipakai: foto cutout transparan (`img/profile-cutout.webp`), foto studio (`img/profile-studio.webp`), logo "RA" (`img/logo.webp`, opsional).
+- Pemilik meminta ikon/logo teknologi seperti di profil GitHub-nya (2026-09-16): dipakai sprite `img/tech.svg` yang di-host sendiri (devicon + simpleicons, asal-usul di sidecar), di halaman Keahlian dan ringkasan keahlian Beranda.
+
+Pemilik menyatakan **tidak ada** elemen visual lama yang wajib dipertahankan. Dunia "lembar gambar teknik" (Rev A–C, Sep 2026) dicabut 2026-09-15 karena terasa seperti "anak teknik arsitek"; model 3D Three.js ikut dicabut agar halaman ringan. Aset foto: `img/avatar.webp` (potongan kepala-bahu dari foto studio di `_archive/img/profile-studio.webp`).
 
 ## Evidence on Hand
 
-- Screenshot project: `img/projects/{mr-hotel,ownertech,secure-viewer,home-net,mi-al-amin}.webp`.
-- Live: https://hotel.ownertech.id, https://ownertech.id, https://mrafiqamin24.github.io/MI-Al-Amin/.
-- Demo statis: App-POS, Secure-Viewer, MikroTik-Login di GitHub Pages.
-- Kode privat (lokal, tidak di GitHub): Restotech.id, Homtech.id, Amin Cloud, Crypt-Man, PlatformHQ, Absensi GPS, Catat Fiq, Foto-Kita-Blurrr.
+- Screenshot project: `img/projects/{crypt-man,mr-hotel,ownertech,secure-viewer,home-net,mi-al-amin}.webp`.
+- Live (diverifikasi 200 pada 2026-09-15): https://crypt.amincloud.id (Crypt-Man, di server sendiri sejak 13 Sep 2026), https://hotel.ownertech.id, https://ownertech.id, https://mrafiqamin24.github.io/MI-Al-Amin/, SIPPDAM dan Herbify di GitHub Pages.
+- Demo statis: Secure-Viewer, MikroTik-Login di GitHub Pages. **App-POS sudah 404** (2026-09-15), jangan ditautkan.
+- Repo publik tanpa demo: handportal (kamera gestur, Python). Pemilik meminta gambarnya **ilustrasi, bukan foto asli** (2026-09-15): SVG inline kerangka 21 titik tangan, diberi keterangan "Ilustrasi, bukan tangkapan layar".
+- Kode privat (lokal, tidak di GitHub): Restotech.id, Homtech.id, Amin Cloud, PlatformHQ, Absensi GPS, Catat Fiq, Ownertech.id.
 - Tidak ada testimoni klien, tidak ada sertifikasi (mis. MTCNA) — jangan dikarang.
+- Fakta yang dikoreksi 2026-09-15: server punya SATU port masuk ke internet, UDP 51820 (WireGuard hub untuk router cabang) — jadi jangan tulis "tidak ada port terbuka"; tulis "tidak ada port web atau database yang dibuka". Hotspot RT/RW MikroTik sudah TIDAK berjalan sejak 2026-09-14 — pakai bentuk lampau.
 
 ## Product Principles
 

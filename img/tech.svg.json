@@ -1,0 +1,211 @@
+{
+  "prompt": "Origin: sprite of official technology logos assembled 2026-09-16 by build_icons.py from devicon v2.17.0 (MIT, colour 'original' SVGs) and simpleicons (CC0 glyphs tinted with each brand colour); ids namespaced per icon; no redrawing.",
+  "icons": {
+    "php": {
+      "label": "PHP",
+      "origin": "devicon v2.17.0 (MIT) php-original.svg",
+      "url": "https://cdn.jsdelivr.net/gh/devicons/devicon@v2.17.0/icons/php/php-original.svg"
+    },
+    "laravel": {
+      "label": "Laravel",
+      "origin": "devicon v2.17.0 (MIT) laravel-original.svg",
+      "url": "https://cdn.jsdelivr.net/gh/devicons/devicon@v2.17.0/icons/laravel/laravel-original.svg"
+    },
+    "nodejs": {
+      "label": "Node.js",
+      "origin": "devicon v2.17.0 (MIT) nodejs-original.svg",
+      "url": "https://cdn.jsdelivr.net/gh/devicons/devicon@v2.17.0/icons/nodejs/nodejs-original.svg"
+    },
+    "express": {
+      "label": "Express",
+      "origin": "devicon v2.17.0 (MIT) express-original.svg",
+      "url": "https://cdn.jsdelivr.net/gh/devicons/devicon@v2.17.0/icons/express/express-original.svg"
+    },
+    "jwt": {
+      "label": "JWT",
+      "origin": "simpleicons jsonwebtokens (CC0), tinted #000000",
+      "url": "https://cdn.simpleicons.org/jsonwebtokens/000000"
+    },
+    "mysql": {
+      "label": "MySQL",
+      "origin": "devicon v2.17.0 (MIT) mysql-original.svg",
+      "url": "https://cdn.jsdelivr.net/gh/devicons/devicon@v2.17.0/icons/mysql/mysql-original.svg"
+    },
+    "prisma": {
+      "label": "Prisma",
+      "origin": "simpleicons prisma (CC0), tinted #2D3748",
+      "url": "https://cdn.simpleicons.org/prisma/2D3748"
+    },
+    "sqlite": {
+      "label": "SQLite",
+      "origin": "devicon v2.17.0 (MIT) sqlite-original.svg",
+      "url": "https://cdn.jsdelivr.net/gh/devicons/devicon@v2.17.0/icons/sqlite/sqlite-original.svg"
+    },
+    "appsscript": {
+      "label": "Google Apps Script",
+      "origin": "simpleicons googleappsscript (CC0), tinted #4285F4",
+      "url": "https://cdn.simpleicons.org/googleappsscript/4285F4"
+    },
+    "nextjs": {
+      "label": "Next.js",
+      "origin": "simpleicons nextdotjs (CC0), tinted #000000",
+      "url": "https://cdn.simpleicons.org/nextdotjs/000000"
+    },
+    "react": {
+      "label": "React",
+      "origin": "devicon v2.17.0 (MIT) react-original.svg",
+      "url": "https://cdn.jsdelivr.net/gh/devicons/devicon@v2.17.0/icons/react/react-original.svg"
+    },
+    "typescript": {
+      "label": "TypeScript",
+      "origin": "devicon v2.17.0 (MIT) typescript-original.svg",
+      "url": "https://cdn.jsdelivr.net/gh/devicons/devicon@v2.17.0/icons/typescript/typescript-original.svg"
+    },
+    "inertia": {
+      "label": "Inertia",
+      "origin": "simpleicons inertia (CC0), tinted #9553E9",
+      "url": "https://cdn.simpleicons.org/inertia/9553E9"
+    },
+    "tailwind": {
+      "label": "Tailwind CSS",
+      "origin": "devicon v2.17.0 (MIT) tailwindcss-original.svg",
+      "url": "https://cdn.jsdelivr.net/gh/devicons/devicon@v2.17.0/icons/tailwindcss/tailwindcss-original.svg"
+    },
+    "flutter": {
+      "label": "Flutter",
+      "origin": "devicon v2.17.0 (MIT) flutter-original.svg",
+      "url": "https://cdn.jsdelivr.net/gh/devicons/devicon@v2.17.0/icons/flutter/flutter-original.svg"
+    },
+    "dart": {
+      "label": "Dart",
+      "origin": "devicon v2.17.0 (MIT) dart-original.svg",
+      "url": "https://cdn.jsdelivr.net/gh/devicons/devicon@v2.17.0/icons/dart/dart-original.svg"
+    },
+    "html5": {
+      "label": "HTML",
+      "origin": "devicon v2.17.0 (MIT) html5-original.svg",
+      "url": "https://cdn.jsdelivr.net/gh/devicons/devicon@v2.17.0/icons/html5/html5-original.svg"
+    },
+    "css3": {
+      "label": "CSS",
+      "origin": "devicon v2.17.0 (MIT) css3-original.svg",
+      "url": "https://cdn.jsdelivr.net/gh/devicons/devicon@v2.17.0/icons/css3/css3-original.svg"
+    },
+    "javascript": {
+      "label": "JavaScript",
+      "origin": "devicon v2.17.0 (MIT) javascript-original.svg",
+      "url": "https://cdn.jsdelivr.net/gh/devicons/devicon@v2.17.0/icons/javascript/javascript-original.svg"
+    },
+    "filament": {
+      "label": "Filament",
+      "origin": "simpleicons filament (CC0), tinted #FDAE4B",
+      "url": "https://cdn.simpleicons.org/filament/FDAE4B"
+    },
+    "mikrotik": {
+      "label": "MikroTik",
+      "origin": "simpleicons mikrotik (CC0), tinted #293239",
+      "url": "https://cdn.simpleicons.org/mikrotik/293239"
+    },
+    "wireguard": {
+      "label": "WireGuard",
+      "origin": "simpleicons wireguard (CC0), tinted #88171A",
+      "url": "https://cdn.simpleicons.org/wireguard/88171A"
+    },
+    "proxmox": {
+      "label": "Proxmox",
+      "origin": "simpleicons proxmox (CC0), tinted #E57000",
+      "url": "https://cdn.simpleicons.org/proxmox/E57000"
+    },
+    "lxc": {
+      "label": "LXC",
+      "origin": "simpleicons linuxcontainers (CC0), tinted #333333",
+      "url": "https://cdn.simpleicons.org/linuxcontainers/333333"
+    },
+    "zfs": {
+      "label": "OpenZFS",
+      "origin": "simpleicons openzfs (CC0), tinted #2A667F",
+      "url": "https://cdn.simpleicons.org/openzfs/2A667F"
+    },
+    "debian": {
+      "label": "Debian",
+      "origin": "devicon v2.17.0 (MIT) debian-original.svg",
+      "url": "https://cdn.jsdelivr.net/gh/devicons/devicon@v2.17.0/icons/debian/debian-original.svg"
+    },
+    "docker": {
+      "label": "Docker",
+      "origin": "devicon v2.17.0 (MIT) docker-original.svg",
+      "url": "https://cdn.jsdelivr.net/gh/devicons/devicon@v2.17.0/icons/docker/docker-original.svg"
+    },
+    "nginx": {
+      "label": "Nginx",
+      "origin": "devicon v2.17.0 (MIT) nginx-original.svg",
+      "url": "https://cdn.jsdelivr.net/gh/devicons/devicon@v2.17.0/icons/nginx/nginx-original.svg"
+    },
+    "cloudflare": {
+      "label": "Cloudflare",
+      "origin": "devicon v2.17.0 (MIT) cloudflare-original.svg",
+      "url": "https://cdn.jsdelivr.net/gh/devicons/devicon@v2.17.0/icons/cloudflare/cloudflare-original.svg"
+    },
+    "tailscale": {
+      "label": "Tailscale",
+      "origin": "simpleicons tailscale (CC0), tinted #242424",
+      "url": "https://cdn.simpleicons.org/tailscale/242424"
+    },
+    "gpg": {
+      "label": "GPG",
+      "origin": "simpleicons gnuprivacyguard (CC0), tinted #0093DD",
+      "url": "https://cdn.simpleicons.org/gnuprivacyguard/0093DD"
+    },
+    "redis": {
+      "label": "Redis",
+      "origin": "devicon v2.17.0 (MIT) redis-original.svg",
+      "url": "https://cdn.jsdelivr.net/gh/devicons/devicon@v2.17.0/icons/redis/redis-original.svg"
+    },
+    "vitest": {
+      "label": "Vitest",
+      "origin": "devicon v2.17.0 (MIT) vitest-original.svg",
+      "url": "https://cdn.jsdelivr.net/gh/devicons/devicon@v2.17.0/icons/vitest/vitest-original.svg"
+    },
+    "playwright": {
+      "label": "Playwright",
+      "origin": "devicon v2.17.0 (MIT) playwright-original.svg",
+      "url": "https://cdn.jsdelivr.net/gh/devicons/devicon@v2.17.0/icons/playwright/playwright-original.svg"
+    },
+    "eslint": {
+      "label": "ESLint",
+      "origin": "devicon v2.17.0 (MIT) eslint-original.svg",
+      "url": "https://cdn.jsdelivr.net/gh/devicons/devicon@v2.17.0/icons/eslint/eslint-original.svg"
+    },
+    "git": {
+      "label": "Git",
+      "origin": "devicon v2.17.0 (MIT) git-original.svg",
+      "url": "https://cdn.jsdelivr.net/gh/devicons/devicon@v2.17.0/icons/git/git-original.svg"
+    },
+    "githubactions": {
+      "label": "GitHub Actions",
+      "origin": "devicon v2.17.0 (MIT) githubactions-original.svg",
+      "url": "https://cdn.jsdelivr.net/gh/devicons/devicon@v2.17.0/icons/githubactions/githubactions-original.svg"
+    },
+    "python": {
+      "label": "Python",
+      "origin": "devicon v2.17.0 (MIT) python-original.svg",
+      "url": "https://cdn.jsdelivr.net/gh/devicons/devicon@v2.17.0/icons/python/python-original.svg"
+    },
+    "opencv": {
+      "label": "OpenCV",
+      "origin": "devicon v2.17.0 (MIT) opencv-original.svg",
+      "url": "https://cdn.jsdelivr.net/gh/devicons/devicon@v2.17.0/icons/opencv/opencv-original.svg"
+    },
+    "mediapipe": {
+      "label": "MediaPipe",
+      "origin": "simpleicons mediapipe (CC0), tinted #0097A7",
+      "url": "https://cdn.simpleicons.org/mediapipe/0097A7"
+    },
+    "claude": {
+      "label": "Claude Code",
+      "origin": "simpleicons claude (CC0), tinted #D97757",
+      "url": "https://cdn.simpleicons.org/claude/D97757"
+    }
+  },
+  "createdAt": "2026-09-16T00:20:00Z"
+}

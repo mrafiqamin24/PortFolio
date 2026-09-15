@@ -1,4 +1,4 @@
 {
-  "prompt": "Origin: screenshot of this site's own first sheet (index.html #umum: name, role, front-view photo cutout with callouts, notes; index bar hidden) captured with agent-browser at 1200x630 on 2026-09-10, saved as progressive JPEG quality 84 with Pillow.",
-  "createdAt": "2026-09-10T14:01:24.908467Z"
+  "prompt": "Origin: screenshot of the site's own home page first viewport (index.html, changelog layout with five-page navigation) captured headless with agent-browser at a 1200x686 viewport on 2026-09-15, top bar (56px) cropped off, saved as progressive JPEG q86 with Pillow for Open Graph previews.",
+  "createdAt": "2026-09-15T19:10:00Z"
 }

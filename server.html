@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Server produksi — Muhammad Rafiq Amin</title>
+  <meta name="description" content="Server produksi Proxmox VE yang dirakit, diisolasi, dan diamankan sendiri oleh Muhammad Rafiq Amin: diagram, spesifikasi, yang sudah diverifikasi, dan pelajarannya." />
+  <meta name="author" content="Muhammad Rafiq Amin" />
+  <link rel="canonical" href="https://mra1.my.id/server.html" />
+  <meta name="theme-color" content="#ffffff" />
+  <script>document.documentElement.classList.add("js");</script>
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="id_ID" />
+  <meta property="og:title" content="Server produksi — Muhammad Rafiq Amin" />
+  <meta property="og:description" content="Proxmox VE 9, dua ZFS mirror, container terpisah, database hanya di bridge internal, backup harian plus off-site terenkripsi." />
+  <meta property="og:url" content="https://mra1.my.id/server.html" />
+  <meta property="og:image" content="https://mra1.my.id/img/og-cover.jpg?v=20260915a" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="icon" href="img/favicon.png" type="image/png" />
+  <link rel="apple-touch-icon" href="img/apple-touch-icon.png" />
+  <link rel="preload" href="fonts/mona-sans.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="stylesheet" href="style.css?v=20260915a" />
+</head>
+<body>
+  <svg width="0" height="0" class="sprite" aria-hidden="true" focusable="false">
+    <symbol id="i-out" viewBox="0 0 16 16"><path d="M5 3.5h7.5V11M12.5 3.5 3.5 12.5" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" /></symbol>
+    <symbol id="i-right" viewBox="0 0 16 16"><path d="M3 8h10M9 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" /></symbol>
+  </svg>
+  <a class="skip-link" href="#isi">Langsung ke isi</a>
+
+  <header class="topbar">
+    <a class="topbar-name" href="index.html">Muhammad Rafiq Amin</a>
+    <nav class="topbar-nav" aria-label="Halaman">
+      <a href="index.html">Beranda</a>
+      <a href="rilis.html">Rilis</a>
+      <a href="server.html" aria-current="page">Server</a>
+      <a href="keahlian.html">Keahlian</a>
+      <a href="kontak.html">Kontak</a>
+    </nav>
+    <a class="btn btn-primary btn-sm" href="https://wa.me/6282152400352?text=Halo%20Rafiq%2C%20saya%20mau%20tanya%20soal%20server%20di%20portofolio%20Anda" target="_blank" rel="noopener">Chat WhatsApp</a>
+  </header>
+
+  <main id="isi">
+    <section class="page-first" aria-labelledby="ttl-server">
+      <div class="page-head">
+        <h1 id="ttl-server">Server produksi <span class="status status-live">Live</span></h1>
+        <p>Server ini menjalankan database dan aplikasi untuk produk di halaman <a href="rilis.html">Rilis</a>. Saya merakit hardware-nya, memasang Proxmox VE 9, dan mengujinya seperti sistem produksi: memindai port dari luar, mematikan container, menghitung akibat satu disk mati. Aktif sejak <time datetime="2026-09">September 2026</time>; project pertama di atasnya <a href="rilis.html#crypt-man">Crypt-Man</a>.</p>
+      </div>
+
+      <figure class="diagram">
+        <svg viewBox="0 0 720 300" role="img" aria-labelledby="dgTitle" xmlns="http://www.w3.org/2000/svg">
+          <title id="dgTitle">Diagram: pengunjung masuk lewat Cloudflare Tunnel, admin lewat Tailscale, router cabang lewat satu tunnel WireGuard; di dalam Proxmox ada container web, redis, aplikasi, dan MySQL; MySQL hanya terhubung ke bridge internal vmbr1; penyimpanan dua ZFS mirror dengan snapshot dan backup harian.</title>
+          <g class="dg">
+            <rect class="box" x="16" y="52" width="150" height="48" rx="6" />
+            <text x="91" y="72" text-anchor="middle" class="b">Cloudflare Tunnel</text>
+            <text x="91" y="89" text-anchor="middle" class="s">situs dan aplikasi publik</text>
+
+            <rect class="box" x="16" y="128" width="150" height="48" rx="6" />
+            <text x="91" y="148" text-anchor="middle" class="b">Tailscale</text>
+            <text x="91" y="165" text-anchor="middle" class="s">SSH dan web UI, 2FA</text>
+
+            <rect class="box" x="16" y="204" width="150" height="48" rx="6" />
+            <text x="91" y="224" text-anchor="middle" class="b">WireGuard</text>
+            <text x="91" y="241" text-anchor="middle" class="s">router cabang</text>
+
+            <rect class="host" x="214" y="16" width="490" height="268" rx="8" />
+            <text x="234" y="40" class="b">Proxmox VE 9</text>
+            <text x="704" y="40" text-anchor="end" class="s">host, firewall default-deny</text>
+
+            <rect class="box" x="234" y="60" width="140" height="52" rx="6" />
+            <text x="304" y="81" text-anchor="middle" class="b">CT web</text>
+            <text x="304" y="98" text-anchor="middle" class="s">nginx + cloudflared</text>
+
+            <rect class="box" x="392" y="60" width="140" height="52" rx="6" />
+            <text x="462" y="81" text-anchor="middle" class="b">CT redis</text>
+            <text x="462" y="98" text-anchor="middle" class="s">cache dan antrean</text>
+
+            <rect class="box" x="550" y="60" width="134" height="52" rx="6" />
+            <text x="617" y="81" text-anchor="middle" class="b">CT app</text>
+            <text x="617" y="98" text-anchor="middle" class="s">Crypt-Man</text>
+
+            <line class="bus" x1="234" y1="150" x2="684" y2="150" />
+            <text x="459" y="141" text-anchor="middle" class="s">vmbr1, bridge internal tanpa port fisik</text>
+
+            <rect class="box" x="384" y="172" width="156" height="52" rx="6" />
+            <text x="462" y="193" text-anchor="middle" class="b">CT db · MySQL 8.4</text>
+            <text x="462" y="210" text-anchor="middle" class="s">hanya di 10.10.10.120</text>
+
+            <rect class="store" x="234" y="240" width="450" height="30" rx="6" />
+            <text x="459" y="259" text-anchor="middle" class="s">rpool 2× NVMe mirror · tank 2× HDD mirror · snapshot dan backup harian</text>
+
+            <path class="wire" d="M166 76 C 200 76, 200 86, 234 86" />
+            <path class="wire" d="M166 152 C 190 152, 190 30, 214 30" />
+            <path class="wire" d="M166 228 C 190 228, 190 200, 214 200" />
+            <line class="wire" x1="304" y1="112" x2="304" y2="150" />
+            <line class="wire" x1="462" y1="112" x2="462" y2="150" />
+            <line class="wire" x1="617" y1="112" x2="617" y2="150" />
+            <line class="wire" x1="462" y1="150" x2="462" y2="172" />
+          </g>
+        </svg>
+        <figcaption class="diagram-hint">Geser ke samping untuk melihat seluruh diagram.</figcaption>
+      </figure>
+
+      <div class="two-col">
+        <div>
+          <h2>Spesifikasi</h2>
+          <table class="spec">
+            <tbody>
+              <tr><th scope="row">Hypervisor</th><td>Proxmox VE 9.2, kernel 7.0</td></tr>
+              <tr><th scope="row">CPU / RAM</th><td>Ryzen 9 9900X · 32 GB</td></tr>
+              <tr><th scope="row">Disk</th><td>2× NVMe 2 TB (rpool) + 2× HDD 4 TB (tank), ZFS mirror</td></tr>
+              <tr><th scope="row">Container</th><td>web, redis, app (Crypt-Man), db (LXC Debian)</td></tr>
+              <tr><th scope="row">Database</th><td>MySQL 8.4 LTS, hanya di bridge internal</td></tr>
+              <tr><th scope="row">Akses masuk</th><td>Cloudflare Tunnel untuk publik; Tailscale untuk admin; satu tunnel WireGuard ke router cabang</td></tr>
+              <tr><th scope="row">Backup</th><td>dump MySQL, vzdump, snapshot ZFS harian; salinan off-site terenkripsi GPG</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div>
+          <h2>Yang sudah diverifikasi</h2>
+          <ol class="how">
+            <li><strong>Penyimpanan.</strong> Dua ZFS mirror, kedua partisi boot terisi: tetap boot walau satu NVMe mati.</li>
+            <li><strong>Isolasi.</strong> MySQL hanya di bridge internal; firewall per container dan host default-deny.</li>
+            <li><strong>Akses.</strong> Tanpa port web atau database ke internet; masuk lewat Cloudflare Tunnel, Tailscale dengan ACL, dan satu tunnel WireGuard. SSH hanya kunci, 2FA di web UI, fail2ban, pembaruan keamanan otomatis.</li>
+            <li><strong>Edge.</strong> Cloudflare Tunnel untuk aplikasi; Cloudflare Worker untuk halaman statis agar tetap hidup saat server mati.</li>
+            <li><strong>Backup.</strong> Dump MySQL, vzdump, snapshot ZFS harian, salinan off-site GPG; penjaga backup memeriksa struktur dump.</li>
+            <li><strong>Pemantauan.</strong> Dashboard sendiri membaca satu aliran JSON lewat SSH: daya CPU, keausan NVMe, umur scrub, status backup.</li>
+          </ol>
+        </div>
+      </div>
+
+      <h2 class="how-title">Tiga pelajaran yang saya bawa</h2>
+      <ol class="how">
+        <li>Uji dari luar, jangan asumsikan: <code>bind-address</code> saja tidak menutup semua port MySQL.</li>
+        <li>Pasang mekanisme rollback sebelum mengubah firewall dari jarak jauh.</li>
+        <li>Verifikasi arsitektur image sebelum menyalahkan hardware.</li>
+      </ol>
+
+      <ul class="tags" aria-label="Stack"><li>Proxmox VE 9</li><li>ZFS</li><li>LXC</li><li>Debian</li><li>MySQL 8.4</li><li>Cloudflare Tunnel</li><li>Tailscale</li><li>WireGuard</li><li>GPG</li></ul>
+    </section>
+
+    <section class="cta-strip" aria-label="Hubungi saya">
+      <p>Mau tanya soal keputusan di server ini? Saya senang membahasnya.</p>
+      <div class="actions">
+        <a class="btn btn-primary" href="https://wa.me/6282152400352?text=Halo%20Rafiq%2C%20saya%20mau%20tanya%20soal%20server%20di%20portofolio%20Anda" target="_blank" rel="noopener">Tanya lewat WhatsApp</a>
+        <a class="btn" href="rilis.html">Lihat semua rilis</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="colophon">
+    <p>© <span id="year">2026</span> Muhammad Rafiq Amin. <span class="aset">HTML, CSS, dan JavaScript tanpa framework.</span></p>
+    <p><a href="https://github.com/mrafiqamin24/PortFolio" target="_blank" rel="noopener">Sumber halaman di GitHub</a></p>
+  </footer>
+
+  <script src="script.js?v=20260915a" defer></script>
+</body>
+</html>

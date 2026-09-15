@@ -1,43 +1,50 @@
 # Portofolio — Muhammad Rafiq Amin
 
 Halaman portofolio statis: HTML, CSS, dan JavaScript tanpa framework dan tanpa build step.
-Live di https://portfolio.ownertech.id (GitHub Pages).
+Live di https://mra1.my.id (GitHub Pages di belakang Cloudflare). Alamat lama
+`portfolio.ownertech.id` dialihkan 301 ke alamat baru.
 
-## Isi
+## Bentuk halaman
+
+Situs disusun seperti **changelog produk** dan dipecah jadi lima halaman pendek yang
+memakai satu stylesheet dan satu skrip:
 
 | Berkas | Fungsi |
 |---|---|
-| `index.html` | Enam "lembar gambar teknik": umum, detail project, server, keahlian, prosedur, kontak |
+| `index.html` | Beranda: nama, peran, satu kalimat, aksi; tiga rilis terbaru; ringkasan keahlian; kontak |
+| `rilis.html` | Semua 16 rilis urut dari terbaru dengan rel tanggal, chip saringan status, dan per project: Masalah / Solusi / Hasil, stack, tautan, screenshot |
+| `server.html` | Server produksi: diagram, spesifikasi, yang sudah diverifikasi, tiga pelajaran |
+| `keahlian.html` | Tabel keahlian dengan kolom "Dipakai di" yang menunjuk ke rilis, plus cara kerja |
+| `kontak.html` | Semua kontak dan tautan CV |
 | `cv.html` | CV versi cetak (Ctrl+P → simpan sebagai PDF) |
-| `style.css` | Seluruh gaya; token warna dan garis ada di `:root` |
-| `script.js` | Penanda lembar aktif di daftar gambar dan tahun di kolofon |
-| `iso.js` | Model isometrik lembar 3: proyeksi 3D tiap frame, putar lewat gulir, seret, usap, atau tombol panah |
-| `iso3d.js` | Versi WebGL model itu (Three.js): orbit dua sumbu, animasi rakit-urai saat digulir. Dimuat hanya saat lembar 3 mendekat; kalau gagal, `iso.js` tetap dipakai |
-| `vendor/` | Three.js r180 di-host sendiri (module + core), bukan dari CDN |
-| `img/` | Aset yang dipakai halaman (WebP, total di bawah 400 KB) |
-| `PRODUCT.md` | Fakta produk untuk pekerjaan desain berikutnya |
+| `style.css` | Seluruh gaya; token warna dan huruf ada di `:root` |
+| `script.js` | Tahun di kolofon, chip saringan status, kemunculan entri saat digulir |
+| `fonts/mona-sans.woff2` | Satu berkas huruf variabel (Mona Sans, OFL), di-host sendiri |
+| `img/` | Avatar, screenshot project (WebP), gambar OG, dan `tech.svg` (sprite logo teknologi dari devicon + simpleicons, dibuat `build_icons.py`); tiap berkas punya sidecar `.json` asal-usul |
+| `PRODUCT.md`, `DESIGN.md` | Fakta produk dan sistem desain untuk pekerjaan berikutnya |
 
 ## Mengubah isi
 
-- Project: salin satu blok `<article class="detail">` di `index.html`, ganti gambar (`img/projects/`, 1280 px lebar, WebP), teks, dan label status (`stamp-live`, `stamp-demo`, `stamp-private`).
-- Angka di lembar 1 (kuantitas, revisi) dan di title block (`Rev`, tanggal) diperbarui manual.
-- CV di `cv.html` berdiri sendiri; ubah teks langsung.
+- Rilis baru: salin satu blok `<article class="release">` di `rilis.html` ke bulan yang
+  sesuai (atau buat `<div class="month">` baru), isi `data-status` dengan `live`, `demo`,
+  `private`, atau `public`, dan pakai label status yang sama di dalam `<h2>`. Kalau masuk
+  tiga terbaru, perbarui juga blok di `index.html` (di sana judulnya `<h3>`).
+- Navigasi atas ada di tiap berkas HTML; tandai halaman aktif dengan `aria-current="page"`.
+- Screenshot: `img/projects/`, lebar 1280 px, WebP, plus sidecar `.json` yang mencatat asalnya.
+  Aplikasi privat dipotret dari aplikasi yang dijalankan lokal (Restotech, PlatformHQ, Amin
+  Cloud) atau dari screenshot dogfood di repo-nya (Homtech); handportal memakai ilustrasi SVG inline
+  atas permintaan pemilik, bukan foto.
+- Keahlian dan kontak diedit langsung; CV di `cv.html` berdiri sendiri.
+- Tautan yang mati harus dihapus, bukan dibiarkan (demo App-POS dihapus 2026-09-15 karena 404).
 
 ## Penting saat deploy: naikkan penanda versi
 
-Live disajikan lewat Cloudflare, yang menyimpan HTML **10 menit** tapi CSS dan JS
-**4 jam**. Tanpa penanda versi, pengunjung lama akan mendapat HTML baru dengan CSS
-lama, dan halaman tampil rusak sampai empat jam. Gejalanya persis: label melayang
-terpisah dari gambar, teks yang harusnya tersembunyi ikut tampil, dan model 3D tidak
-bisa diputar di HP karena `touch-action` belum ada.
+Cloudflare menyimpan HTML **10 menit** tapi CSS dan JS **4 jam**. Tanpa penanda versi,
+pengunjung lama mendapat HTML baru dengan CSS lama dan halaman tampil rusak sampai empat jam.
 
-Jadi **setiap kali mengubah `style.css`, `script.js`, `iso.js`, atau `iso3d.js`,
-ganti semua `?v=...` di `index.html` dengan nilai baru** (pakai tanggal, mis.
-`?v=20260911a`). URL yang berbeda memaksa unduh ulang, jadi tidak perlu menunggu
-cache habis.
-
-Berkas yang isinya tidak pernah berubah tidak perlu penanda: `fonts/`, `vendor/`
-(Three.js dikunci versinya), dan `img/`.
+**Setiap kali mengubah `style.css` atau `script.js`, ganti semua `?v=...` di kelima berkas HTML
+(termasuk `og:image`) dan tautan balik di `cv.html` dengan nilai baru**, misalnya
+`?v=20260916a`. Berkas yang tidak pernah berubah (`fonts/`, `img/`) tidak perlu penanda.
 
 ## Menjalankan lokal
 
@@ -46,23 +53,3 @@ python -m http.server 4173
 ```
 
 Lalu buka `http://localhost:4173`.
-
-## Model 3D lembar 3 (Rev C, 10 Sep 2026)
-
-Lembar 3 memakai render "shaded with edges" ala CAD di atas cetak biru:
-material disinari studio, bayangan kontak, rusuk tipis; balon bernomor di
-semua lebar dan daftar keterangan (`<ol>`) di HP. Lembar sampul dengan render
-server fisik pernah ada dan dicabut atas permintaan pemilik pada hari yang
-sama; halaman pertama kembali ke lembar profil.
-
-| Berkas | Isi |
-|---|---|
-| `server-model.js` | Model arsitektur (SOLIDS, palet), geometri bevel, studio env (PMREM), cahaya + bayangan VSM (dihitung ulang hanya saat pose berubah), orbit |
-| `iso3d.js` | Lembar 3: ortografis, rakit-urai saat digulir, balon + daftar bernomor, pemulihan saat konteks WebGL hilang, dimuat saat lembar mendekat |
-| `iso.js` | Model SVG hidup, cadangan tanpa WebGL |
-| `vendor/three-r180/` | Three.js r180, dua berkas (`three.module` mengimpor `./three.core`); folder berversi supaya keduanya tidak pernah beda versi di cache |
-
-Modul membaca `?v=` dari `import.meta.url` dan meneruskannya ke
-`server-model.js`, jadi cukup naikkan penanda di `index.html` (termasuk
-`og:image`) dan tautan balik di `cv.html`. Pustaka di `vendor/` berversi lewat
-nama folder: ganti folder, bukan isinya, saat memperbarui.

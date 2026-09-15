@@ -1,66 +1,74 @@
-// Portofolio Muhammad Rafiq Amin — perilaku halaman.
-// Tanpa dependensi. Tiga tugas: tahun di kolofon, penanda lembar aktif di
-// daftar gambar, dan pemicu ulang animasi linework saat lembar 1 terlihat.
+/* Portofolio Muhammad Rafiq Amin — tahun kolofon, saringan status, kemunculan entri. */
+(function () {
+  "use strict";
 
-const yearEl = document.getElementById("year");
-if (yearEl) yearEl.textContent = String(new Date().getFullYear());
+  var doc = document;
+  var year = doc.getElementById("year");
+  if (year) year.textContent = String(new Date().getFullYear());
 
-// Penanda "sekarang": lembar yang sedang dibaca disorot di daftar gambar.
-const indexLinks = [...document.querySelectorAll("#sheetIndex a")];
-const sheets = [...document.querySelectorAll("main .sheet[id]")];
+  var chips = Array.prototype.slice.call(doc.querySelectorAll(".chip[data-filter]"));
+  var releases = Array.prototype.slice.call(doc.querySelectorAll(".release[data-status]"));
+  var months = Array.prototype.slice.call(doc.querySelectorAll(".month"));
+  var empty = doc.querySelector(".log-empty");
 
-const setActive = (id) => {
-  indexLinks.forEach((link) => {
-    const isActive = link.getAttribute("href") === `#${id}`;
-    link.classList.toggle("active", isActive);
-    if (isActive) {
-      link.setAttribute("aria-current", "true");
-      link.scrollIntoView({ block: "nearest", inline: "nearest" });
-    } else {
-      link.removeAttribute("aria-current");
-    }
-  });
-};
-
-if ("IntersectionObserver" in window && sheets.length) {
-  const visible = new Map();
-  const observer = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => visible.set(entry.target.id, entry.intersectionRatio));
-      const top = [...visible.entries()].sort((a, b) => b[1] - a[1])[0];
-      if (top && top[1] > 0) setActive(top[0]);
-    },
-    { rootMargin: "-56px 0px -40% 0px", threshold: [0, 0.1, 0.25, 0.5, 0.75, 1] }
-  );
-  sheets.forEach((sheet) => observer.observe(sheet));
-} else if (sheets.length) {
-  setActive(sheets[0].id);
-}
-
-// Linework lembar 1 digambar sekali saat font siap, supaya label tidak
-// muncul dengan huruf pengganti lalu berganti bentuk.
-const marks = document.querySelector(".elevation-marks");
-if (marks && document.fonts && document.fonts.ready) {
-  marks.style.visibility = "hidden";
-  document.fonts.ready.then(() => {
-    marks.style.visibility = "";
-  });
-}
-
-// Linework lembar 1 baru digambar saat lembarnya tiba di layar, bukan saat
-// halaman dimuat, supaya gerakannya terlihat pembaca.
-if (marks) {
-  const drawn = () => marks.classList.add("in");
-  if ("IntersectionObserver" in window) {
-    const watch = new IntersectionObserver((es) => {
-      if (!es.some((e) => e.isIntersecting)) return;
-      drawn();
-      watch.disconnect();
-    }, { threshold: 0.35 });
-    watch.observe(marks);
-    const late = setTimeout(drawn, 12000);
-    marks.addEventListener("animationstart", () => clearTimeout(late), { once: true });
-  } else {
-    drawn();
+  /* Saringan status: tanpa JS semua entri tampil; dengan JS chip menyembunyikan
+     entri yang statusnya tidak cocok dan bulan yang jadi kosong. */
+  function applyFilter(filter) {
+    releases.forEach(function (release) {
+      release.hidden = !(filter === "all" || release.getAttribute("data-status") === filter);
+    });
+    var anyVisible = false;
+    months.forEach(function (month) {
+      var visible = month.querySelector(".release:not([hidden])");
+      month.hidden = !visible;
+      if (visible) anyVisible = true;
+    });
+    if (empty) empty.hidden = anyVisible;
+    chips.forEach(function (chip) {
+      chip.setAttribute("aria-pressed", chip.getAttribute("data-filter") === filter ? "true" : "false");
+    });
   }
-}
+
+  chips.forEach(function (chip) {
+    chip.addEventListener("click", function () {
+      applyFilter(chip.getAttribute("data-filter"));
+    });
+  });
+
+  /* Tautan bukti (#ownertech dan sebagainya) harus selalu sampai, walau
+     saringan sedang menyembunyikan entrinya. */
+  function revealTarget() {
+    var id = location.hash ? location.hash.slice(1) : "";
+    if (!id) return;
+    var target = doc.getElementById(id);
+    if (target && target.classList.contains("release") && target.hidden) {
+      applyFilter("all");
+      target.scrollIntoView();
+    }
+  }
+  window.addEventListener("hashchange", revealTarget);
+  revealTarget();
+
+  /* Kemunculan entri saat tiba di viewport. Entri yang sudah terlihat diberi
+     kelas "in" sebelum kelas "reveal" dipasang, jadi tidak ada kedipan. */
+  var reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  if (reduce || !("IntersectionObserver" in window)) return;
+
+  var viewportHeight = window.innerHeight;
+  releases.forEach(function (release) {
+    if (release.getBoundingClientRect().top < viewportHeight + 40) release.classList.add("in");
+  });
+  doc.documentElement.classList.add("reveal");
+
+  var observer = new IntersectionObserver(function (entries) {
+    entries.forEach(function (entry) {
+      if (!entry.isIntersecting) return;
+      entry.target.classList.add("in");
+      observer.unobserve(entry.target);
+    });
+  }, { rootMargin: "0px 0px -8% 0px" });
+
+  releases.forEach(function (release) {
+    if (!release.classList.contains("in")) observer.observe(release);
+  });
+})();

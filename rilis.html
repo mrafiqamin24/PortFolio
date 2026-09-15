@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Rilis — Muhammad Rafiq Amin</title>
+  <meta name="description" content="Semua project Muhammad Rafiq Amin sebagai daftar rilis bertanggal: masalah, solusi, hasil, status live atau demo, dan tautannya." />
+  <meta name="author" content="Muhammad Rafiq Amin" />
+  <link rel="canonical" href="https://mra1.my.id/rilis.html" />
+  <meta name="theme-color" content="#ffffff" />
+  <script>document.documentElement.classList.add("js");</script>
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="id_ID" />
+  <meta property="og:title" content="Rilis — Muhammad Rafiq Amin" />
+  <meta property="og:description" content="Semua project sebagai daftar rilis bertanggal: masalah, solusi, hasil, dan status yang bisa dicek." />
+  <meta property="og:url" content="https://mra1.my.id/rilis.html" />
+  <meta property="og:image" content="https://mra1.my.id/img/og-cover.jpg?v=20260915a" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="icon" href="img/favicon.png" type="image/png" />
+  <link rel="apple-touch-icon" href="img/apple-touch-icon.png" />
+  <link rel="preload" href="fonts/mona-sans.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="stylesheet" href="style.css?v=20260915a" />
+</head>
+<body>
+  <svg width="0" height="0" class="sprite" aria-hidden="true" focusable="false">
+    <symbol id="i-out" viewBox="0 0 16 16"><path d="M5 3.5h7.5V11M12.5 3.5 3.5 12.5" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" /></symbol>
+    <symbol id="i-right" viewBox="0 0 16 16"><path d="M3 8h10M9 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" /></symbol>
+  </svg>
+  <a class="skip-link" href="#isi">Langsung ke isi</a>
+
+  <header class="topbar">
+    <a class="topbar-name" href="index.html">Muhammad Rafiq Amin</a>
+    <nav class="topbar-nav" aria-label="Halaman">
+      <a href="index.html">Beranda</a>
+      <a href="rilis.html" aria-current="page">Rilis</a>
+      <a href="server.html">Server</a>
+      <a href="keahlian.html">Keahlian</a>
+      <a href="kontak.html">Kontak</a>
+    </nav>
+    <a class="btn btn-primary btn-sm" href="https://wa.me/6282152400352?text=Halo%20Rafiq%2C%20saya%20lihat%20portofolio%20Anda" target="_blank" rel="noopener">Chat WhatsApp</a>
+  </header>
+
+  <main id="isi">
+    <section class="log-section page-first" aria-labelledby="ttl-rilis">
+      <div class="page-head">
+        <h1 id="ttl-rilis">Rilis</h1>
+        <p>Urut dari yang terbaru; tanggal dari commit pertama tiap repo. Live bisa dibuka sekarang, demo statis hanya tampilan, kode privat didemokan saat wawancara.</p>
+        <div class="filters" role="group" aria-label="Saring rilis menurut status">
+          <button type="button" class="chip" data-filter="all" aria-pressed="true">Semua</button>
+          <button type="button" class="chip" data-filter="live" aria-pressed="false">Live</button>
+          <button type="button" class="chip" data-filter="demo" aria-pressed="false">Demo statis</button>
+          <button type="button" class="chip" data-filter="private" aria-pressed="false">Kode privat</button>
+          <button type="button" class="chip" data-filter="public" aria-pressed="false">Repo publik</button>
+        </div>
+      </div>
+
+      <div class="log">
+
+        <div class="month">
+          <p class="when"><time datetime="2026-09">Sep 2026</time></p>
+          <div class="entries">
+            <article class="release" data-status="live" id="crypt-man">
+              <h2>Crypt-Man <span class="status status-live">Live</span></h2>
+              <p class="desc">Pengelola kata sandi dengan kriptografi sepenuhnya di browser; generator, enkripsi, dekripsi, dan QR code bisa dipakai tanpa akun.</p>
+              <dl class="case">
+                <div><dt>Masalah</dt><dd>Menyimpan kata sandi di catatan atau chat berarti menitipkan plaintext ke pihak lain.</dd></div>
+                <div><dt>Solusi</dt><dd>Argon2id menurunkan kunci, AES-256-GCM mengenkripsi di Web Worker; server hanya menerima ciphertext. 610 tes unit dan integrasi, 82 tes E2E.</dd></div>
+                <div><dt>Hasil</dt><dd>Live di crypt.amincloud.id sejak 13 September 2026 di <a href="server.html">server saya sendiri</a>. Lighthouse 94/100/100.</dd></div>
+              </dl>
+              <ul class="tags" aria-label="Stack"><li>Next.js</li><li>Prisma</li><li>MySQL 8.4</li><li>Docker</li><li>Vitest</li><li>Playwright</li></ul>
+              <p class="links"><a href="https://crypt.amincloud.id" target="_blank" rel="noopener">Buka crypt.amincloud.id <svg class="ico" aria-hidden="true" focusable="false"><use href="#i-out" /></svg></a></p>
+              <figure class="shot">
+                <a href="https://crypt.amincloud.id" target="_blank" rel="noopener" aria-label="Buka Crypt-Man yang sedang live">
+                  <img src="img/projects/crypt-man.webp" alt="Halaman panduan Crypt-Man yang sedang live: cara pakai, tiga istilah kunci, dan menu Generator, Enkripsi, Dekripsi, QR Code, Vault" width="1024" height="640" loading="lazy" />
+                </a>
+              </figure>
+            </article>
+
+            <article class="release" data-status="live" id="server">
+              <h2>Server produksi Proxmox VE <span class="status status-live">Live</span></h2>
+              <p class="desc">Server rakitan sendiri (Ryzen 9 9900X, 32 GB, dua ZFS mirror) dengan Proxmox VE 9 dan container terpisah untuk web, Redis, MySQL, dan aplikasi.</p>
+              <dl class="case">
+                <div><dt>Masalah</dt><dd>Produk di atas butuh hosting yang dikendalikan penuh, tanpa membuka port web atau database ke internet.</dd></div>
+                <div><dt>Solusi</dt><dd>Database hanya di bridge internal; masuk hanya lewat Cloudflare Tunnel, Tailscale dengan 2FA, dan satu tunnel WireGuard; firewall default-deny; backup harian plus off-site terenkripsi.</dd></div>
+                <div><dt>Hasil</dt><dd>Bertahan reboot, port diuji dari luar, pembaruan keamanan otomatis, dashboard pemantauan buatan sendiri.</dd></div>
+              </dl>
+              <ul class="tags" aria-label="Stack"><li>Proxmox VE 9</li><li>ZFS</li><li>LXC</li><li>MySQL 8.4</li><li>Cloudflare Tunnel</li><li>Tailscale</li></ul>
+              <p class="links"><a href="server.html">Detail server: diagram, spesifikasi, yang sudah diverifikasi <svg class="ico" aria-hidden="true" focusable="false"><use href="#i-right" /></svg></a></p>
+            </article>
+
+            <article class="release" data-status="private" id="amin-cloud">
+              <h2>Amin Cloud <span class="status status-private">Kode privat</span></h2>
+              <p class="desc">Penyimpanan awan keluarga di server sendiri: login passkey, pemindaian ClamAV, thumbnail libvips.</p>
+              <p class="result">146 berkas uji, PHPStan level 8, 126 commit.</p>
+              <ul class="tags" aria-label="Stack"><li>Laravel 13</li><li>Inertia</li><li>React 19</li><li>Tailwind CSS 4</li></ul>
+              <figure class="shot">
+                <img src="img/projects/amin-cloud.webp" alt="Halaman depan Amin Cloud: cloud keluarga di server sendiri, akun hanya lewat undangan, daftar fitur yang siap" width="1024" height="640" loading="lazy" />
+              </figure>
+            </article>
+
+            <article class="release" data-status="private" id="catat-fiq">
+              <h2>Catat Fiq <span class="status status-private">Kode privat</span></h2>
+              <p class="desc">Pencatat keuangan, perawatan berkala, dan rutinitas pribadi untuk Android, tanpa server; data di SQLite terenkripsi, dipasang lewat ADB.</p>
+              <p class="result">10 commit, 7 sampai 8 September 2026.</p>
+              <ul class="tags" aria-label="Stack"><li>Flutter</li><li>SQLite</li></ul>
+              <div class="shots-phone">
+                <figure class="shot"><img src="img/projects/catat-fiq-beranda.webp" alt="Beranda Catat Fiq: total saldo, pemasukan dan pengeluaran bulan ini, catatan terakhir, navigasi Uang, Rawat, Rutin" width="430" height="900" loading="lazy" /></figure>
+                <figure class="shot"><img src="img/projects/catat-fiq-uang.webp" alt="Tab Uang Catat Fiq: transaksi bulan September 2026 dengan ringkasan masuk, keluar, sisa, dan saringan" width="430" height="900" loading="lazy" /></figure>
+                <figure class="shot"><img src="img/projects/catat-fiq-catat.webp" alt="Form Catat Transaksi Catat Fiq: jumlah, pilihan cepat, kategori, dompet, tanggal, catatan dan foto struk" width="430" height="900" loading="lazy" /></figure>
+              </div>
+            </article>
+          </div>
+        </div>
+
+        <div class="month">
+          <p class="when"><time datetime="2026-08">Agu 2026</time></p>
+          <div class="entries">
+            <article class="release" data-status="live" id="mr-hotel">
+              <h2>MR Hotel <span class="status status-live">Live</span></h2>
+              <p class="desc">Pemesanan kamar untuk hotel kecil, web app di atas Google Spreadsheet.</p>
+              <dl class="case">
+                <div><dt>Masalah</dt><dd>Pesanan dicatat manual; tamu harus menelepon, sisa kamar dan denda sering salah hitung.</dd></div>
+                <div><dt>Solusi</dt><dd>Tamu memesan tanpa login dan mengunggah bukti bayar; petugas masuk dengan PIN untuk kunci, walk-in, pembayaran, dan kas. Sisa kamar dihitung dari data nyata.</dd></div>
+                <div><dt>Hasil</dt><dd>Live di hotel.ownertech.id. Sekitar 9.900 baris, 105 commit, verifikasi otomatis untuk ketersediaan dan denda.</dd></div>
+              </dl>
+              <ul class="tags" aria-label="Stack"><li>Google Apps Script</li><li>Google Sheets</li><li>Cloudflare</li></ul>
+              <p class="links"><a href="https://hotel.ownertech.id" target="_blank" rel="noopener">Coba hotel.ownertech.id <svg class="ico" aria-hidden="true" focusable="false"><use href="#i-out" /></svg></a></p>
+              <figure class="shot">
+                <a href="https://hotel.ownertech.id" target="_blank" rel="noopener" aria-label="Buka MR Hotel yang sedang live">
+                  <img src="img/projects/mr-hotel.webp" alt="Halaman pesan kamar MR Hotel dengan pilihan tanggal masuk dan pulang" width="1024" height="640" loading="lazy" />
+                </a>
+              </figure>
+            </article>
+
+            <article class="release" data-status="private" id="absensi-gps">
+              <h2>Absensi GPS Toko Berkah Jaya <span class="status status-private">Kode privat</span></h2>
+              <p class="desc">Absensi karyawan berbasis lokasi untuk sebuah toko; aturan shift dan zona ambigu diuji otomatis.</p>
+              <p class="result">Empat suite uji.</p>
+              <ul class="tags" aria-label="Stack"><li>Google Apps Script</li><li>Google Sheets</li></ul>
+            </article>
+
+            <article class="release" data-status="public" id="handportal">
+              <h2>handportal <span class="status status-public">Repo publik</span></h2>
+              <p class="desc">Kamera real-time yang dikendalikan gestur tangan: lima gestur memicu teks, animasi, dan suara, plus portal empat jari dengan 13 filter.</p>
+              <p class="result">28 commit sejak 9 Agustus 2026; repo dipublikasikan 14 September 2026.</p>
+              <ul class="tags" aria-label="Stack"><li>Python</li><li>MediaPipe</li><li>OpenCV</li></ul>
+              <p class="links"><a href="https://github.com/mrafiqamin24/handportal" target="_blank" rel="noopener">Lihat kode <svg class="ico" aria-hidden="true" focusable="false"><use href="#i-out" /></svg></a></p>
+              <figure class="shot illus">
+                <svg viewBox="0 0 1024 640" role="img" aria-labelledby="hpTitle" xmlns="http://www.w3.org/2000/svg">
+                  <title id="hpTitle">Ilustrasi handportal: bingkai webcam dengan satu tangan membentuk gestur V, 21 titik sendi yang dilacak MediaPipe digambar sebagai kerangka, dan label bahwa gestur V memicu teks, animasi, dan suara.</title>
+                  <g class="il">
+                    <rect class="frame" x="0" y="0" width="1024" height="640" />
+                    <g class="flesh">
+                      <polygon points="520,560 475,430 525,425 572,435 615,455" />
+                      <path d="M520 560 L460 525 L415 485 L395 445 L390 410" />
+                      <path d="M475 430 L460 340 L452 275 L446 215" />
+                      <path d="M525 425 L535 330 L542 262 L548 200" />
+                      <path d="M572 435 L590 385 L585 420 L575 450" />
+                      <path d="M615 455 L640 420 L635 450 L622 472" />
+                      <path d="M520 560 L500 620" />
+                    </g>
+                    <g class="bones">
+                      <path d="M520 560 L460 525 L415 485 L395 445 L390 410" />
+                      <path d="M520 560 L475 430 L460 340 L452 275 L446 215" />
+                      <path d="M475 430 L525 425 L535 330 L542 262 L548 200" />
+                      <path d="M525 425 L572 435 L590 385 L585 420 L575 450" />
+                      <path d="M572 435 L615 455 L640 420 L635 450 L622 472" />
+                      <path d="M520 560 L615 455" />
+                    </g>
+                    <g class="joints">
+                      <circle cx="520" cy="560" r="6" /><circle cx="460" cy="525" r="5" /><circle cx="415" cy="485" r="5" /><circle cx="395" cy="445" r="5" /><circle cx="390" cy="410" r="5" />
+                      <circle cx="475" cy="430" r="5" /><circle cx="460" cy="340" r="5" /><circle cx="452" cy="275" r="5" /><circle cx="446" cy="215" r="5" />
+                      <circle cx="525" cy="425" r="5" /><circle cx="535" cy="330" r="5" /><circle cx="542" cy="262" r="5" /><circle cx="548" cy="200" r="5" />
+                      <circle cx="572" cy="435" r="5" /><circle cx="590" cy="385" r="5" /><circle cx="585" cy="420" r="5" /><circle cx="575" cy="450" r="5" />
+                      <circle cx="615" cy="455" r="5" /><circle cx="640" cy="420" r="5" /><circle cx="635" cy="450" r="5" /><circle cx="622" cy="472" r="5" />
+                    </g>
+                    <g class="hud">
+                      <rect x="40" y="40" width="238" height="40" rx="6" />
+                      <circle cx="62" cy="60" r="5" class="rec" />
+                      <text x="78" y="65">handportal · webcam 30 fps</text>
+                      <rect x="852" y="40" width="132" height="40" rx="6" />
+                      <text x="918" y="65" text-anchor="middle">filter 4 / 13</text>
+                      <rect x="40" y="540" width="470" height="60" rx="6" />
+                      <text x="60" y="565" class="b">Gestur V terdeteksi</text>
+                      <text x="60" y="587">memicu teks, animasi, dan suara · 21 titik tangan dilacak</text>
+                    </g>
+                  </g>
+                </svg>
+                <figcaption class="shot-cap">Ilustrasi, bukan tangkapan layar: kerangka 21 titik tangan yang dilacak handportal dan gestur V yang memicu teks, animasi, dan suara.</figcaption>
+              </figure>
+            </article>
+          </div>
+        </div>
+
+        <div class="month">
+          <p class="when"><time datetime="2026-07">Jul 2026</time></p>
+          <div class="entries">
+            <article class="release" data-status="private" id="homtech">
+              <h2>Homtech.id <span class="status status-private">Kode privat</span></h2>
+              <p class="desc">Manajemen hotel multi-tenant; ledger RoomNight mencegah double-booking di level database.</p>
+              <p class="result">222 commit.</p>
+              <ul class="tags" aria-label="Stack"><li>Next.js</li><li>Prisma</li><li>TypeScript</li></ul>
+              <figure class="shot">
+                <img src="img/projects/homtech.webp" alt="Halaman pengaturan Pemesanan Online di Homtech.id: alamat pemesanan publik, aturan menginap, uang muka, logo hotel" width="1024" height="640" loading="lazy" />
+              </figure>
+            </article>
+
+            <article class="release" data-status="private" id="restotech">
+              <h2>Restotech.id <span class="status status-private">Kode privat</span></h2>
+              <p class="desc">Manajemen restoran multi-tenant: QR meja, kasir, dapur, shift kas, loyalti, PWA. JWT dan RBAC, passkey untuk pemilik.</p>
+              <p class="result">120 commit.</p>
+              <ul class="tags" aria-label="Stack"><li>Next.js 16</li><li>React 19</li><li>Prisma 6</li><li>MySQL 8.4</li></ul>
+              <figure class="shot">
+                <img src="img/projects/restotech.webp" alt="Halaman depan Restotech.id: kelola restoran langsung dari browser, masuk ke aplikasi, daftar gratis, pesan via QR meja" width="1024" height="640" loading="lazy" />
+              </figure>
+            </article>
+
+            <article class="release" data-status="private" id="platformhq">
+              <h2>PlatformHQ <span class="status status-private">Kode privat</span></h2>
+              <p class="desc">Konsol operator di atas Ownertech, Restotech, dan Homtech: metrik, status kesehatan, registry rilis. Hanya membaca database produk, 2FA wajib.</p>
+              <p class="result">113 commit.</p>
+              <ul class="tags" aria-label="Stack"><li>Laravel 13</li><li>Filament v5</li><li>Larastan</li></ul>
+              <figure class="shot">
+                <img src="img/projects/platformhq.webp" alt="Halaman masuk Konsol Operator PlatformHQ" width="1024" height="640" loading="lazy" />
+              </figure>
+            </article>
+          </div>
+        </div>
+
+        <div class="month">
+          <p class="when"><time datetime="2026-06">Jun 2026</time></p>
+          <div class="entries">
+            <article class="release" data-status="private" id="ownertech">
+              <h2>Ownertech.id <span class="status status-private">Kode privat</span></h2>
+              <p class="desc">Kasir multi-cabang dengan absensi wajah: REST API Laravel 12 dan klien Flutter untuk Windows dan Android.</p>
+              <dl class="case">
+                <div><dt>Masalah</dt><dd>Toko multi-cabang butuh satu tempat untuk produk, kasir, stok, karyawan, dan laporan yang tetap jalan saat internet putus.</dd></div>
+                <div><dt>Solusi</dt><dd>API Laravel dengan Sanctum; klien Flutter dengan antrean offline; layanan pengenalan wajah terpisah dalam Python.</dd></div>
+                <div><dt>Hasil</dt><dd>300 commit, 122 berkas uji Pest. Halaman ownertech.id disajikan dari Cloudflare Worker, tetap hidup saat server mati.</dd></div>
+              </dl>
+              <ul class="tags" aria-label="Stack"><li>Laravel 12</li><li>Flutter</li><li>MySQL 8.4</li><li>Python</li><li>Pest</li></ul>
+              <p class="links"><a href="https://ownertech.id" target="_blank" rel="noopener">Halaman produk ownertech.id <svg class="ico" aria-hidden="true" focusable="false"><use href="#i-out" /></svg></a></p>
+              <figure class="shot">
+                <img src="img/projects/ownertech.webp" alt="Layar masuk aplikasi kasir Ownertech.id" width="1024" height="545" loading="lazy" />
+              </figure>
+            </article>
+
+            <article class="release" data-status="demo" id="secure-viewer">
+              <h2>Secure Viewer <span class="status status-demo">Demo statis</span></h2>
+              <p class="desc">Berbagi file lihat-saja dengan tautan sekali pakai.</p>
+              <dl class="case">
+                <div><dt>Masalah</dt><dd>Dokumen yang dikirim lewat chat bisa disimpan, diteruskan, dan dibuka kapan saja.</dd></div>
+                <div><dt>Solusi</dt><dd>Tautan 6 karakter, timer per perangkat, batas perangkat, QR code, watermark bergerak, proteksi saat screenshot; PDF lewat PDF.js, video lewat Range.</dd></div>
+                <div><dt>Hasil</dt><dd>Dipakai untuk dokumen pribadi; demo di GitHub Pages mensimulasikan alurnya di browser.</dd></div>
+              </dl>
+              <ul class="tags" aria-label="Stack"><li>Node.js</li><li>Express</li><li>PDF.js</li><li>Cloudflare Tunnel</li></ul>
+              <p class="links"><a href="https://mrafiqamin24.github.io/Secure-Viewer/" target="_blank" rel="noopener">Demo tampilan <svg class="ico" aria-hidden="true" focusable="false"><use href="#i-out" /></svg></a> <a href="https://github.com/mrafiqamin24/Secure-Viewer" target="_blank" rel="noopener">Kode demo</a></p>
+              <figure class="shot">
+                <a href="https://mrafiqamin24.github.io/Secure-Viewer/" target="_blank" rel="noopener" aria-label="Buka demo statis Secure Viewer">
+                  <img src="img/projects/secure-viewer.webp" alt="Formulir Secure Viewer untuk membuat tautan aman dengan timer dan batas perangkat" width="1024" height="546" loading="lazy" />
+                </a>
+              </figure>
+            </article>
+
+            <article class="release" data-status="live" id="mi-al-amin">
+              <h2>MI Al-Amin Tumbang Titi <span class="status status-live">Live</span></h2>
+              <p class="desc">Profil sekolah dan info PPDB dari brief dan foto asli sekolah.</p>
+              <dl class="case">
+                <div><dt>Masalah</dt><dd>Sekolah hanya punya akun Facebook; jadwal PPDB dan kontak sulit ditemukan.</dd></div>
+                <div><dt>Solusi</dt><dd>Halaman ringan untuk jaringan desa: angka kunci, rute PPDB, galeri, kontak.</dd></div>
+                <div><dt>Hasil</dt><dd>Live di GitHub Pages; bisa dipindah ke domain sekolah kapan saja.</dd></div>
+              </dl>
+              <ul class="tags" aria-label="Stack"><li>HTML</li><li>CSS</li><li>JavaScript</li></ul>
+              <p class="links"><a href="https://mrafiqamin24.github.io/MI-Al-Amin/" target="_blank" rel="noopener">Lihat live <svg class="ico" aria-hidden="true" focusable="false"><use href="#i-out" /></svg></a> <a href="https://github.com/mrafiqamin24/MI-Al-Amin" target="_blank" rel="noopener">Kode</a></p>
+              <figure class="shot">
+                <a href="https://mrafiqamin24.github.io/MI-Al-Amin/" target="_blank" rel="noopener" aria-label="Buka halaman MI Al-Amin Tumbang Titi">
+                  <img src="img/projects/mi-al-amin.webp" alt="Halaman depan MI Al-Amin Tumbang Titi dengan foto siswa dan tombol jadwal PPDB" width="1024" height="550" loading="lazy" />
+                </a>
+              </figure>
+            </article>
+          </div>
+        </div>
+
+        <div class="month">
+          <p class="when"><time datetime="2026-03">Mar 2026</time></p>
+          <div class="entries">
+            <article class="release" data-status="demo" id="home-net">
+              <h2>Home.Net, portal hotspot MikroTik <span class="status status-demo">Demo statis</span></h2>
+              <p class="desc">Set lengkap halaman hotspot RouterOS: login, status, logout, error.</p>
+              <dl class="case">
+                <div><dt>Masalah</dt><dd>Halaman login bawaan MikroTik sulit dipakai di HP dan tidak menunjukkan sisa waktu voucher.</dd></div>
+                <div><dt>Solusi</dt><dd>Halaman yang membaca variabel RouterOS, pindai voucher lewat QR, mode gelap, pemberitahuan saat waktu hampir habis.</dd></div>
+                <div><dt>Hasil</dt><dd>Pernah dipakai pada hotspot RT/RW yang saya kelola pada 2026; demo memakai data contoh.</dd></div>
+              </dl>
+              <ul class="tags" aria-label="Stack"><li>RouterOS Hotspot</li><li>JavaScript</li><li>jsQR</li></ul>
+              <p class="links"><a href="https://mrafiqamin24.github.io/MikroTik-Login/" target="_blank" rel="noopener">Demo tampilan <svg class="ico" aria-hidden="true" focusable="false"><use href="#i-out" /></svg></a> <a href="https://github.com/mrafiqamin24/MikroTik-Login" target="_blank" rel="noopener">Kode</a></p>
+              <figure class="shot">
+                <a href="https://mrafiqamin24.github.io/MikroTik-Login/" target="_blank" rel="noopener" aria-label="Buka demo halaman login hotspot Home.Net">
+                  <img src="img/projects/home-net.webp" alt="Halaman login hotspot Home.Net dengan kolom kode voucher dan tombol scan QR" width="1024" height="546" loading="lazy" />
+                </a>
+              </figure>
+            </article>
+          </div>
+        </div>
+
+        <div class="month">
+          <p class="when"><time datetime="2026-01">Jan 2026</time></p>
+          <div class="entries">
+            <article class="release" data-status="live" id="sippdam">
+              <h2>SIPPDAM <span class="status status-live">Live</span></h2>
+              <p class="desc">Sistem informasi pengaduan pelanggan PDAM, web statis.</p>
+              <p class="result">Dipublikasikan Januari 2026 di GitHub Pages.</p>
+              <ul class="tags" aria-label="Stack"><li>HTML</li><li>CSS</li><li>JavaScript</li></ul>
+              <p class="links"><a href="https://mrafiqamin24.github.io/SIPPDAM/" target="_blank" rel="noopener">Lihat live <svg class="ico" aria-hidden="true" focusable="false"><use href="#i-out" /></svg></a></p>
+            </article>
+          </div>
+        </div>
+
+        <div class="month">
+          <p class="when"><time datetime="2025-11">Nov 2025</time></p>
+          <div class="entries">
+            <article class="release" data-status="live" id="herbify">
+              <h2>Herbify <span class="status status-live">Live</span></h2>
+              <p class="desc">Web edukasi produk herbal, karya pertama saya yang dipublikasikan.</p>
+              <p class="result">Dipublikasikan November 2025 di GitHub Pages.</p>
+              <ul class="tags" aria-label="Stack"><li>HTML</li><li>CSS</li><li>JavaScript</li></ul>
+              <p class="links"><a href="https://mrafiqamin24.github.io/Herbify/" target="_blank" rel="noopener">Lihat live <svg class="ico" aria-hidden="true" focusable="false"><use href="#i-out" /></svg></a></p>
+            </article>
+          </div>
+        </div>
+
+        <p class="log-empty" hidden>Tidak ada rilis dengan status itu.</p>
+      </div>
+    </section>
+
+    <section class="cta-strip" aria-label="Hubungi saya">
+      <p>Kode privat bisa didemokan saat wawancara, termasuk repo, tes, dan catatan deploy.</p>
+      <div class="actions">
+        <a class="btn btn-primary" href="https://wa.me/6282152400352?text=Halo%20Rafiq%2C%20saya%20lihat%20portofolio%20Anda" target="_blank" rel="noopener">Chat WhatsApp</a>
+        <a class="btn" href="cv.html?v=20260915a">Lihat CV</a>
+        <a class="textlink" href="kontak.html">Semua kontak</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="colophon">
+    <p>© <span id="year">2026</span> Muhammad Rafiq Amin. <span class="aset">HTML, CSS, dan JavaScript tanpa framework.</span></p>
+    <p><a href="https://github.com/mrafiqamin24/PortFolio" target="_blank" rel="noopener">Sumber halaman di GitHub</a></p>
+  </footer>
+
+  <script src="script.js?v=20260915a" defer></script>
+</body>
+</html>
