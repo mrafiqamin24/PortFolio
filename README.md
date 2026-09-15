@@ -29,11 +29,14 @@ memakai satu stylesheet dan satu skrip:
   sesuai (atau buat `<div class="month">` baru), isi `data-status` dengan `live`, `demo`,
   `private`, atau `public`, dan pakai label status yang sama di dalam `<h2>`. Kalau masuk
   tiga terbaru, perbarui juga blok di `index.html` (di sana judulnya `<h3>`).
-- Navigasi atas ada di tiap berkas HTML; tandai halaman aktif dengan `aria-current="page"`.
+- Navigasi atas (`header.topbar`) ada di tiap berkas HTML dengan markup yang sama; tandai halaman aktif dengan
+  `aria-current="page"` (garis bawah tinta). Di bawah 900 px menu lipat lewat tombol hamburger; tanpa JS menu
+  selalu terbuka. Bar jadi tembus pandang saat halaman digulir.
 - Screenshot: `img/projects/`, lebar 1280 px, WebP, plus sidecar `.json` yang mencatat asalnya.
   Aplikasi privat dipotret dari aplikasi yang dijalankan lokal (Restotech, PlatformHQ, Amin
-  Cloud) atau dari screenshot dogfood di repo-nya (Homtech); handportal memakai ilustrasi SVG inline
-  atas permintaan pemilik, bukan foto.
+  Cloud, dan klien desktop Ownertech yang tersambung ke API lokalnya) atau dari screenshot dogfood di
+  repo-nya (Homtech); Catat Fiq dari build Windows sementara; handportal memakai ilustrasi SVG inline atas
+  permintaan pemilik, bukan foto.
 - Keahlian dan kontak diedit langsung; CV di `cv.html` berdiri sendiri.
 - Tautan yang mati harus dihapus, bukan dibiarkan (demo App-POS dihapus 2026-09-15 karena 404).
 

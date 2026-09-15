@@ -149,11 +149,36 @@ components:
     backgroundColor: "{colors.paper}"
     textColor: "{colors.ink}"
     height: "{spacing.bar-h}"
-  topbar-link:
-    textColor: "{colors.ink-2}"
-    typography: "{typography.body-sm}"
-  topbar-link-active:
+  topbar-scrolled:
+    backgroundColor: "rgba(255, 255, 255, 0.86)"
+  brand:
     textColor: "{colors.ink}"
+    typography: "{typography.body-sm}"
+  brand-avatar:
+    rounded: "{rounded.circle}"
+    size: "30px"
+  nav-link:
+    textColor: "{colors.ink-2}"
+    padding: "0 12px"
+    height: "{spacing.bar-h}"
+    typography: "{typography.body-sm}"
+  nav-link-active:
+    textColor: "{colors.ink}"
+  nav-toggle:
+    backgroundColor: "{colors.paper}"
+    textColor: "{colors.ink}"
+    rounded: "{rounded.sm}"
+    size: "44px"
+  nav-toggle-hover:
+    backgroundColor: "{colors.paper-2}"
+  nav-panel:
+    backgroundColor: "{colors.paper}"
+    padding: "8px {spacing.gutter} 16px"
+  nav-panel-link:
+    textColor: "{colors.ink-2}"
+    padding: "0 4px"
+    height: "48px"
+    typography: "{typography.body-lg}"
   avatar:
     rounded: "{rounded.circle}"
     size: "116px"
@@ -178,14 +203,14 @@ The site reads like the changelog page of a product that keeps shipping, and the
 
 Material is plain white paper and one near-black ink with a single grey secondary tone; structure is carried by hairline rules, not by fills or boxes. There are no cards. The only colour the system itself owns is one green, and it is spent on a single meaning: this thing is live right now. Brand colours appear only inside the technology logos on the skills pages, and they are the logos' own colours, not the system's. One typeface, Mona Sans in a single variable file, does display, body and label work; the hierarchy is built from size, weight and the grey tone alone.
 
-The build rejected the dark hero, the icon cloud, the card grid, and the previous engineering-drawing world (thick frames, title blocks, tracked-caps labels, a monospaced figures face, a 3D model). Motion is confined to entries rising 12px as they arrive and a 1px press on buttons; there is no opening choreography.
+The build rejected the dark hero, the icon cloud, the card grid, and the previous engineering-drawing world (thick frames, title blocks, tracked-caps labels, a monospaced figures face, a 3D model). Motion is confined to entries rising 12px as they arrive, a 1px press on buttons, and the bar's own two gestures (the 2px underline drawing under the current page, the menu icon folding into a cross); there is no opening choreography.
 
 **Key Characteristics:**
 - Changelog anatomy: every release has the same parts in the same order (title + status, one description, one result line or a Masalah/Solusi/Hasil list, stack tags, links, optional screenshot).
 - Hairline structure: 1px rules in two greys separate everything; no fills except the primary button, the pressed chip, and the tinted ground under screenshots.
 - One accent, one meaning: green exists only for the Live status pill.
 - One face: Mona Sans 600 for every heading, 400–550 for text, no uppercase tracking anywhere.
-- One shadow: the screenshot frame carries a soft offset shadow; nothing else has one.
+- One shadow in content: the screenshot frame carries a soft offset shadow; the only other shadows belong to the chrome, on the bar once content scrolls under it and on its open mobile panel.
 
 ## Colors
 
@@ -199,11 +224,11 @@ A white-and-ink monochrome with a warm-neutral grey and one green reserved for l
 - **Live Dot** (`live-dot`): the filled 7px dot inside the Live pill, and the single red-dot equivalent (`.rec`) inside the hand-tracking illustration's HUD.
 
 ### Neutral
-- **Paper** (`paper`): page ground, topbar ground, button and chip ground, primary-button text, shot caption ground, diagram ground.
+- **Paper** (`paper`): page ground, topbar ground at rest and the mobile nav panel, button, chip and menu-toggle ground, primary-button text, shot caption ground, diagram ground. Once the page has scrolled 4px the bar drops to paper at 86% alpha over a 12px backdrop blur; that is the only translucency and the only blur in the system.
 - **Paper, tinted** (`paper-2`): hover ground for buttons and chips, the ground behind screenshot frames, the host box fill in the network diagram.
-- **Ink, secondary** (`ink-2`): role line, meta line, section intro paragraphs, release descriptions, stack tags, date rail, table cells, captions, colophon, and the resting colour of status pills other than Live. Topbar links rest here and turn to `ink` on hover or when current.
-- **Rule** (`rule`): the hairline. Topbar bottom, section tops, month tops, table row dividers, contact rows, skills-group tops, shot caption top.
-- **Rule, strong** (`rule-2`): borders on things you can touch or look at: buttons, chips, status pills, avatar ring, screenshot and diagram frames, table head rule, underline colour of resting text links, the "·" separator between tags. Hover on buttons and shot frames darkens it to `#b9bec6` (hard-coded).
+- **Ink, secondary** (`ink-2`): role line, meta line, section intro paragraphs, release descriptions, stack tags, date rail, table cells, captions, colophon, and the resting colour of status pills other than Live. Nav links rest here and turn to `ink` on hover or when current.
+- **Rule** (`rule`): the hairline. Topbar bottom, mobile nav panel bottom and its row dividers, section tops, month tops, table row dividers, contact rows, skills-group tops, shot caption top.
+- **Rule, strong** (`rule-2`): borders on things you can touch or look at: buttons, chips, the menu toggle, status pills, both avatar rings (intro and brand), screenshot and diagram frames, table head rule, underline colour of resting text links, the "·" separator between tags. Hover on buttons, the menu toggle and shot frames darkens it to `#b9bec6` (hard-coded).
 
 ### Named Rules
 **The One Dot Rule.** Green means live and nothing else. It never colours a heading, a link, a button, or a decorative element. Demo statis, Kode privat and Repo publik pills stay grey; the honesty of the label comes from the words, not from a second or third colour.
@@ -227,9 +252,9 @@ A white-and-ink monochrome with a warm-neutral grey and one green reserved for l
 - **Title** (600, 22px, 1.2, -0.012em; 20px under 720px): release entry titles (h2 on Rilis, h3 on home), two-column headings, "Cara saya bekerja" heading.
 - **Lead** (450, `clamp(19px, 1.7vw, 23px)`, 1.4, -0.005em, max 46ch): the one-sentence position under the name.
 - **Role** (500, 20px; 18px under 720px, `ink-2`): the job-title line.
-- **Body, large** (400, 17px, 1.55; 16px under 720px): section and page intros, release descriptions. The result line is the same size at 550 in `ink`.
+- **Body, large** (400, 17px, 1.55; 16px under 720px): section and page intros, release descriptions. The result line is the same size at 550 in `ink`; the mobile nav panel's links are the same size at 500.
 - **Body** (400, 16px, 1.55): the base; skills descriptions, case-list text, how-I-work list.
-- **Body, small** (500, 15px): buttons, text links, topbar links, date rail, meta line, tables, contact rows, proof lines.
+- **Body, small** (500, 15px): buttons, text links, nav links (600 when current), the brand name (600), date rail, meta line, tables, contact rows, proof lines.
 - **Label** (500, 14px): chips, button-sm, stack tags, case-list terms (600), skills-table head at 13px 600.
 - **Caption** (500, 13px, 1.4): status pills, shot captions, diagram hint, diagram text.
 
@@ -251,38 +276,48 @@ Other grids: the intro is 116px avatar + text with a 32px gap; the home skills s
 Vertical rhythm: sections pad `clamp(40px, 5vw, 64px)` top and `clamp(44px, 6vw, 80px)` bottom and open with a hairline; the intro pads `clamp(40px, 6vw, 80px)` top. Inside an entry, each part sits 10–12px under the previous one and a screenshot 20px below. Rows in tables and lists pad 10–14px.
 
 Breakpoints, each collapsing one grid:
-- **900px**: the date rail goes static above its entries; entry gap 36px.
+- **900px**: the date rail goes static above its entries; entry gap 36px. The topbar collapses to brand + a 44px menu toggle (grid `minmax(0,1fr) auto`, 12px gap) and the nav becomes an absolute paper panel under the bar: 48px hairline-divided rows at 17px, then the WhatsApp button stretched full width. It opens via `.topbar.open` (JS) and is always shown, toggle hidden, when `html` lacks the `js` class.
 - **760px**: skills summary and two-col become one column.
 - **720px**: intro stacks (avatar 96px), role 18px, entry titles 20px, body-large 16px.
-- **640px**: topbar becomes two rows (`bar-h` 90px): name + WhatsApp button, then a horizontally scrollable nav; skills table stacks each row as a block with `data-th` labels; phone-screenshot row becomes a horizontal scroll-snap strip at 62% width; the diagram hint appears.
+- **640px**: skills table stacks each row as a block with `data-th` labels; phone-screenshot row becomes a horizontal scroll-snap strip at 62% width; the diagram hint appears.
 - **480px**: contact rows and case rows stack; buttons stretch to fill their row.
+- **360px**: the brand name hides and the 30px avatar stands alone.
 
-Print: topbar, chips, CTA strip and more-links are hidden, the wrap goes full width, entries avoid page breaks, filtered-out entries return, shadows and underlines are dropped, body drops to 12.5px on a 14mm page margin. The CV page carries its own copy of the same tokens with an A4 page frame.
+Print: topbar (toggle included), chips, CTA strip and more-links are hidden, the wrap goes full width, entries avoid page breaks, filtered-out entries return, shadows and underlines are dropped, body drops to 12.5px on a 14mm page margin. The CV page carries its own copy of the same tokens with an A4 page frame.
 
 ## Elevation & Depth
 
-The system is flat and stacked. The topbar is sticky and sits above content by z-index with a hairline underneath, not a shadow. Depth between elements is conveyed by the two rule greys (`rule` for dividers, `rule-2` for touchable or framed things) and by the tinted `paper-2` ground behind screenshots. The single exception is the screenshot frame, which carries a soft downward shadow so a 1024px capture reads as a placed print rather than a cutout.
+The system is flat and stacked. Depth between elements is conveyed by the two rule greys (`rule` for dividers, `rule-2` for touchable or framed things) and by the tinted `paper-2` ground behind screenshots. In content the single exception is the screenshot frame, which carries a soft downward shadow so a 1024px capture reads as a placed print rather than a cutout.
+
+The chrome has its own, smaller vocabulary. The sticky topbar is flat with a hairline underneath while the page sits at the top; once `scrollY` passes 4px it takes the `scrolled` class and becomes 86% paper over a 12px backdrop blur with a faint shadow, so content passing beneath reads as beneath (background and shadow cross-fade over 0.2s). Under 900px the open nav panel casts a slightly longer shadow onto the page. Both are separators between chrome and content, not elevation of a container.
 
 ### Shadow Vocabulary
 - **Shot** (`box-shadow: 0 14px 32px -20px rgba(17, 19, 24, 0.4)`): the screenshot figure only. On hover it deepens to `0 18px 40px -20px rgba(17, 19, 24, 0.5)` and the border darkens, over 0.25s. Removed in print.
+- **Bar, scrolled** (`box-shadow: 0 8px 24px -20px rgba(17, 19, 24, 0.35)`, with `backdrop-filter: blur(12px)` on `rgba(255, 255, 255, 0.86)`): the sticky topbar only, only after 4px of scroll. Never at rest, never on any other element.
+- **Nav panel** (`box-shadow: 0 16px 32px -24px rgba(17, 19, 24, 0.4)`): the mobile nav panel under 900px while open.
 
 ### Named Rules
-**The One Shadow Rule.** Only `figure.shot` may cast a shadow. Buttons, chips, the topbar, the diagram, tables and any future container are flat with a `rule-2` border at most.
+**The One Shadow Rule.** In content, only `figure.shot` may cast a shadow. Buttons, chips, the diagram, tables and any future container are flat with a `rule-2` border at most. The two chrome shadows (the scrolled bar, the open nav panel) exist to separate the bar from content moving under it and are not a licence for shadowed containers; the bar itself is flat at rest.
 
-**The Press Rule.** Pressing a button or chip moves it down 1px (`translateY(1px)`, 0.1s). That is the only transform in the component set; nothing lifts on hover.
+**The One Blur Rule.** Backdrop blur appears in exactly one place: the sticky bar in its scrolled state. No panel, overlay or frame is translucent or frosted.
+
+**The Press Rule.** Pressing a button or chip moves it down 1px (`translateY(1px)`, 0.1s). Apart from the bar's two drawn gestures (the active underline's `scaleX` and the menu icon's line rotation, both 0.2s `ease-out`), that is the only transform in the component set; nothing lifts on hover.
 
 ## Shapes
 
-Corners are gently rounded and come in exactly three sizes: 6px (`sm`) on buttons and the skip link, 10px (`lg`) on screenshot and diagram frames, and a full pill (999px) on chips and status pills. The avatar is a circle with a `rule-2` ring. Focus is a 2px solid ink outline offset 3px with a 4px radius. Borders are always 1px (1.5px only for the hollow status dot). Screenshots are clipped by the frame's overflow, phone screenshots are cropped to 430/900. SVG diagram boxes are 1.2px ink strokes with white fill; hosts are `paper-2` with a `rule-2` stroke; stores are dashed `3 3`; the bus is a 2px ink line and wires 1.2px `ink-2`.
+Corners are gently rounded and come in exactly three sizes: 6px (`sm`) on buttons and the skip link, 10px (`lg`) on screenshot and diagram frames, and a full pill (999px) on chips and status pills. The avatar is a circle with a `rule-2` ring, at 116px in the intro and 30px in the bar's brand. The menu toggle is a 44px square at the 6px button radius. The current-page marker in the bar is a 2px ink bar, inset 12px from each side of the link and sitting on the hairline. Focus is a 2px solid ink outline offset 3px with a 4px radius. Borders are always 1px (1.5px only for the hollow status dot). Screenshots are clipped by the frame's overflow, phone screenshots are cropped to 430/900. SVG diagram boxes are 1.2px ink strokes with white fill; hosts are `paper-2` with a `rule-2` stroke; stores are dashed `3 3`; the bus is a 2px ink line and wires 1.2px `ink-2`.
 
 ## Components
 
-### Topbar (`.topbar`)
-Character: a thin masthead that stays put.
-- **Style:** sticky, 56px, paper ground, hairline bottom, three-column grid (name / nav / button) with a 24px gap inside the wrap.
-- **Name:** 15px 600 ink, no underline. **Nav links:** 15px 500 `ink-2`, 22px apart, ink on hover and when `aria-current="page"` (0.15s).
-- **Action:** one `btn btn-primary btn-sm` "Chat WhatsApp" at the right.
-- **Mobile (640px):** two rows, name and button on top, nav scrolls horizontally underneath with the scrollbar hidden; `bar-h` becomes 90px so sticky offsets still clear it.
+### Topbar (`header.topbar#topbar`, `.brand`, `.site-nav`, `.nav-toggle`)
+Character: a thin masthead that stays put and frosts only once the page moves under it.
+- **Style:** sticky, 56px on every width, paper ground, hairline bottom, two-column grid (`auto minmax(0, 1fr)`: brand / nav) with a 24px gap inside the wrap and the fluid gutter.
+- **Brand:** a 30px round avatar (`img/avatar.webp`, `rule-2` ring) and the name at 15px 600 ink, 10px apart, no underline; the name is ellipsised when squeezed and hidden under 360px.
+- **Nav links:** a list of full-height (56px) items, 0 12px padding, 4px apart, right-aligned, 15px 500 `ink-2`; ink on hover (0.15s). The current page (`aria-current="page"`) is ink 600 with a 2px ink underline drawn by `::after` at the bar's bottom edge, inset 12px each side, scaling in from the left over 0.2s `ease-out`.
+- **Action:** one `btn btn-primary btn-sm` "Chat WhatsApp" (`.nav-cta`) after the list, 12px clear of it.
+- **Scrolled** (`.topbar.scrolled`, set by JS when `scrollY > 4`): paper at 86% over a 12px backdrop blur, with the bar shadow; background and shadow transition 0.2s. Without JS the bar simply stays opaque paper.
+- **Mobile (900px):** the bar becomes brand + a 44px bordered toggle (`.nav-toggle`, paper ground, `rule-2` border, 6px radius, hover `paper-2`) holding a 20px three-line icon whose lines rotate into a cross when `aria-expanded="true"`. The nav becomes an absolute paper panel under the bar (`8px gutter 16px` padding, hairline bottom, the panel shadow): 48px rows divided by hairlines at 17px 500, no underline marker, then the CTA stretched full width at 44px / 15px. `.topbar.open` shows it; Escape, an outside click or choosing a link closes it; `html:not(.js)` shows the panel permanently and hides the toggle.
+- **Reduced motion:** the bar, its links, the underline and the icon lines lose their transitions.
 
 ### Buttons (`.btn`, `.btn-primary`, `.btn-sm`)
 Character: quiet, bordered, slightly rounded; the primary is the ink itself.
@@ -353,13 +388,14 @@ Character: the network plan on Server, drawn in the page's own ink.
 - **Do** separate with 1px hairlines (`rule`) and frame touchables with 1px `rule-2`; let the tinted `paper-2` ground carry hover and screenshot backing.
 - **Do** keep Mona Sans 600 for all headings with negative tracking that scales with size (-0.012em at 22px to -0.022em at 60px), and step text weight in 400 / 450 / 500 / 550.
 - **Do** use the three radii only: 6px buttons, 10px frames, pill chips and pills.
-- **Do** keep motion to the 12px / 320ms entry arrival and the 1px press, and honour `prefers-reduced-motion` with no transition at all.
+- **Do** keep motion to the 12px / 320ms entry arrival, the 1px press, and the bar's two 200ms gestures (underline draw, icon morph), and honour `prefers-reduced-motion` with no transition at all.
 - **Do** put technology logos from `img/tech.svg` only in the Keahlian table and the home skills rows, at 22–26px, next to the technology's name.
 
 ### Don't:
-- **Don't** add a card, a filled panel, or a second shadow; `figure.shot` is the only shadowed element.
+- **Don't** add a card, a filled panel, or a shadowed container; `figure.shot` is the only shadowed element in content, and the bar's scrolled shadow and nav-panel shadow stay on the chrome.
+- **Don't** use translucency or backdrop blur anywhere but the sticky bar in its scrolled state.
 - **Don't** use green for anything but the Live pill, and don't introduce any other accent hue in system styles.
 - **Don't** set anything in uppercase, tracked caps, or a second typeface; there are no eyebrows, kickers or monospaced figures.
 - **Don't** colour links or change their colour on hover; only the underline moves from `rule-2` to `ink`.
 - **Don't** build a dark hero, an icon cloud, a card grid, or any opening animation.
-- **Don't** raise any element on hover; the only transform is the 1px press.
+- **Don't** raise any element on hover; the only transforms are the 1px press and the bar's underline draw and icon morph.

@@ -6,6 +6,26 @@
   var year = doc.getElementById("year");
   if (year) year.textContent = String(new Date().getFullYear());
 
+  /* Bar: tembus pandang saat isi menggulir di bawahnya; menu lipat di HP. */
+  var bar = doc.getElementById("topbar");
+  var toggle = doc.querySelector(".nav-toggle");
+  if (bar) {
+    var onScroll = function () { bar.classList.toggle("scrolled", window.scrollY > 4); };
+    window.addEventListener("scroll", onScroll, { passive: true });
+    onScroll();
+  }
+  if (bar && toggle) {
+    var setOpen = function (open) {
+      bar.classList.toggle("open", open);
+      toggle.setAttribute("aria-expanded", open ? "true" : "false");
+      toggle.setAttribute("aria-label", open ? "Tutup menu" : "Buka menu");
+    };
+    toggle.addEventListener("click", function () { setOpen(!bar.classList.contains("open")); });
+    doc.addEventListener("keydown", function (e) { if (e.key === "Escape") setOpen(false); });
+    doc.addEventListener("click", function (e) { if (!bar.contains(e.target)) setOpen(false); });
+    bar.querySelectorAll(".site-nav a").forEach(function (a) { a.addEventListener("click", function () { setOpen(false); }); });
+  }
+
   var chips = Array.prototype.slice.call(doc.querySelectorAll(".chip[data-filter]"));
   var releases = Array.prototype.slice.call(doc.querySelectorAll(".release[data-status]"));
   var months = Array.prototype.slice.call(doc.querySelectorAll(".month"));

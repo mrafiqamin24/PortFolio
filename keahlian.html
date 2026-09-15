@@ -14,12 +14,12 @@
   <meta property="og:title" content="Keahlian — Muhammad Rafiq Amin" />
   <meta property="og:description" content="Setiap keahlian menunjuk ke rilis yang membuktikannya. Tidak ada keahlian tanpa bukti." />
   <meta property="og:url" content="https://mra1.my.id/keahlian.html" />
-  <meta property="og:image" content="https://mra1.my.id/img/og-cover.jpg?v=20260915a" />
+  <meta property="og:image" content="https://mra1.my.id/img/og-cover.jpg?v=20260916b" />
   <meta name="twitter:card" content="summary_large_image" />
   <link rel="icon" href="img/favicon.png" type="image/png" />
   <link rel="apple-touch-icon" href="img/apple-touch-icon.png" />
   <link rel="preload" href="fonts/mona-sans.woff2" as="font" type="font/woff2" crossorigin />
-  <link rel="stylesheet" href="style.css?v=20260915a" />
+  <link rel="stylesheet" href="style.css?v=20260916b" />
 </head>
 <body>
   <svg width="0" height="0" class="sprite" aria-hidden="true" focusable="false">
@@ -28,16 +28,24 @@
   </svg>
   <a class="skip-link" href="#isi">Langsung ke isi</a>
 
-  <header class="topbar">
-    <a class="topbar-name" href="index.html">Muhammad Rafiq Amin</a>
-    <nav class="topbar-nav" aria-label="Halaman">
-      <a href="index.html">Beranda</a>
-      <a href="rilis.html">Rilis</a>
-      <a href="server.html">Server</a>
-      <a href="keahlian.html" aria-current="page">Keahlian</a>
-      <a href="kontak.html">Kontak</a>
+  <header class="topbar" id="topbar">
+    <a class="brand" href="index.html">
+      <img class="brand-avatar" src="img/avatar.webp" alt="" width="64" height="64" />
+      <span class="brand-name">Muhammad Rafiq Amin</span>
+    </a>
+    <nav class="site-nav" id="site-nav" aria-label="Halaman">
+      <ul>
+        <li><a href="index.html">Beranda</a></li>
+        <li><a href="rilis.html">Rilis</a></li>
+        <li><a href="server.html">Server</a></li>
+        <li><a href="keahlian.html" aria-current="page">Keahlian</a></li>
+        <li><a href="kontak.html">Kontak</a></li>
+      </ul>
     </nav>
-    <a class="btn btn-primary btn-sm" href="https://wa.me/6282152400352?text=Halo%20Rafiq%2C%20saya%20lihat%20portofolio%20Anda" target="_blank" rel="noopener">Chat WhatsApp</a>
+    <a class="btn btn-primary btn-sm nav-cta" href="https://wa.me/6282152400352?text=Halo%20Rafiq%2C%20saya%20lihat%20portofolio%20Anda" target="_blank" rel="noopener">Chat WhatsApp</a>
+    <button type="button" class="nav-toggle" aria-expanded="false" aria-controls="site-nav" aria-label="Buka menu">
+      <svg class="ico-menu" viewBox="0 0 20 20" aria-hidden="true" focusable="false"><path class="l1" d="M3 6h14" /><path class="l2" d="M3 10h14" /><path class="l3" d="M3 14h14" /></svg>
+    </button>
   </header>
 
   <main id="isi">
@@ -97,17 +105,22 @@
     <section class="cta-strip" aria-label="Hubungi saya">
       <p>Versi ringkasnya ada di CV satu halaman.</p>
       <div class="actions">
-        <a class="btn btn-primary" href="cv.html?v=20260915a">Lihat CV</a>
+        <a class="btn btn-primary" href="cv.html?v=20260916b">Lihat CV</a>
         <a class="btn" href="https://wa.me/6282152400352?text=Halo%20Rafiq%2C%20saya%20lihat%20portofolio%20Anda" target="_blank" rel="noopener">Chat WhatsApp</a>
       </div>
     </section>
   </main>
 
   <footer class="colophon">
-    <p>© <span id="year">2026</span> Muhammad Rafiq Amin. <span class="aset">HTML, CSS, dan JavaScript tanpa framework.</span></p>
-    <p><a href="https://github.com/mrafiqamin24/PortFolio" target="_blank" rel="noopener">Sumber halaman di GitHub</a></p>
+    <p>© <span id="year">2026</span> Muhammad Rafiq Amin <span class="aset">· HTML, CSS, dan JavaScript tanpa framework</span></p>
+    <nav class="foot-links" aria-label="Tautan kaki halaman">
+      <a href="https://github.com/mrafiqamin24" target="_blank" rel="noopener">GitHub</a>
+      <a href="https://www.linkedin.com/in/muhammad-rafiq-amin-2524b4437" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="mailto:rafiqamin085252@gmail.com?subject=Peluang%20kerja%20sama">Email</a>
+      <a href="https://github.com/mrafiqamin24/PortFolio" target="_blank" rel="noopener">Sumber halaman</a>
+    </nav>
   </footer>
 
-  <script src="script.js?v=20260915a" defer></script>
+  <script src="script.js?v=20260916b" defer></script>
 </body>
 </html>
