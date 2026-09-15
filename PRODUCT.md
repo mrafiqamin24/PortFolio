@@ -20,6 +20,8 @@ Portofolio pribadi Muhammad Rafiq Amin, mahasiswa D3 Teknologi Informasi di Kali
 
 ## Positioning
 
+Gelar di halaman: **Full-Stack Web Developer · DevOps Engineer** (pemilik 2026-09-16: "ubah jadi DevOps aja"; menggantikan "Network & Server Engineer").
+
 Satu orang yang membangun aplikasi bisnisnya (Laravel, Next.js, Flutter) **dan** menjalankannya di server yang ia rakit, isolasi, dan amankan sendiri (Proxmox, MikroTik, Cloudflare). Ujung ke ujung: PRD → API/UI → uji otomatis → deploy → backup. Portofolio developer pada umumnya hanya menunjukkan salah satu sisi.
 
 ## Operating Context
