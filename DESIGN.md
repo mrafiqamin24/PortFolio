@@ -174,6 +174,9 @@ components:
   nav-panel:
     backgroundColor: "{colors.paper}"
     padding: "8px {spacing.gutter} 16px"
+  foot-link:
+    textColor: "{colors.ink}"
+    typography: "{typography.label}"
   nav-panel-link:
     textColor: "{colors.ink-2}"
     padding: "0 4px"
@@ -227,7 +230,7 @@ A white-and-ink monochrome with a warm-neutral grey and one green reserved for l
 - **Paper** (`paper`): page ground, topbar ground at rest and the mobile nav panel, button, chip and menu-toggle ground, primary-button text, shot caption ground, diagram ground. Once the page has scrolled 4px the bar drops to paper at 86% alpha over a 12px backdrop blur; that is the only translucency and the only blur in the system.
 - **Paper, tinted** (`paper-2`): hover ground for buttons and chips, the ground behind screenshot frames, the host box fill in the network diagram.
 - **Ink, secondary** (`ink-2`): role line, meta line, section intro paragraphs, release descriptions, stack tags, date rail, table cells, captions, colophon, and the resting colour of status pills other than Live. Nav links rest here and turn to `ink` on hover or when current.
-- **Rule** (`rule`): the hairline. Topbar bottom, mobile nav panel bottom and its row dividers, section tops, month tops, table row dividers, contact rows, skills-group tops, shot caption top.
+- **Rule** (`rule`): the hairline. Topbar bottom, mobile nav panel bottom and its row dividers (none after the last row), section tops, month tops, table row dividers, contact rows, skills-group tops, shot caption top.
 - **Rule, strong** (`rule-2`): borders on things you can touch or look at: buttons, chips, the menu toggle, status pills, both avatar rings (intro and brand), screenshot and diagram frames, table head rule, underline colour of resting text links, the "·" separator between tags. Hover on buttons, the menu toggle and shot frames darkens it to `#b9bec6` (hard-coded).
 
 ### Named Rules
@@ -276,12 +279,11 @@ Other grids: the intro is 116px avatar + text with a 32px gap; the home skills s
 Vertical rhythm: sections pad `clamp(40px, 5vw, 64px)` top and `clamp(44px, 6vw, 80px)` bottom and open with a hairline; the intro pads `clamp(40px, 6vw, 80px)` top. Inside an entry, each part sits 10–12px under the previous one and a screenshot 20px below. Rows in tables and lists pad 10–14px.
 
 Breakpoints, each collapsing one grid:
-- **900px**: the date rail goes static above its entries; entry gap 36px. The topbar collapses to brand + a 44px menu toggle (grid `minmax(0,1fr) auto`, 12px gap) and the nav becomes an absolute paper panel under the bar: 48px hairline-divided rows at 17px, then the WhatsApp button stretched full width. It opens via `.topbar.open` (JS) and is always shown, toggle hidden, when `html` lacks the `js` class.
+- **900px**: the date rail goes static above its entries; entry gap 36px. The topbar collapses to brand + the WhatsApp button + a 44px menu toggle (grid `minmax(0,1fr) auto auto`, 10px gap; the CTA never leaves the bar) and the nav becomes an absolute paper panel under the bar holding the five links only: 48px hairline-divided rows at 17px, no rule after the last. It opens via `.topbar.open` (JS) and is always shown, toggle hidden, when `html` lacks the `js` class.
 - **760px**: skills summary and two-col become one column.
 - **720px**: intro stacks (avatar 96px), role 18px, entry titles 20px, body-large 16px.
 - **640px**: skills table stacks each row as a block with `data-th` labels; phone-screenshot row becomes a horizontal scroll-snap strip at 62% width; the diagram hint appears.
-- **480px**: contact rows and case rows stack; buttons stretch to fill their row.
-- **360px**: the brand name hides and the 30px avatar stands alone.
+- **480px**: contact rows and case rows stack; buttons stretch to fill their row; the brand name hides and the 30px avatar stands alone (on the home page it is then always visible, not scroll-gated).
 
 Print: topbar (toggle included), chips, CTA strip and more-links are hidden, the wrap goes full width, entries avoid page breaks, filtered-out entries return, shadows and underlines are dropped, body drops to 12.5px on a 14mm page margin. The CV page carries its own copy of the same tokens with an A4 page frame.
 
@@ -309,14 +311,14 @@ Corners are gently rounded and come in exactly three sizes: 6px (`sm`) on button
 
 ## Components
 
-### Topbar (`header.topbar#topbar`, `.brand`, `.site-nav`, `.nav-toggle`)
+### Topbar (`header.topbar#topbar`, `.brand`, `.site-nav`, `.nav-cta`, `.nav-toggle`)
 Character: a thin masthead that stays put and frosts only once the page moves under it.
-- **Style:** sticky, 56px on every width, paper ground, hairline bottom, two-column grid (`auto minmax(0, 1fr)`: brand / nav) with a 24px gap inside the wrap and the fluid gutter.
-- **Brand:** a 30px round avatar (`img/avatar.webp`, `rule-2` ring) and the name at 15px 600 ink, 10px apart, no underline; the name is ellipsised when squeezed and hidden under 360px.
-- **Nav links:** a list of full-height (56px) items, 0 12px padding, 4px apart, right-aligned, 15px 500 `ink-2`; ink on hover (0.15s). The current page (`aria-current="page"`) is ink 600 with a 2px ink underline drawn by `::after` at the bar's bottom edge, inset 12px each side, scaling in from the left over 0.2s `ease-out`.
-- **Action:** one `btn btn-primary btn-sm` "Chat WhatsApp" (`.nav-cta`) after the list, 12px clear of it.
+- **Style:** sticky, 56px on every width, paper ground, hairline bottom, three-column grid (`auto minmax(0, 1fr) auto`: brand / nav / CTA, in that markup order, with the toggle last) with a 20px gap inside the wrap and the fluid gutter.
+- **Brand:** a 30px round avatar (`img/avatar.webp`, `rule-2` ring) and the name at 15px 600 ink, 10px apart, no underline; the name is ellipsised when squeezed and hidden under 480px. On the home page (`body.home`) the avatar starts at opacity 0 / `scale(0.6)`, since the 116px intro avatar is already on screen, and fades up over 0.25s (`ease-out` on the scale) once the bar is `scrolled`; under 480px it is always visible.
+- **Nav links:** a list of full-height (56px) items, 0 12px padding, 4px apart, right-aligned in the middle column, 15px 500 `ink-2`; ink on hover (0.15s). The current page (`aria-current="page"`) is ink 600 with a 2px ink underline drawn by `::after` at the bar's bottom edge, inset 12px each side, scaling in from the left over 0.2s `ease-out`.
+- **Action:** one `btn btn-primary btn-sm` "Chat WhatsApp" (`.nav-cta`) in the third column, a direct child of the bar, so it stays beside the toggle at every width.
 - **Scrolled** (`.topbar.scrolled`, set by JS when `scrollY > 4`): paper at 86% over a 12px backdrop blur, with the bar shadow; background and shadow transition 0.2s. Without JS the bar simply stays opaque paper.
-- **Mobile (900px):** the bar becomes brand + a 44px bordered toggle (`.nav-toggle`, paper ground, `rule-2` border, 6px radius, hover `paper-2`) holding a 20px three-line icon whose lines rotate into a cross when `aria-expanded="true"`. The nav becomes an absolute paper panel under the bar (`8px gutter 16px` padding, hairline bottom, the panel shadow): 48px rows divided by hairlines at 17px 500, no underline marker, then the CTA stretched full width at 44px / 15px. `.topbar.open` shows it; Escape, an outside click or choosing a link closes it; `html:not(.js)` shows the panel permanently and hides the toggle.
+- **Mobile (900px):** the bar becomes brand + CTA + a 44px bordered toggle (`.nav-toggle`, paper ground, `rule-2` border, 6px radius, hover `paper-2`; grid `minmax(0, 1fr) auto auto`, 10px gap) holding a 20px three-line icon whose lines rotate into a cross when `aria-expanded="true"`. The nav becomes an absolute paper panel under the bar (`8px gutter 16px` padding, hairline bottom, the panel shadow) holding only the five links: 48px rows divided by hairlines at 17px 500, no rule after the last row, no underline marker. `.topbar.open` shows it; Escape, an outside click or choosing a link closes it; `html:not(.js)` shows the panel permanently and hides the toggle.
 - **Reduced motion:** the bar, its links, the underline and the icon lines lose their transitions.
 
 ### Buttons (`.btn`, `.btn-primary`, `.btn-sm`)
@@ -375,10 +377,13 @@ Character: the network plan on Server, drawn in the page's own ink.
 
 ### Contacts (`.contacts`) and CTA strip (`.cta-strip`)
 - **Contacts:** hairline-separated rows, 120px `ink-2` 500 label + underlined value, 14px vertical padding; stacks under 480px.
-- **CTA strip:** hairline-topped section with an 18px line at 60ch and a `.actions` row (primary button, secondary button, text links) 20–26px below.
+- **CTA strip:** hairline-topped section padded `clamp(32px, 4vw, 44px)` vertically, with an 18px line at 60ch and a `.actions` row (primary button, secondary button, text links) 20–26px below.
 
-### Colophon (`.colophon`)
-- **Style:** hairline top, 14px `ink-2`, space-between, 32px / 56px vertical padding, links underlined in `rule-2`.
+### Colophon (`footer.colophon`, `.foot-links`)
+Character: one quiet line closing every page.
+- **Style:** hairline top, one flex row (space-between, centred, wraps at 8px 24px), 18px / 26px vertical padding, 14px `ink-2`.
+- **Left:** "© 2026 Muhammad Rafiq Amin · HTML, CSS, dan JavaScript tanpa framework" (the home page appends ", Beranda sekitar 190 KB"); the year is filled by JS.
+- **Right:** `nav.foot-links` with GitHub · LinkedIn · Email · Sumber halaman, 6px 18px apart, as 500-weight ink links underlined in `rule-2` at 0.2em, underline ink on hover (0.15s).
 
 ## Do's and Don'ts
 
