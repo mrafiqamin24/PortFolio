@@ -380,12 +380,10 @@ Character: the network plan on Server, drawn in the page's own ink.
 - **CTA strip:** hairline-topped section padded `clamp(32px, 4vw, 44px)` vertically, with an 18px line at 60ch and a `.actions` row (primary button, secondary button, text links) 20–26px below.
 
 ### Colophon (`footer.colophon`, `.foot-links`)
-Character: one quiet line closing every page.
-- **Style:** hairline top, one flex row (space-between, centred, wraps at 8px 24px), 18px / 26px vertical padding, 14px `ink-2`.
-- **Left:** "© 2026 Muhammad Rafiq Amin · HTML, CSS, dan JavaScript tanpa framework" (the home page appends ", Beranda sekitar 190 KB"); the year is filled by JS.
-- **Right:** `nav.foot-links` with GitHub · LinkedIn · Email · Sumber halaman, 6px 18px apart, as 500-weight ink links underlined in `rule-2` at 0.2em, underline ink on hover (0.15s).
 
-## Do's and Don'ts
+- One flex row, space-between, `padding-block: 18px 26px`, hairline above, 14px ink-2.
+- **Left:** "© 2026 Muhammad Rafiq Amin", nothing else (owner 2026-09-16: "pendek aja").
+- **Right:** `nav.foot-links`, four 36px circular icon links 10px apart (GitHub, LinkedIn, Email, source code), 18px glyphs from the page sprite (`#i-github`, `#i-linkedin`, `#i-mail`, `#i-code`), ink-2 on a rule-2 ring; hover ink on paper-2; 1px press. Each carries `aria-label` and `title`; no visible text.
 
 ### Do:
 - **Do** give every project the release anatomy: title + status pill, description, result line or Masalah/Solusi/Hasil, tags, links, then the screenshot.
